@@ -23,14 +23,14 @@ defineProps({
             <input class="hidden" type="checkbox" id="menu-toggle" />
 
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
-                <nav class="lg:block hidden ml-28">
+                <!--<nav class="lg:block hidden ml-20">
                     <ul class="md:flex items-center justify-between text-base text-white pt-8 md:pt-0">
                         <li><a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">NOSOTROS</a></li>
                         <li><a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">VALORES</a></li>
                         <li><a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">PRODUCTOS</a></li>
-                        <!--<li><a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">CONTACTO</a></li>-->
+                        <li><a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">CONTACTO</a></li>
                     </ul>
-                </nav>
+                </nav>-->
 
                 <nav class="lg:hidden">
                     <ul class="md:flex items-center justify-between text-base text-white pt-8 md:pt-0">
@@ -44,7 +44,7 @@ defineProps({
             </div>
 
             <div class="">
-                <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 mr-4" href="/">
                     <img
                         src="/images/impotractor/impotractor-light-logo.png"
                         alt="image"
@@ -54,6 +54,18 @@ defineProps({
             </div>
 
             <div class="order-2 md:order-3 flex items-center lg:block hidden" id="nav-content">
+
+                <a class="inline-block no-underline hover:text-yellow-300" href="#">
+                    <a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">NOSOTROS</a>
+                </a>
+
+                <a class="inline-block no-underline hover:text-yellow-300" href="#">
+                    <a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">VALORES</a>
+                </a>
+
+                <a class="inline-block no-underline hover:text-yellow-300" href="#">
+                    <a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">PRODUCTOS</a>
+                </a>
 
                 <a class="inline-block no-underline hover:text-yellow-300" href="#">
                     <a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">CONTACTO</a>

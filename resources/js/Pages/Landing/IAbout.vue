@@ -6,7 +6,7 @@
                     <div class="lg:w-1/2 w-full pb-16">
                         <div class="row position-relative">
                             <div class="col-lg-7">
-                                <div class="our-story">
+                                <div class="our-story bg-white">
                                     <h4>Est 2005</h4>
                                     <h3>Our Story</h3>
                                     <p>
@@ -70,7 +70,33 @@
                         </div>
                     </div>
                     <div class="lg:w-1/2 w-full lg:pl-8 pl-0 lg:pt-0 pt-8">
-                        <img src="/images/impotractor/about.jpg" alt="" />
+                        <div
+                            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg"
+                        >
+                            <img
+                                alt="..."
+                                src="/images/impotractor/about.jpg"
+                                class="w-full align-middle rounded-t-lg"
+                            />
+                            <blockquote class="box relative p-5 mb-0 bg-white">
+                                <svg
+                                    preserveAspectRatio="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 583 95"
+                                    class="absolute left-0 w-full block h-95-px -top-94-px"
+                                ></svg>
+                                <h4 class="text-xl font-bold text-black">
+                                    Great for your awesome project
+                                </h4>
+                                <p class="text-md font-light mt-2 text-black">
+                                    Putting together a page has never been
+                                    easier than matching together pre-made
+                                    components. From landing pages presentation
+                                    to login areas, you can easily customise and
+                                    built your pages.
+                                </p>
+                            </blockquote>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,9 +109,7 @@
 }
 .about .our-story {
     padding: 40px;
-    background-color: #f5f6f7;
 }
-
 @media (min-width: 991px) {
     .about .our-story {
         padding-right: 15%;

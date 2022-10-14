@@ -7,7 +7,7 @@ defineProps({
 });
 </script>
 <template>
-    <div class="w-full flex justify-center top-6 py-8 right-0 left-0 uppercase">
+    <div class="w-full flex justify-center top-6 py-8 right-0 left-0 uppercase font-bold">
         <div class="section-title">
             <h1 class="card-title">{{ title }}</h1>
         </div>

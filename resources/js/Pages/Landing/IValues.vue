@@ -2,12 +2,12 @@
     <section class="values">
         <section class="dark:bg-gray-900 max-w-app pb-20">
             <div class="container px-6 mx-auto">
-                <div class="lg:flex lg:items-center">
+                <div class="lg:flex lg:items-center text-justify">
                     <div
-                        class="lg:block hidden lg:flex lg:items-center lg:w-1/2 lg:justify-start mr-12"
+                        class="lg:block hidden lg:flex lg:items-center lg:w-1/2 lg:justify-start mr-12 w-full md:w-4/12 ml-auto mr-auto px-4"
                     >
                         <img
-                            class="w-[32rem] h-[32rem] object-cover"
+                            class="w-[32rem] h-[32rem] object-cover rounded-lg shadow-lg"
                             src="/images/impotractor/alt-services.jpg"
                             alt=""
                         />
@@ -16,7 +16,7 @@
                         class="lg:hidden lg:w-1/2 w-full lg:pl-8 pl-0 lg:pt-0 pt-8"
                     >
                         <img
-                            class="w-[32rem] h-[32rem] object-cover"
+                            class="w-[32rem] h-[32rem] object-cover rounded-lg shadow-lg"
                             src="/images/impotractor/alt-services.jpg"
                             alt=""
                         />

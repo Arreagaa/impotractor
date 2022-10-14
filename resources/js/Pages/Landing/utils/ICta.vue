@@ -2,7 +2,7 @@
     <!-- component -->
     <div class="max-w-full flex justify-center items-center">
         <card
-            class="card  grid grid-cols-6 w-full p-8 bg-zinc-900 before:content-[attr(before)]"
+            class="card grid grid-cols-6 w-full p-none bg-zinc-900 before:content-[attr(before)]"
         >
             <div class="col-span-4">
                 <h2 class="font-bold text-3xl text-white ml-10 mt-8">
@@ -39,7 +39,7 @@
 <style>
 .card {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url(https://salfamaquinaria.cl/wp-content/uploads/2021/06/250GLC-4.jpg)
+        url(https://www.gentrac.com.gt/wp-content/uploads/revslider/miniexcavadora/Portada.jpg)
             fixed center center;
     background-size: cover;
     padding: 120px 0;

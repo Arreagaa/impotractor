@@ -20,17 +20,17 @@ import IValues from "./IValues.vue";
     </section>
 
     <section>
-        <div class="relative">
+        <div class="relative pb-10">
             <br />
             <IBagTitle id="About" title="Conócenos" />
             <br />
             <IAbout />
+            <br>
         </div>
     </section>
 
     <section>
-        <div class="relative pt-8">
-            <br />
+        <div class="relative">
             <ICta />
             <br>
         </div>
@@ -44,10 +44,19 @@ import IValues from "./IValues.vue";
             <IValues />
         </div>
     </section>
+
+    <section>
+        <div class="bg-white">
+            <br />
+            <IBagTitle id="Products" title="Productos" />
+            <br />
+
+        </div>
+    </section>
 </template>
 
 <style>
-.relative {
+.relative{
     background-color: #ebedef;
 }
 </style>

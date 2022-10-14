@@ -19,7 +19,7 @@
                                         específicamente para maquinaria pesada
                                         de construcción.
                                     </p>
-                                    <br>
+                                    <br />
                                     <ul>
                                         <li>
                                             <l-icon
@@ -27,7 +27,9 @@
                                                 class="text-yellow-400 text-2xl"
                                             />
                                             <span
-                                                >&nbsp;Centrados en nuestros clientes, siempre dispuestos para apoyar.</span
+                                                >&nbsp;Centrados en nuestros
+                                                clientes, siempre dispuestos
+                                                para apoyar.</span
                                             >
                                         </li>
                                         <li>
@@ -36,7 +38,9 @@
                                                 class="text-yellow-400 text-2xl"
                                             />
                                             <span
-                                                >&nbsp;Con el conocimiento y experiencia necesaria para este trabajo.</span
+                                                >&nbsp;Con el conocimiento y
+                                                experiencia necesaria para este
+                                                trabajo.</span
                                             >
                                         </li>
                                         <li>
@@ -45,11 +49,13 @@
                                                 class="text-yellow-400 text-2xl"
                                             />
                                             <span
-                                                >&nbsp;Inicia ya, para poder hacerte de nuestros servicios de calidad.</span
+                                                >&nbsp;Inicia ya, para poder
+                                                hacerte de nuestros servicios de
+                                                calidad.</span
                                             >
                                         </li>
                                     </ul>
-                                    <br>
+                                    <br />
                                     <p>
                                         En nuestro trabajo nos enpeñamos en
                                         hacer las cosas con la mejor
@@ -72,7 +78,7 @@
     </section>
 </template>
 <style>
-.about{
+.about {
     text-align: justify;
 }
 .about .our-story {
@@ -103,7 +109,7 @@
     margin-bottom: 0;
 }
 
-.about p{
+.about p {
     font-size: 18px;
 }
 

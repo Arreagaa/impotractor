@@ -20,7 +20,7 @@
                                         de construcción.
                                     </p>
                                     <br />
-                                    <ul>
+                                    <ul class="lg:block hidden">
                                         <li>
                                             <l-icon
                                                 icon="fa-solid fa-circle-check"
@@ -28,7 +28,7 @@
                                             />
                                             <span
                                                 >&nbsp;Centrados en nuestros
-                                                clientes, siempre dispuestos
+                                                Clientes, siempre dispuestos
                                                 para apoyar.</span
                                             >
                                         </li>
@@ -38,9 +38,9 @@
                                                 class="text-yellow-400 text-2xl"
                                             />
                                             <span
-                                                >&nbsp;Con el conocimiento y
-                                                experiencia necesaria para este
-                                                trabajo.</span
+                                                >&nbsp;Con el Conocimiento y
+                                                Experiencia necesaria para este
+                                                Trabajo.</span
                                             >
                                         </li>
                                         <li>
@@ -50,8 +50,40 @@
                                             />
                                             <span
                                                 >&nbsp;Inicia ya, para poder
-                                                hacerte de nuestros servicios de
-                                                calidad.</span
+                                                hacerte de nuestros Servicios de
+                                                Calidad.</span
+                                            >
+                                        </li>
+                                    </ul>
+                                    <ul class="lg:hidden">
+                                        <li>
+                                            <l-icon
+                                                icon="fa-solid fa-circle-check"
+                                                class="text-yellow-400 text-2xl"
+                                            />
+                                            <span
+                                                >&nbsp;Centrados en nuestros
+                                                Clientes.</span
+                                            >
+                                        </li>
+                                        <li>
+                                            <l-icon
+                                                icon="fa-solid fa-circle-check"
+                                                class="text-yellow-400 text-2xl"
+                                            />
+                                            <span
+                                                >&nbsp;Conocimientos y
+                                                Experiencia.</span
+                                            >
+                                        </li>
+                                        <li>
+                                            <l-icon
+                                                icon="fa-solid fa-circle-check"
+                                                class="text-yellow-400 text-2xl"
+                                            />
+                                            <span
+                                                >&nbsp;Servicios y Productos de
+                                                Calidad.</span
                                             >
                                         </li>
                                     </ul>
@@ -86,14 +118,14 @@
                                     class="absolute left-0 w-full block h-95-px -top-94-px"
                                 ></svg>
                                 <h4 class="text-xl font-bold text-black">
-                                    Great for your awesome project
+                                    De esto estamos hechos.
                                 </h4>
-                                <p class="text-md font-light mt-2 text-black">
-                                    Putting together a page has never been
-                                    easier than matching together pre-made
-                                    components. From landing pages presentation
-                                    to login areas, you can easily customise and
-                                    built your pages.
+                                <p class="text-lg mt-2 text-black">
+                                    Tenemos servicio de importación de repuestos
+                                    para entrega de 2 a 8 días y brindamos
+                                    asesoría necesaria en la compra de
+                                    repuestos, sin ningún compromiso, ofreciendo
+                                    calidad y garantía en los mismos.
                                 </p>
                             </blockquote>
                         </div>
@@ -135,6 +167,10 @@
 
 .about p {
     font-size: 18px;
+}
+
+.about span {
+    font-size: 16px;
 }
 
 .about ul {

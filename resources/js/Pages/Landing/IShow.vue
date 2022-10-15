@@ -27,14 +27,14 @@ import IContact from "./IContact.vue";
             <IBagTitle id="About" title="Conócenos" />
             <br />
             <IAbout />
-            <br>
+            <br />
         </div>
     </section>
 
     <section>
         <div class="">
             <ICta />
-            <br>
+            <br />
         </div>
     </section>
 
@@ -53,7 +53,7 @@ import IContact from "./IContact.vue";
             <IBagTitle id="Products" title="Productos" />
             <br />
             <IProducts />
-            <hr>
+            <hr />
         </div>
     </section>
 
@@ -63,12 +63,16 @@ import IContact from "./IContact.vue";
             <IBagTitle id="Contact" title="Contacto" />
             <br />
             <IContact />
+            <br />
         </div>
+    </section>
+    <section>
+        <AppFooter />
     </section>
 </template>
 
 <style>
-.relative{
+.relative {
     background-color: #ebedef;
 }
 </style>

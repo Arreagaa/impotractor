@@ -51,35 +51,35 @@ defineProps({
                             <li>
                                 <a
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                    href="#"
+                                    href="/#About"
                                     >NOSOTROS</a
                                 >
                             </li>
                             <li>
                                 <a
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                    href="#"
+                                    href="/#Values"
                                     >VALORES</a
                                 >
                             </li>
                             <li>
                                 <a
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                    href="#"
+                                    href="/#Products"
                                     >PRODUCTOS</a
                                 >
                             </li>
                             <li>
                                 <a
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                    href="#"
+                                    href="/#Contact"
                                     >CONTACTO</a
                                 >
                             </li>
                             <li>
                                 <a
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                    href="#"
+                                    href=""
                                     >INICIAR SESIÓN</a
                                 >
                             </li>
@@ -110,7 +110,7 @@ defineProps({
                     >
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                            href="#"
+                            href="/#About"
                             >NOSOTROS</a
                         >
                     </a>
@@ -121,7 +121,7 @@ defineProps({
                     >
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                            href="#"
+                            href="/#Values"
                             >VALORES</a
                         >
                     </a>
@@ -132,7 +132,7 @@ defineProps({
                     >
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                            href="#"
+                            href="/#Products"
                             >PRODUCTOS</a
                         >
                     </a>
@@ -143,7 +143,7 @@ defineProps({
                     >
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                            href="#"
+                            href="/#Contact"
                             >CONTACTO</a
                         >
                     </a>
@@ -154,7 +154,7 @@ defineProps({
                     >
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                            :href="route('register')"
+                            href="/register"
                             >INICIAR SESIÓN</a
                         >
                     </a>

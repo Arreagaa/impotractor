@@ -3,7 +3,7 @@
         <div class="max-w-2xl mx-auto text-white py-10">
             <div class="text-center">
                 <h3 class="text-7xl mb-3">
-                    <a href="/">
+                    <a href="/#Welcome">
                         <img
                             src="/images/impotractor/impotractor-light-logo.png"
                             alt="image"
@@ -49,9 +49,16 @@
                     &copy; Impotractor S.A, Guatemala 2022.
                 </p>
                 <div class="order-1 md:order-2">
-                    <span class="px-2">Nosotros</span>
-                    <span class="px-2 border-l">Contáctanos</span>
-                    <span class="px-2 border-l">Políticas de Privacidad</span>
+                    <a href="/#About" class="px-2 hover:text-yellow-400">Nosotros</a>
+                    <a href="/#Contact" class="px-2 border-l hover:text-yellow-400"
+                        >Contáctanos</a
+                    >
+                    <a
+                        href="https://policies.google.com/privacy?hl=es"
+                        Target="_blank"
+                        class="px-2 border-l hover:text-yellow-400"
+                        >Políticas de Privacidad</a
+                    >
                 </div>
             </div>
         </div>

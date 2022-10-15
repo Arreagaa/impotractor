@@ -14,7 +14,7 @@ import IContact from "./IContact.vue";
         href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
         rel="stylesheet"
     />
-    <section class="bg-zinc-900">
+    <section id="Welcome" class="bg-zinc-900">
         <div>
             <AppHeader />
             <IHero />

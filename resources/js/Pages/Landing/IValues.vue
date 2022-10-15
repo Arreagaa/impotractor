@@ -13,7 +13,7 @@
                         />
                     </div>
                     <div
-                        class="lg:hidden lg:w-1/2 w-full lg:pl-8 pl-0 lg:pt-0 pt-8"
+                        class="lg:hidden lg:w-1/2 w-full lg:pl-8 pl-0 lg:pt-0"
                     >
                         <img
                             class="w-[32rem] h-[32rem] object-cover rounded-lg shadow-lg"

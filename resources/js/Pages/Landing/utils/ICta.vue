@@ -39,7 +39,7 @@
 <style>
 .card {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url(https://www.gentrac.com.gt/wp-content/uploads/revslider/miniexcavadora/Portada.jpg)
+        url("/images/impotractor/tractor.jpg")
             fixed center center;
     background-size: cover;
     padding: 120px 0;

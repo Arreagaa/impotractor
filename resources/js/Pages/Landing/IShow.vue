@@ -6,6 +6,7 @@ import ICta from "./utils/ICta.vue";
 import IHero from "./IHero.vue";
 import IAbout from "./IAbout.vue";
 import IValues from "./IValues.vue";
+import IProducts from "./IProducts.vue";
 </script>
 <template>
     <link
@@ -50,7 +51,7 @@ import IValues from "./IValues.vue";
             <br />
             <IBagTitle id="Products" title="Productos" />
             <br />
-
+            <IProducts />
         </div>
     </section>
 </template>

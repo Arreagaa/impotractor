@@ -19,4 +19,9 @@ module.exports = {
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    resolve:{
+        alias:{
+            '$': 'jQuery'
+        }
+    }
 };

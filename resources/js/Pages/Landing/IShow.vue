@@ -7,6 +7,7 @@ import IHero from "./IHero.vue";
 import IAbout from "./IAbout.vue";
 import IValues from "./IValues.vue";
 import IProducts from "./IProducts.vue";
+import IContact from "./IContact.vue";
 </script>
 <template>
     <link
@@ -31,14 +32,14 @@ import IProducts from "./IProducts.vue";
     </section>
 
     <section>
-        <div class="relative">
+        <div class="">
             <ICta />
             <br>
         </div>
     </section>
 
     <section>
-        <div class="relative">
+        <div class="bg-white">
             <br />
             <IBagTitle id="Values" title="Valores" />
             <br />
@@ -52,6 +53,16 @@ import IProducts from "./IProducts.vue";
             <IBagTitle id="Products" title="Productos" />
             <br />
             <IProducts />
+            <hr>
+        </div>
+    </section>
+
+    <section>
+        <div class="relative">
+            <br />
+            <IBagTitle id="Contact" title="Contacto" />
+            <br />
+            <IContact />
         </div>
     </section>
 </template>

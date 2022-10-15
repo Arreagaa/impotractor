@@ -71,12 +71,12 @@
                     </div>
                     <div class="lg:w-1/2 w-full lg:pl-8 pl-0 lg:pt-0 pt-8">
                         <div
-                            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg"
+                            class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg"
                         >
                             <img
                                 alt="..."
                                 src="/images/impotractor/about.jpg"
-                                class="w-full align-middle rounded-t-lg"
+                                class="w-full align-middle rounded-t-lg shadow-lg"
                             />
                             <blockquote class="box relative p-5 mb-0 bg-white">
                                 <svg

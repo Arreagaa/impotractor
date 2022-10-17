@@ -16,14 +16,14 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faYoutube, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faYoutube, faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faClock } from'@fortawesome/free-regular-svg-icons'
 import { faArrowRight, faBars, faCirclePlus, faCircleMinus, faAngleRight, faAngleLeft, faCreditCard, faCalendar, faCircleCheck, faTractor, faBriefcase, faScrewdriver } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
 library.add(
         faYoutube, faFacebook, faInstagram, faArrowRight, faBars, faCirclePlus, faCircleMinus, faEnvelope, faAngleRight, faAngleLeft, faCreditCard,faClock, faCalendar,
-        faCircleCheck, faTractor, faBriefcase, faScrewdriver
+        faCircleCheck, faTractor, faBriefcase, faScrewdriver, faWhatsapp
     )
 
 

@@ -141,8 +141,8 @@ function closeForm() {
 <script type="text/javascript">
 (function () {
     var options = {
-        whatsapp: " +502 3109 7830",
-        link: "https://api.whatsapp.com/send/?phone=50245764149&text=Hablar+con+especialista+Case&type=phone_number&app_absent=0",
+        whatsapp: "+(502) 3109 7830",
+        link: "https://api.whatsapp.com/send/?phone=+50245764149&text=Hablar+con+especialista+Case&type=phone_number&app_absent=0",
         link_color: "#A8CE50",
         call_to_action: "Comunícate con los Especialistas",
         button_color: "#f1c40f",

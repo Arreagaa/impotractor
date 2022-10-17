@@ -3,6 +3,7 @@ import AppFooter from "../../Layouts/AppFooter.vue";
 import AppHeader from "../../Layouts/AppHeader.vue";
 import IBagTitle from "./utils/IBagTitle.vue";
 import ICta from "./utils/ICta.vue";
+import IWidget from "./utils/IWidget.vue";
 import IHero from "./IHero.vue";
 import IAbout from "./IAbout.vue";
 import IValues from "./IValues.vue";
@@ -68,6 +69,7 @@ import IContact from "./IContact.vue";
     </section>
     <section>
         <AppFooter />
+        <IWidget/>
     </section>
 </template>
 

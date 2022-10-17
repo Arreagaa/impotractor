@@ -15,7 +15,7 @@ const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
                         <h2
                             class="text-dark mb-6 uppercase font-bold text-[20px] sm:text-[20px] lg:text-[20px] xl:text-[20px]"
                         >
-                            Ponte en contacto con nosotros
+                            Contáctanos
                         </h2>
                         <div class="leading-relaxed mb-9">
                             <GoogleMap
@@ -56,7 +56,7 @@ const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
                             </div>
                             <div class="w-full">
                                 <h4 class="font-bold text-dark text-xl mb-1">
-                                    Our Location
+                                    Nuestra Ubicación
                                 </h4>
                                 <p class="text-base text-body-color">
                                     Calzada Raúl Aguilar Batres 7-18 zona 11,
@@ -87,7 +87,7 @@ const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
                             </div>
                             <div class="w-full">
                                 <h4 class="font-bold text-dark text-xl mb-1">
-                                    Phone Number
+                                    Comunícate
                                 </h4>
                                 <p class="text-base text-body-color">
                                     (+502) 2316 3878 o 2316 3879
@@ -111,7 +111,7 @@ const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
                             </div>
                             <div class="w-full">
                                 <h4 class="font-bold text-dark text-xl mb-1">
-                                    Email Address
+                                    Correo Electrónico
                                 </h4>
                                 <p class="text-base text-body-color">
                                     cotizaciones@impotractor.com
@@ -128,28 +128,28 @@ const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
                             <div class="mb-6">
                                 <input
                                     type="text"
-                                    placeholder="Your Name"
+                                    placeholder="Nombre"
                                     class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
                                 />
                             </div>
                             <div class="mb-6">
                                 <input
                                     type="email"
-                                    placeholder="Your Email"
+                                    placeholder="Correo Electrónico"
                                     class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
                                 />
                             </div>
                             <div class="mb-6">
                                 <input
                                     type="text"
-                                    placeholder="Your Phone"
+                                    placeholder="Número de teléfono "
                                     class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
                                 />
                             </div>
                             <div class="mb-6">
                                 <textarea
                                     rows="6"
-                                    placeholder="Your Message"
+                                    placeholder="Comentarios"
                                     class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] resize-none outline-none focus-visible:shadow-none focus:border-primary"
                                 ></textarea>
                             </div>
@@ -158,7 +158,7 @@ const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
                                     type="submit"
                                     class="w-full text-white bg-zinc-900 rounded border border-primary p-3 transition hover:bg-yellow-400"
                                 >
-                                    Send Message
+                                    Enviar
                                 </button>
                             </div>
                         </form>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-        <title>Impotractor</title>
+        <title>Impotractor S.A.</title>
         <link rel="icon" href="/images/impotractor/impotractor-only-logo.png">
         <link rel="stylesheet" href="/images/impotractor/impotractor-only-logo.png">
 

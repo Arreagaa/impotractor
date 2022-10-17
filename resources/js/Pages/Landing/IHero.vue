@@ -176,25 +176,7 @@
 }
 #hero .btn-get-started:hover {
     background: #fff;
-    color: #283a5ae6;
-}
-
-.btn {
-    background-color: #283a5ae6;
-    border: #283a5ae6;
-    box-shadow: #283a5ae6;
-    margin-left: 5px;
-    margin-right: auto;
-    text-decoration: none;
-}
-
-.btn:hover {
-    background-color: #f1c40f;
-    border: #f1c40f;
-    box-shadow: #f1c40f;
-    margin-left: 5px;
-    margin-right: auto;
-    text-decoration: none;
+    color: black;
 }
 
 .btn-outline-primary {

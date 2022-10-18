@@ -7,8 +7,8 @@
                         <div class="row position-relative">
                             <div class="col-lg-7">
                                 <div class="our-story bg-white">
-                                    <h4>Est 2005</h4>
-                                    <h3>Our Story</h3>
+                                    <h4>Ciudad de Guatemala</h4>
+                                    <h3>Nuestra Historia</h3>
                                     <p>
                                         En agosto del año 2005, Impotractor S.A.
                                         abre sus puertas como una empresa de

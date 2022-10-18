@@ -52,7 +52,6 @@ import IContact from "./IContact.vue";
         <div class="bg-white">
             <br />
             <IBagTitle id="Products" title="Productos" />
-            <br />
             <IProducts />
             <hr />
         </div>

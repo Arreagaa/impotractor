@@ -68,7 +68,7 @@ defineProps({
                             <li>
                                 <a
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                    href=""
+                                    href="/login"
                                     >INICIAR SESIÓN</a
                                 >
                             </li>
@@ -143,7 +143,7 @@ defineProps({
                     >
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                            href="/register"
+                            href="/login"
                             >INICIAR SESIÓN</a
                         >
                     </a>

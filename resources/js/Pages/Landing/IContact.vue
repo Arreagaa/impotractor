@@ -1,5 +1,7 @@
 <script setup>
 import ICircles from "./utils/ICircles.vue";
+import IInput from "../IContact/IInput.vue";
+import IButton from "../IContact/IButton.vue";
 import { GoogleMap, Marker } from "vue3-google-map";
 import { ref } from "vue";
 
@@ -125,41 +127,9 @@ const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
                         class="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg"
                     >
                         <form>
-                            <div class="mb-6">
-                                <input
-                                    type="text"
-                                    placeholder="Nombre"
-                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
-                                />
-                            </div>
-                            <div class="mb-6">
-                                <input
-                                    type="email"
-                                    placeholder="Correo Electrónico"
-                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
-                                />
-                            </div>
-                            <div class="mb-6">
-                                <input
-                                    type="text"
-                                    placeholder="Número de teléfono "
-                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
-                                />
-                            </div>
-                            <div class="mb-6">
-                                <textarea
-                                    rows="6"
-                                    placeholder="Comentarios"
-                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] resize-none outline-none focus-visible:shadow-none focus:border-primary"
-                                ></textarea>
-                            </div>
+                            <IInput />
                             <div>
-                                <button
-                                    type="submit"
-                                    class="w-full text-white bg-zinc-900 rounded border border-primary p-3 transition hover:bg-yellow-400"
-                                >
-                                    Enviar
-                                </button>
+                                <IButton />
                             </div>
                         </form>
                         <div>

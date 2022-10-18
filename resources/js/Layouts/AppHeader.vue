@@ -93,10 +93,7 @@ defineProps({
                     class="order-2 md:order-3 flex items-center lg:block hidden"
                     id="nav-content"
                 >
-                    <a
-                        class="inline-block no-underline hover:text-yellow-300"
-                        href="#"
-                    >
+                    <a class="inline-block no-underline hover:text-yellow-300">
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                             href="/#About"
@@ -104,10 +101,7 @@ defineProps({
                         >
                     </a>
 
-                    <a
-                        class="inline-block no-underline hover:text-yellow-300"
-                        href="#"
-                    >
+                    <a class="inline-block no-underline hover:text-yellow-300">
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                             href="/#Values"
@@ -115,10 +109,7 @@ defineProps({
                         >
                     </a>
 
-                    <a
-                        class="inline-block no-underline hover:text-yellow-300"
-                        href="#"
-                    >
+                    <a class="inline-block no-underline hover:text-yellow-300">
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                             href="/#Products"
@@ -126,10 +117,7 @@ defineProps({
                         >
                     </a>
 
-                    <a
-                        class="inline-block no-underline hover:text-yellow-300"
-                        href="#"
-                    >
+                    <a class="inline-block no-underline hover:text-yellow-300">
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                             href="/#Contact"
@@ -137,10 +125,7 @@ defineProps({
                         >
                     </a>
 
-                    <a
-                        class="inline-block no-underline hover:text-yellow-300"
-                        href="#"
-                    >
+                    <a class="inline-block no-underline hover:text-yellow-300">
                         <a
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                             href="/login"

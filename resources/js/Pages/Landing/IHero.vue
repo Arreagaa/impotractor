@@ -27,6 +27,7 @@
                                 </p>
 
                                 <a
+                                    href="/register"
                                     class="btn-get-started scrollto animate__animated animate__fadeInUp"
                                     >¡EMPIEZA YA!</a
                                 >

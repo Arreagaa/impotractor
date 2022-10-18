@@ -9,7 +9,7 @@
                                 <div class="our-story bg-white">
                                     <h4>Ciudad de Guatemala</h4>
                                     <h3>Nuestra Historia</h3>
-                                    <p>
+                                    <p class="text-lg">
                                         En agosto del año 2005, Impotractor S.A.
                                         abre sus puertas como una empresa de
                                         importación, venta de herramienta de
@@ -88,7 +88,7 @@
                                         </li>
                                     </ul>
                                     <br />
-                                    <p>
+                                    <p class="text-lg">
                                         En nuestro trabajo nos enpeñamos en
                                         hacer las cosas con la mejor
                                         disponibilidad, responsabilidad,
@@ -117,8 +117,8 @@
                                     viewBox="0 0 583 95"
                                     class="absolute left-0 w-full block h-95-px -top-94-px"
                                 ></svg>
-                                <h4 class="text-xl font-bold text-black">
-                                    De esto estamos hechos.
+                                <h4 class="text-2xl font-bold text-black">
+                                    De esto estamos hechos
                                 </h4>
                                 <p class="text-lg mt-2 text-black">
                                     Tenemos servicio de importación de repuestos

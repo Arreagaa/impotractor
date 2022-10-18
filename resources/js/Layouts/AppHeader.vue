@@ -10,7 +10,6 @@ defineProps({
 </script>
 <template>
     <div class="max-w-fill bg-zinc-900 text-white font-bold">
-        <!--Nav-->
         <nav id="header" class="w-full z-30 top-0 py-1">
             <div
                 class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3"
@@ -23,7 +22,6 @@ defineProps({
                         height="20"
                         viewBox="0 0 20 20"
                     >
-                        <title>menu</title>
                         <path
                             d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
                         ></path>
@@ -35,15 +33,6 @@ defineProps({
                     class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1"
                     id="menu"
                 >
-                    <!--<nav class="lg:block hidden ml-20">
-                    <ul class="md:flex items-center justify-between text-base text-white pt-8 md:pt-0">
-                        <li><a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">NOSOTROS</a></li>
-                        <li><a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">VALORES</a></li>
-                        <li><a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">PRODUCTOS</a></li>
-                        <li><a class="inline-block no-underline py-2 px-4 hover:text-yellow-300" href="#">CONTACTO</a></li>
-                    </ul>
-                </nav>-->
-
                     <nav class="lg:hidden">
                         <ul
                             class="md:flex items-center justify-between text-base text-white pt-8 md:pt-0"

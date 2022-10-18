@@ -158,7 +158,7 @@ const Products = {
 };
 </script>
 <template>
-    <section class="bg-white dark:bg-gray-900 pb-10">
+    <section class="bg-white dark:bg-gray-900 pb-10 max-w-app">
         <div class="container px-6 py-8 mx-auto">
             <div class="lg:flex lg:-mx-2">
                 <div class="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
@@ -184,7 +184,7 @@ const Products = {
                     </div>
 
                     <div
-                        class="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                        class="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3"
                     >
                         <div v-for="(item, index) in Products[active].items">
                             <div

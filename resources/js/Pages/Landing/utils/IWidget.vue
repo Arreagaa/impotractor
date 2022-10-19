@@ -2,12 +2,14 @@
 (function () {
     var options = {
         whatsapp: "+(502) 3109 7830",
-        link: "https://api.whatsapp.com/send/?phone=+50245764149&text=Hablar+con+especialista+Case&type=phone_number&app_absent=0",
-        link_color: "#A8CE50",
+        //link: "https://api.whatsapp.com/send/?phone=+50245764149&text=Hablar+con+especialista+Case&type=phone_number&app_absent=0",
+        //link_color: "#A8CE50",
+        call: "+(502) 4576 4149",
+        call_color: "#A8CE50",
         call_to_action: "Comunícate con los Especialistas",
         button_color: "#f1c40f",
         position: "right",
-        order: "whatsapp, link",
+        order: "whatsapp, call",
         pre_filled_message: "Hablar con especialista Caterpillar",
     };
     var proto = "https:",
@@ -30,5 +32,12 @@
 }
 .cMsFzb {
     visibility: hidden;
+}
+.fPHwOg {
+    background-color: #a8ce50 !important;
+}
+div .dnIldB::after {
+    display: block;
+    content: "Hablar con especialista Case";
 }
 </style>

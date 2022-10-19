@@ -17,7 +17,7 @@ const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
                         <h2
                             class="text-dark mb-6 uppercase font-bold text-[20px] sm:text-[20px] lg:text-[20px] xl:text-[20px]"
                         >
-                            Contáctanos
+                            Contáctanos y Cotiza
                         </h2>
                         <div class="leading-relaxed mb-9">
                             <GoogleMap

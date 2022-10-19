@@ -14,7 +14,7 @@
                     márcanos, y con mucho gusto te responderemos.
                 </p>
 
-                <a href="/login">
+                <a href="/#Contact">
                     <button
                         class="text-white font-semibold ml-10 mt-5 mb-8 text-left group"
                     >

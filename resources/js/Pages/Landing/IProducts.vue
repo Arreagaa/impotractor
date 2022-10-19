@@ -3,52 +3,6 @@ import IProductsButton from "./utils/IProductsButton.vue";
 import { ref } from "vue";
 const active = ref("filters");
 const Products = {
-    filters: {
-        slug: "filters",
-        title: "Filtros",
-        items: [
-            {
-                name: "Filtros de Aire",
-                image: "/images/filtros/FAire.jpg",
-            },
-            {
-                name: "Filtros de Diesel",
-                image: "/images/filtros/FDiesel.jpg",
-            },
-            {
-                name: "Filtros de Aceite",
-                image: "/images/filtros/FAceite.jpg",
-            },
-            {
-                name: "Filtros Hidraulicos",
-                image: "/images/filtros/FHidr.jpg",
-            },
-            {
-                name: "Filtros de Transmision",
-                image: "/images/filtros/FTrans.jpg",
-            },
-        ],
-    },
-
-    seyf: {
-        slug: "seyf",
-        title: "Sellos, empaques y fajas",
-        items: [
-            {
-                name: "Kit Empaques",
-                image: "/images/seyf/KitEmpaques.png",
-            },
-            {
-                name: "Kit Sellos",
-                image: "/images/seyf/KitSellos.png",
-            },
-            {
-                name: "Kit Fajas",
-                image: "/images/seyf/KitFajas.jpg",
-            },
-        ],
-    },
-
     hercorte: {
         slug: "hercorte",
         title: "Herramienta de Corte",
@@ -79,6 +33,26 @@ const Products = {
             },
         ],
     },
+
+    seyf: {
+        slug: "seyf",
+        title: "Sellos, empaques y fajas",
+        items: [
+            {
+                name: "Kit Empaques",
+                image: "/images/seyf/KitEmpaques.png",
+            },
+            {
+                name: "Kit Sellos",
+                image: "/images/seyf/KitSellos.png",
+            },
+            {
+                name: "Kit Fajas",
+                image: "/images/seyf/KitFajas.jpg",
+            },
+        ],
+    },
+
 
     rodaje: {
         slug: "rodaje",
@@ -152,6 +126,33 @@ const Products = {
             {
                 name: "Bombas de Agua",
                 image: "/images/motores/BombasAgua.jpg",
+            },
+        ],
+    },
+
+    filters: {
+        slug: "filters",
+        title: "Filtros",
+        items: [
+            {
+                name: "Filtros de Aire",
+                image: "/images/filtros/FAire.jpg",
+            },
+            {
+                name: "Filtros de Diesel",
+                image: "/images/filtros/FDiesel.jpg",
+            },
+            {
+                name: "Filtros de Aceite",
+                image: "/images/filtros/FAceite.jpg",
+            },
+            {
+                name: "Filtros Hidraulicos",
+                image: "/images/filtros/FHidr.jpg",
+            },
+            {
+                name: "Filtros de Transmision",
+                image: "/images/filtros/FTrans.jpg",
             },
         ],
     },

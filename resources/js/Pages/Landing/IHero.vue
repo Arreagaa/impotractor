@@ -26,9 +26,9 @@
                                 </p>
 
                                 <a
-                                    href="/register"
+                                    href="/#Contact"
                                     class="btn-get-started scrollto animate__animated animate__fadeInUp"
-                                    >¡EMPIEZA YA!</a
+                                    >¡COTIZA YA!</a
                                 >
                             </div>
                         </div>

@@ -103,11 +103,39 @@
                     </div>
                     <div class="lg:w-1/2 w-full lg:pl-8 pl-0 lg:pt-0 pt-8">
                         <div
-                            class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg"
+                            class="lg:block hidden relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg mt-8"
                         >
                             <img
-                                alt="..."
-                                src="/images/impotractor/about.jpg"
+                                alt=""
+                                src="https://0201.nccdn.net/4_2/000/000/017/e75/F4-727x483.jpg#RDAMDAID25688643"
+                                class="w-full align-middle rounded-t-lg shadow-lg"
+                            />
+                            <blockquote class="box relative p-5 mb-0 bg-white">
+                                <svg
+                                    preserveAspectRatio="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 583 95"
+                                    class="absolute left-0 w-full block h-95-px -top-94-px"
+                                ></svg>
+                                <h4 class="text-2xl font-bold text-black">
+                                    De esto estamos hechos
+                                </h4>
+                                <p class="text-lg mt-2 text-black">
+                                    Tenemos servicio de importación de repuestos
+                                    para entrega de 2 a 8 días y brindamos
+                                    asesoría necesaria en la compra de
+                                    repuestos, sin ningún compromiso, ofreciendo
+                                    calidad y garantía en los mismos.
+                                </p>
+                            </blockquote>
+                        </div>
+
+                        <div
+                            class="lg:hidden relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg"
+                        >
+                            <img
+                                alt=""
+                                src="https://0201.nccdn.net/4_2/000/000/017/e75/F4-727x483.jpg#RDAMDAID25688643"
                                 class="w-full align-middle rounded-t-lg shadow-lg"
                             />
                             <blockquote class="box relative p-5 mb-0 bg-white">

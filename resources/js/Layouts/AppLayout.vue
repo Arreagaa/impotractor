@@ -59,6 +59,13 @@ const logout = () => {
                                 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
                             >
                                 <NavLink
+                                    :href="route('landing')"
+                                    :active="route().current('landing')"
+                                >
+                                    Inicio
+                                </NavLink>
+
+                                <NavLink
                                     :href="route('dashboard')"
                                     :active="route().current('dashboard')"
                                 >
@@ -79,8 +86,7 @@ const logout = () => {
                                         <span class="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500
-                                                    hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition"
                                             >
                                                 {{
                                                     $page.props.user
@@ -367,9 +373,7 @@ const logout = () => {
                             </div>
 
                             <div>
-                                <div
-                                    class="font-bold text-medium text-white"
-                                >
+                                <div class="font-bold text-medium text-white">
                                     {{ $page.props.user.name }}
                                 </div>
                                 <div class="font-bold text-base text-gray-500">

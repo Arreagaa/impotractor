@@ -56,7 +56,7 @@ const submit = () => {
                         </a>
 
                         <p class="mt-3 text-gray-500 dark:text-gray-300">
-                            Inicia sesión para poder continuar
+                            Regístrate para poder continuar
                         </p>
                     </div>
 
@@ -80,7 +80,10 @@ const submit = () => {
                             </div>
 
                             <div class="mt-4">
-                                <InputLabel for="email" value="Correo electrónico" />
+                                <InputLabel
+                                    for="email"
+                                    value="Correo electrónico"
+                                />
                                 <TextInput
                                     id="email"
                                     v-model="form.email"

@@ -36,8 +36,7 @@
 .fPHwOg {
     background-color: #a8ce50 !important;
 }
-div .dnIldB::after {
-    display: block;
-    content: "Hablar con especialista Case";
+div .dnIldB::before {
+    content: "Especialista Case - ";
 }
 </style>

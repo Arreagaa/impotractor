@@ -66,11 +66,20 @@ defineProps({
                                 >
                             </li>
                             <li>
-                                <a
-                                    class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                    href="/login"
-                                    >INICIAR SESIÓN</a
-                                >
+                                <div>
+                                    <a
+                                        v-if="$page.props.user"
+                                        :href="route('dashboard')"
+                                        class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                        >CUENTA</a
+                                    >
+                                    <a
+                                        v-else
+                                        class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                        href="/login"
+                                        >INICIAR SESIÓN</a
+                                    >
+                                </div>
                             </li>
                         </ul>
                     </nav>

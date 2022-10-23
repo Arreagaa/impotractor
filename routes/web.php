@@ -28,6 +28,10 @@ Route::get('/', function () {
     return Inertia::render('Landing/IShow');
 })->name('landing');
 
+Route::get('/Succes', function () {
+    return Inertia::render('IContact/ISucces');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

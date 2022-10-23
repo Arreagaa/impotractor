@@ -126,7 +126,23 @@ const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
                     <div
                         class="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg"
                     >
-                        <form>
+                        <form
+                            action="https://formsubmit.co/765b58acd0a0a636a8236001a7af548d"
+                            method="POST"
+                        >
+                            <!--DISABLE CAPTCHA-->
+                            <input
+                                type="hidden"
+                                name="_captcha"
+                                value="false"
+                            />
+
+                            <input
+                                type="hidden"
+                                name="_next"
+                                value="http://127.0.0.1:8000/Succes"
+                            />
+
                             <IInput />
                             <div>
                                 <IButton />

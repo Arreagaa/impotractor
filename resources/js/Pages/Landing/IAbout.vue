@@ -106,8 +106,7 @@
                             class="lg:block hidden relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg mt-8"
                         >
                             <img
-                                alt=""
-                                src="https://0201.nccdn.net/4_2/000/000/017/e75/F4-727x483.jpg#RDAMDAID25688643"
+                                src="images/impotractor/about-us.jpg"
                                 class="w-full align-middle rounded-t-lg shadow-lg"
                             />
                             <blockquote class="box relative p-5 mb-0 bg-white">

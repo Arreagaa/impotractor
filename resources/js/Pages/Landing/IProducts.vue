@@ -1,5 +1,6 @@
 <script setup>
 import IProductsButton from "./utils/IProductsButton.vue";
+import SimpleLightbox from "simplelightbox";
 import { ref } from "vue";
 const active = ref("hercorte");
 const Products = {

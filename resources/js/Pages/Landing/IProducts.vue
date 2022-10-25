@@ -2,6 +2,16 @@
 import IProductsButton from "./utils/IProductsButton.vue";
 import { ref } from "vue";
 const active = ref("hercorte");
+const props = defineProps({
+    item: {
+        type: Object,
+        required: true,
+    },
+    idItem: {
+        type: Number,
+        default: 0,
+    },
+});
 const Products = {
     hercorte: {
         slug: "hercorte",
@@ -302,10 +312,7 @@ const Products = {
                             <div
                                 class="flex flex-col items-center justify-center w-full max-w-lg mx-auto"
                             >
-                                <a
-                                    :href="item.image"
-                                    target="_blank"
-                                >
+                                <a :href="`#id-${idItem}`">
                                     <img
                                         class="object-cover w-full rounded-md h-72 xl:h-80"
                                         :src="item.image"
@@ -323,6 +330,17 @@ const Products = {
 
                                 <IProductsButton />
                             </div>
+                            <div class="lightboxes">
+                                <div class="lightbox" :id="`id-${idItem}`">
+                                    <a href="#Products" class="close"
+                                        >&times;</a
+                                    >
+                                    <div>
+                                        <img :src="item.image" alt="" />
+                                        <p>{{ item.name }}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -331,4 +349,47 @@ const Products = {
     </section>
 </template>
 
-<style></style>
+<style>
+.lightbox {
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    position: fixed;
+    z-index: 1000;
+}
+
+.lightbox:target {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.lightbox img {
+    border-radius: 1em;
+    display: block;
+    margin: auto;
+    max-height: 80vh;
+    max-width: 90vh;
+}
+
+.lightbox .close {
+    color: #fff;
+    font-size: 4em;
+    font-weight: bold;
+    height: 1em;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 1em;
+    z-index: 1001;
+}
+
+.lightbox p {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+</style>

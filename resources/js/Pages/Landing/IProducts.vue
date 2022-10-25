@@ -88,7 +88,7 @@ const Products = {
         title: "Rodaje",
         items: [
             {
-                name: "guardas",
+                name: "Guardas",
                 image: "/images/rodaje/guardas.webp",
             },
             {
@@ -181,7 +181,7 @@ const Products = {
                 image: "/images/motores/alternadores.webp",
             },
             {
-                name: "Arbol de Levas",
+                name: "Árbol de Levas",
                 image: "/images/motores/arboldelevas.jpg",
             },
             {
@@ -312,7 +312,7 @@ const Products = {
                             <div
                                 class="flex flex-col items-center justify-center w-full max-w-lg mx-auto"
                             >
-                                <a :href="`#id-${idItem}`">
+                                <a :href="`#${index}`">
                                     <img
                                         class="object-cover w-full rounded-md h-72 xl:h-80"
                                         :src="item.image"
@@ -331,15 +331,23 @@ const Products = {
                                 <IProductsButton />
                             </div>
                             <div class="lightboxes">
-                                <div class="lightbox" :id="`id-${idItem}`">
+                                <div class="lightbox" :id="index">
                                     <a href="#Products" class="close"
                                         >&times;</a
                                     >
                                     <div class="lg:block hidden">
-                                        <img class="img" :src="item.image" alt="" />
+                                        <img
+                                            class="img"
+                                            :src="item.image"
+                                            alt=""
+                                        />
                                     </div>
                                     <div class="lg:hidden">
-                                        <img class="img-mobile" :src="item.image" alt="" />
+                                        <img
+                                            class="img-mobile"
+                                            :src="item.image"
+                                            alt=""
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -394,5 +402,9 @@ const Products = {
     top: 0;
     width: 1em;
     z-index: 1001;
+}
+
+.lightbox .close:hover{
+    color: #f1c40f;
 }
 </style>

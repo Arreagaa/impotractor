@@ -335,9 +335,11 @@ const Products = {
                                     <a href="#Products" class="close"
                                         >&times;</a
                                     >
-                                    <div>
-                                        <img :src="item.image" alt="" />
-                                        <p>{{ item.name }}</p>
+                                    <div class="lg:block hidden">
+                                        <img class="img" :src="item.image" alt="" />
+                                    </div>
+                                    <div class="lg:hidden">
+                                        <img class="img-mobile" :src="item.image" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -351,7 +353,7 @@ const Products = {
 
 <style>
 .lightbox {
-    background: rgba(0, 0, 0, 0.8);
+    background: black;
     display: none;
     position: fixed;
     z-index: 1000;
@@ -367,12 +369,19 @@ const Products = {
     top: 0;
 }
 
-.lightbox img {
+.lightbox .img {
     border-radius: 1em;
     display: block;
     margin: auto;
     max-height: 80vh;
     max-width: 90vh;
+}
+
+.lightbox .img-mobile {
+    border-radius: 1em;
+    display: block;
+    margin: auto;
+    max-height: 80vh;
 }
 
 .lightbox .close {
@@ -385,11 +394,5 @@ const Products = {
     top: 0;
     width: 1em;
     z-index: 1001;
-}
-
-.lightbox p {
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
 }
 </style>

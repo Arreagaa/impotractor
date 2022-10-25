@@ -404,7 +404,7 @@ const Products = {
     z-index: 1001;
 }
 
-.lightbox .close:hover{
+.lightbox .close:hover {
     color: #f1c40f;
 }
 </style>

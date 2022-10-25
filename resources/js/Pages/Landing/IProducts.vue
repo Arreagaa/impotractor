@@ -1,7 +1,7 @@
 <script setup>
 import IProductsButton from "./utils/IProductsButton.vue";
 import { ref } from "vue";
-const active = ref("filters");
+const active = ref("hercorte");
 const Products = {
     hercorte: {
         slug: "hercorte",
@@ -9,7 +9,7 @@ const Products = {
         items: [
             {
                 name: "Bases para Cucharon",
-                image: "/images/hercorte/BaseCuch.jpg",
+                image: "/images/hercorte/BaseCuch.jpeg",
             },
             {
                 name: "Bases para puntas de patrol",
@@ -29,7 +29,11 @@ const Products = {
             },
             {
                 name: "Pines y Seguros",
-                image: "/images/hercorte/PinySeg.jpg",
+                image: "/images/hercorte/PinySeg.png",
+            },
+            {
+                name: "Cucharones",
+                image: "/images/hercorte/cucharones.png",
             },
         ],
     },
@@ -39,43 +43,55 @@ const Products = {
         title: "Sellos, empaques y fajas",
         items: [
             {
-                name: "Kit Empaques",
-                image: "/images/seyf/KitEmpaques.png",
+                name: "Fajas",
+                image: "/images/seyf/fajas.jpg",
             },
             {
-                name: "Kit Sellos",
-                image: "/images/seyf/KitSellos.png",
+                name: "Gasket Kits",
+                image: "/images/seyf/gasketkits.jpg",
             },
             {
-                name: "Kit Fajas",
-                image: "/images/seyf/KitFajas.jpg",
+                name: "Kits de Sellos",
+                image: "/images/seyf/kitsdesellos.jpg",
+            },
+            {
+                name: "Sellos Case",
+                image: "/images/seyf/sellosCASE.jpg",
+            },
+            {
+                name: "Sellos de Aceite",
+                image: "/images/seyf/sellosdeaceite.jpg",
+            },
+            {
+                name: "Sellos de Polvo",
+                image: "/images/seyf/sellosdepolvo.jpg",
+            },
+            {
+                name: "Sellos Hidráulicos",
+                image: "/images/seyf/selloshidraulicos.jpg",
             },
         ],
     },
-
 
     rodaje: {
         slug: "rodaje",
         title: "Rodaje",
         items: [
             {
-                name: "Rodaje",
-                image: "/images/rodaje/rodajes.jpg",
-            },
-        ],
-    },
-
-    indicadores: {
-        slug: "indicadores",
-        title: "Indicadores",
-        items: [
-            {
-                name: "Indicadores de Temperatura de Aceite",
-                image: "/images/indicadores/IndAceite.jpg",
+                name: "guardas",
+                image: "/images/rodaje/guardas.webp",
             },
             {
-                name: "Indicadores de Temperatura de Agua",
-                image: "/images/indicadores/IndAgua.jpg",
+                name: "Resortes",
+                image: "/images/rodaje/resortes.jpg",
+            },
+            {
+                name: "Rodos",
+                image: "/images/rodaje/rodos.jpg",
+            },
+            {
+                name: "Ruedas Tensoras",
+                image: "/images/rodaje/ruedastensoras.jpg",
             },
         ],
     },
@@ -85,16 +101,63 @@ const Products = {
         title: "Eléctricos",
         items: [
             {
-                name: "Switch de Paso",
-                image: "/images/electricos/SwitchPaso.jpg",
+                name: "Alarmas",
+                image: "/images/electricos/alarmas.jpg",
             },
             {
-                name: "Switch de Starter",
-                image: "/images/electricos/SwitchStarter.jpg",
+                name: "Horometros",
+                image: "/images/electricos/HOROMETROS.jpg",
             },
             {
-                name: "Horometro Digital",
-                image: "/images/electricos/HorDigital.jpg",
+                name: "Luces de Emergencia",
+                image: "/images/electricos/lucesemergencia.jpg",
+            },
+            {
+                name: "Motores de Arranque",
+                image: "/images/electricos/motoresdearranque.jpg",
+            },
+            {
+                name: "Relays",
+                image: "/images/electricos/relays.jpg",
+            },
+            {
+                name: "Selenoides",
+                image: "/images/electricos/selenoides.jpg",
+            },
+            {
+                name: "Sensores",
+                image: "/images/electricos/sensores.jpg",
+            },
+            {
+                name: "Switches",
+                image: "/images/electricos/switches.jpg",
+            },
+        ],
+    },
+
+    hidraulicos: {
+        slug: "hidraulicos",
+        title: "Hidráulicos",
+        items: [
+            {
+                name: "Bombas Hidráulicas",
+                image: "/images/hidraulicos/bombashidraulicas.jpg",
+            },
+            {
+                name: "Cilindros Hidráulicos",
+                image: "/images/hidraulicos/cilindroshidraulicos.jpg",
+            },
+            {
+                name: "Controles de Dirección",
+                image: "/images/hidraulicos/controlesdedireccion.jpg",
+            },
+            {
+                name: "Motores Hidráulicos",
+                image: "/images/hidraulicos/motoreshidraulicos.jpg",
+            },
+            {
+                name: "Pistones Hidráulicos",
+                image: "/images/hidraulicos/pistoneshidraulicos.jpg",
             },
         ],
     },
@@ -104,28 +167,72 @@ const Products = {
         title: "Motores",
         items: [
             {
-                name: "Gasket Kits",
-                image: "/images/motores/GasketKits.jpg",
+                name: "Alternadores",
+                image: "/images/motores/alternadores.webp",
             },
             {
-                name: "Bombas Hidráulicas",
-                image: "/images/motores/BombasHidr.jpg",
-            },
-            {
-                name: "Liner Kits",
-                image: "/images/motores/LinerKits.jpg",
-            },
-            {
-                name: "Bombas de Frenos",
-                image: "/images/motores/BombasFrenos.jpg",
-            },
-            {
-                name: "Válvulas de Motor",
-                image: "/images/motores/ValvMotor.jpg",
+                name: "Arbol de Levas",
+                image: "/images/motores/arboldelevas.jpg",
             },
             {
                 name: "Bombas de Agua",
-                image: "/images/motores/BombasAgua.jpg",
+                image: "/images/motores/bombasdeagua.jpg",
+            },
+            {
+                name: "Cables",
+                image: "/images/motores/cables.jpg",
+            },
+            {
+                name: "Camisas",
+                image: "/images/motores/camisas.webp",
+            },
+            {
+                name: "Cartuchos",
+                image: "/images/motores/cartuchos.jpg",
+            },
+            {
+                name: "Cigueñal",
+                image: "/images/motores/cigueñal.jpg",
+            },
+            {
+                name: "Convertidores de Torque",
+                image: "/images/motores/convertidoresdetorque.jpg",
+            },
+            {
+                name: "Ferrules",
+                image: "/images/motores/ferrules.jpg",
+            },
+            {
+                name: "Inyectores",
+                image: "/images/motores/inyectores.jpg",
+            },
+            {
+                name: "Kits de Biela",
+                image: "/images/motores/kitsdebiela.jpg",
+            },
+            {
+                name: "Kits de Piston",
+                image: "/images/motores/kitsdepiston.jpg",
+            },
+            {
+                name: "Liner Kits",
+                image: "/images/motores/linerkits.jpg",
+            },
+            {
+                name: "Manifolds",
+                image: "/images/motores/manifolds.jpg",
+            },
+            {
+                name: "Rodamientos para Motor",
+                image: "/images/motores/rodamientosmotor.jpg",
+            },
+            {
+                name: "Tubos de Escape",
+                image: "/images/motores/tubosdeescape.jpg",
+            },
+            {
+                name: "Turbos",
+                image: "/images/motores/turbos.jpg",
             },
         ],
     },
@@ -135,24 +242,28 @@ const Products = {
         title: "Filtros",
         items: [
             {
+                name: "Filtros de Aceite",
+                image: "/images/filtros/filtrosaceite.jpg",
+            },
+            {
                 name: "Filtros de Aire",
-                image: "/images/filtros/FAire.jpg",
+                image: "/images/filtros/filtrosaire.jpg",
+            },
+            {
+                name: "Filtros de Aire Secundarios",
+                image: "/images/filtros/filtrosairesecundarios.jpg",
+            },
+            {
+                name: "Filtros Cabina de Aire",
+                image: "/images/filtros/filtroscabinaaire.jpg",
             },
             {
                 name: "Filtros de Diesel",
-                image: "/images/filtros/FDiesel.jpg",
+                image: "/images/filtros/filtrosdiesel.jpg",
             },
             {
-                name: "Filtros de Aceite",
-                image: "/images/filtros/FAceite.jpg",
-            },
-            {
-                name: "Filtros Hidraulicos",
-                image: "/images/filtros/FHidr.jpg",
-            },
-            {
-                name: "Filtros de Transmision",
-                image: "/images/filtros/FTrans.jpg",
+                name: "Filtros Hidráulicos",
+                image: "/images/filtros/filtroshidraulicos.jpg",
             },
         ],
     },
@@ -165,7 +276,7 @@ const Products = {
                 <div class="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
                     <div v-for="(item, index) in Products">
                         <a
-                            class="block font-medium text-gray-500 dark:text-gray-300"
+                            class="block font-medium text-gray-500 dark:text-gray-300 cursor-pointer"
                             @click="active = item.slug"
                             :class="{
                                 'text-yellow-500': active == item.slug,
@@ -191,11 +302,16 @@ const Products = {
                             <div
                                 class="flex flex-col items-center justify-center w-full max-w-lg mx-auto"
                             >
-                                <img
-                                    class="object-cover w-full rounded-md h-72 xl:h-80"
-                                    :src="item.image"
-                                    alt="T-Shirt"
-                                />
+                                <a
+                                    :href="item.image"
+                                    target="_blank"
+                                >
+                                    <img
+                                        class="object-cover w-full rounded-md h-72 xl:h-80"
+                                        :src="item.image"
+                                        alt=""
+                                    />
+                                </a>
                                 <h4
                                     class="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200"
                                 >
@@ -214,3 +330,5 @@ const Products = {
         </div>
     </section>
 </template>
+
+<style></style>

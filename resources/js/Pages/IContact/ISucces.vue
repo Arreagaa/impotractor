@@ -62,9 +62,9 @@
 </template>
 <style>
 .img-login {
-    background-image: url("https://www.gentrac.com.gt/wp-content/uploads/revslider/miniexcavadora/Portada.jpg");
+    background-image: url(/images/impotractor/tractor.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;image.png
 }
 </style>

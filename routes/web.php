@@ -42,4 +42,14 @@ Route::middleware([
     })->name('dashboard');
 });
 
+/* IMPOTRACTOR S.A */
+Auth::routes();
 
+Route::get('/cotizar', 'App\Http\Controllers\CotizationController@index')->name('cotization');
+Route::get('/imprimir/{id}', 'App\Http\Controllers\CotizationController@printPDF')->name('cotization.print');
+Route::get('/excel/{id}', 'App\Http\Controllers\CotizationController@excel')->name('cotizacion.excel');
+Route::get('/cotizar/{id}', 'App\Http\Controllers\CotizationController@edit')->name('cotization.edit');
+Route::post('/guardar/{id}', 'App\Http\Controllers\CotizationController@update')->name('cotization.update');
+Route::post('/ordenar/{id}', 'App\Http\Controllers\CotizationController@order')->name('cotization.order');
+Route::post('/guardar', 'App\Http\Controllers\CotizationController@store')->name('guardar');
+Route::get('/historial', 'App\Http\Controllers\HistorialController@index')->name('historial');

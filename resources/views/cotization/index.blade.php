@@ -3,6 +3,7 @@
 @section('content')
  <div class="content">
  	<div class="row">
+        <br><br><br>
 	  <div class="col-md-10 col-md-offset-1">
 		  <div class="panel panel-primary">
 		  	<div class="panel-heading">Cotizador</div>
@@ -173,11 +174,18 @@
 	</div>
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 text-right">
-			<!-- <button class="btn btn-danger"><i class="glyphicon glyphicon-file"></i> Exportar a PDF</button>
-			<button class="btn btn-success"><i class="glyphicon glyphicon-th"></i> Exportar a Excel</button>
-			<button class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Guardar</button> -->
-			<a href="/home" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-arrow-left"></i> Volver</a>
-			<button id="btnSave" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-save"></i> Guardar</button>
+			<a href="/dashboard" class="btn btn-primary btn-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+                Volver
+            </a>
+			<button id="btnSave" class="btn btn-primary btn-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z"/>
+                </svg>
+                Guardar
+            </button>
 		</div>
 	</div>
 	<br>

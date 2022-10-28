@@ -43,13 +43,13 @@ Route::middleware([
 });
 
 /* IMPOTRACTOR S.A */
-Auth::routes();
+//Auth::routes();
 
-Route::get('/cotizar', 'App\Http\Controllers\CotizationController@index')->name('cotization');
-Route::get('/imprimir/{id}', 'App\Http\Controllers\CotizationController@printPDF')->name('cotization.print');
-Route::get('/excel/{id}', 'App\Http\Controllers\CotizationController@excel')->name('cotizacion.excel');
-Route::get('/cotizar/{id}', 'App\Http\Controllers\CotizationController@edit')->name('cotization.edit');
-Route::post('/guardar/{id}', 'App\Http\Controllers\CotizationController@update')->name('cotization.update');
-Route::post('/ordenar/{id}', 'App\Http\Controllers\CotizationController@order')->name('cotization.order');
-Route::post('/guardar', 'App\Http\Controllers\CotizationController@store')->name('guardar');
-Route::get('/historial', 'App\Http\Controllers\HistorialController@index')->name('historial');
+Route::get('/cotizar', 'App\Http\Controllers\CotizationController@index')->name('cotization')->middleware(['auth:sanctum','verified']);;
+Route::get('/imprimir/{id}', 'App\Http\Controllers\CotizationController@printPDF')->name('cotization.print')->middleware(['auth:sanctum','verified']);;
+Route::get('/excel/{id}', 'App\Http\Controllers\CotizationController@excel')->name('cotizacion.excel')->middleware(['auth:sanctum','verified']);;
+Route::get('/cotizar/{id}', 'App\Http\Controllers\CotizationController@edit')->name('cotization.edit')->middleware(['auth:sanctum','verified']);;
+Route::post('/guardar/{id}', 'App\Http\Controllers\CotizationController@update')->name('cotization.update')->middleware(['auth:sanctum','verified']);;
+Route::post('/ordenar/{id}', 'App\Http\Controllers\CotizationController@order')->name('cotization.order')->middleware(['auth:sanctum','verified']);;
+Route::post('/guardar', 'App\Http\Controllers\CotizationController@store')->name('guardar')->middleware(['auth:sanctum','verified']);;
+Route::get('/historial', 'App\Http\Controllers\HistorialController@index')->name('historial')->middleware(['auth:sanctum','verified']);;

@@ -32,6 +32,10 @@ Route::get('/Succes', function () {
     return Inertia::render('IContact/ISucces');
 });
 
+/*Route::get('/IDashboard', function () {
+    return Inertia::render('IDashboard/IShow');
+});*/
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

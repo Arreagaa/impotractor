@@ -46,7 +46,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-/* IMPOTRACTOR S.A */
+/* IMPOTRACTOR S.A
 //Auth::routes();
 
 Route::get('/cotizar', 'App\Http\Controllers\CotizationController@index')->name('cotization')->middleware(['auth:sanctum','verified']);;
@@ -57,3 +57,4 @@ Route::post('/guardar/{id}', 'App\Http\Controllers\CotizationController@update')
 Route::post('/ordenar/{id}', 'App\Http\Controllers\CotizationController@order')->name('cotization.order')->middleware(['auth:sanctum','verified']);;
 Route::post('/guardar', 'App\Http\Controllers\CotizationController@store')->name('guardar')->middleware(['auth:sanctum','verified']);;
 Route::get('/historial', 'App\Http\Controllers\HistorialController@index')->name('historial')->middleware(['auth:sanctum','verified']);;
+*/

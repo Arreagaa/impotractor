@@ -29,7 +29,6 @@
         "@fortawesome/vue-fontawesome": "^3.0.1",
         "ag-grid-community": "^28.2.0",
         "ag-grid-vue3": "^28.2.0",
-        "bootstrap-sass": "^3.4.3",
         "flatpickr": "^4.6.13",
         "simplelightbox": "^2.10.4",
         "swiper": "^8.4.4",

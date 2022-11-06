@@ -46,6 +46,17 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/cotization', function () {
+        return Inertia::render('Cotization/ICotization');
+    })->name('cotization');
+});
+
+
 /* IMPOTRACTOR S.A
 //Auth::routes();
 

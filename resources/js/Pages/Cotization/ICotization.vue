@@ -146,7 +146,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
                                         <span class="ml-3">Cotizaciones</span>
                                     </a>
                                     <a
-                                        href="#"
+                                        href="/cotization/#Calculator"
                                         class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
                                     >
                                         <svg
@@ -162,7 +162,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
                                         <span class="ml-3">Calculadora</span>
                                     </a>
                                     <a
-                                        href="#"
+                                        href="/cotization/#Resumen"
                                         class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
                                     >
                                         <svg
@@ -424,54 +424,516 @@ import AppLayout from "@/Layouts/AppLayout.vue";
                                 </div>
                             </div>
                         </div>
-                    </main>
-                    <footer
-                        class="bg-white md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-6 mx-4"
-                    >
-                        <ul class="flex items-center flex-wrap mb-6 md:mb-0">
-                            <li>
-                                <a
-                                    href="/#About"
-                                    class="text-base font-fold text-gray-500 hover:text-yellow-400 mr-4 md:mr-6"
-                                    >Nosotros</a
+                        <div class="pt-4 px-4" id="Calculator">
+                            <div class="my-4">
+                                <div
+                                    class="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full"
                                 >
-                            </li>
-                            <li>
-                                <a
-                                    href="/#Contact"
-                                    class="text-base font-fold text-gray-500 hover:text-yellow-400 mr-4 md:mr-6"
-                                    >Contáctanos</a
-                                >
-                            </li>
-                            <li>
-                                <a
-                                    href="https://policies.google.com/privacy?hl=es"
-                                    Target="_blank"
-                                    class="text-base font-fold text-gray-500 hover:text-yellow-400 mr-4 md:mr-6"
-                                    >Políticas de Privacidad</a
-                                >
-                            </li>
-                        </ul>
-                        <div class="flex sm:justify-center space-x-6">
-                            <a
-                                href="https://www.facebook.com/impotractorsa/"
-                                class="text-gray-500 hover:text-gray-900"
-                            >
-                                <svg
-                                    class="h-5 w-5"
-                                    fill="currentColor"
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                        clip-rule="evenodd"
-                                    />
-                                </svg>
-                            </a>
+                                    <div
+                                        class="flex items-center justify-between mb-4"
+                                    >
+                                        <h3
+                                            class="text-xl font-bold leading-none text-gray-900"
+                                        >
+                                            Calculadora
+                                        </h3>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center"
+                                    >
+                                        <div class="container">
+                                            <table
+                                                class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg"
+                                            >
+                                                <thead class="text-white">
+                                                    <tr
+                                                        class="bg-zinc-900 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0"
+                                                    >
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Número de Parte
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Cantidad
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Descripción
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Peso neto (Lb)
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Precio ($)
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Precio (Q)
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            DAI
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            IVA
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            P. Unitario
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Total
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="flex-1 sm:flex-none"
+                                                >
+                                                    <tr
+                                                        class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0"
+                                                    >
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- total amount -->
+                                            <div
+                                                class="flex justify-end font-bold space-x-4 text-base border-t border-gray-100 px-5 py-2"
+                                            >
+                                                <div>Gran Total</div>
+                                                <div>
+                                                    <span>500.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </footer>
+
+                        <div class="pt-4 px-4" id="Resumen">
+                            <div class="my-4">
+                                <div
+                                    class="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full"
+                                >
+                                    <div
+                                        class="flex items-center justify-between mb-4"
+                                    >
+                                        <h3
+                                            class="text-xl font-bold leading-none text-gray-900"
+                                        >
+                                            Resumen
+                                        </h3>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center"
+                                    >
+                                        <div class="container lg:block hidden">
+                                            <table
+                                                class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg"
+                                            >
+                                                <thead
+                                                    class="w-full data overflow-hidden bg-white text-zinc-900"
+                                                >
+                                                    <tr>
+                                                        <th
+                                                            colspan="3"
+                                                            class="p-2 border"
+                                                        >
+                                                            Información
+                                                            Importante
+                                                        </th>
+                                                        <th
+                                                            colspan="2"
+                                                            class="p-2 border"
+                                                        >
+                                                            Precio a (35%)
+                                                        </th>
+                                                        <th
+                                                            colspan="2"
+                                                            class="p-2 border"
+                                                        >
+                                                            Precio a (30%)
+                                                        </th>
+                                                        <th
+                                                            colspan="2"
+                                                            class="p-2 border"
+                                                        >
+                                                            Precio a (25%)
+                                                        </th>
+                                                        <th
+                                                            colspan="3"
+                                                            class="p-2 border"
+                                                        >
+                                                            Precio Final
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <thead class="text-white">
+                                                    <tr
+                                                        class="bg-zinc-900 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0"
+                                                    >
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Número de Parte
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Cantidad
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Descripción
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            P. Unitario
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Total
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            P. Unitario
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Total
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            P. Unitario
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Total
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Porcentaje
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Unitario
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Total
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="flex-1 sm:flex-none"
+                                                >
+                                                    <tr
+                                                        class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0"
+                                                    >
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- total amount -->
+                                            <div
+                                                class="flex justify-end font-bold space-x-4 text-base border-t border-gray-100 px-5 py-2"
+                                            >
+                                                <div>Gran Total</div>
+                                                <div>
+                                                    <span>500.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container lg:hidden">
+                                            <table
+                                                class="flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg"
+                                            >
+                                                <thead class="text-white">
+                                                    <tr
+                                                        class="bg-zinc-900 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0"
+                                                    >
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Número de Parte
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Cantidad
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Descripción
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            P. Unitario (35%)
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Total (35%)
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            P. Unitario (30%)
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Total (30%)
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            P. Unitario (25%)
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Total (25%)
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Porcentaje Final
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Unitario Final
+                                                        </th>
+                                                        <th
+                                                            class="p-3 text-left"
+                                                        >
+                                                            Total Final
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="flex-1 sm:flex-none"
+                                                >
+                                                    <tr
+                                                        class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0"
+                                                    >
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                        <td
+                                                            class="border-grey-light border hover:bg-gray-100 p-3"
+                                                        >
+                                                            Example
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- total amount -->
+                                            <div
+                                                class="flex justify-end font-bold space-x-4 text-base border-t border-gray-100 px-5 py-2"
+                                            >
+                                                <div>Gran Total</div>
+                                                <div>
+                                                    <span>500.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
                     <br />
                     <p class="text-center text-base text-gray-500 my-10">
                         &copy; 2005-2022
@@ -488,3 +950,28 @@ import AppLayout from "@/Layouts/AppLayout.vue";
         </div>
     </AppLayout>
 </template>
+
+<style>
+@media (min-width: 640px) {
+    table {
+        display: inline-table !important;
+    }
+
+    thead tr:not(:first-child) {
+        display: none;
+    }
+}
+
+td:not(:last-child) {
+    border-bottom: 1;
+}
+
+th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.data {
+    text-align: center;
+    font-weight: bold;
+}
+</style>

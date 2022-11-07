@@ -276,9 +276,21 @@ import AppLayout from "@/Layouts/AppLayout.vue";
                                                                 ></span>
                                                                 <span
                                                                     class="relative"
-                                                                    >Activo</span
+                                                                    >Ordenada</span
                                                                 >
                                                             </span>
+                                                            <!--<span
+                                                                class="relative px-3 py-1 font-semibold text-red-900"
+                                                            >
+                                                                <span
+                                                                    aria-hidden
+                                                                    class="absolute inset-0 bg-red-200 rounded-full"
+                                                                ></span>
+                                                                <span
+                                                                    class="relative"
+                                                                    >No Ordenada</span
+                                                                >
+                                                            </span>-->
                                                         </td>
                                                         <td
                                                             class="border-grey-light border hover:bg-gray-100 p-3"

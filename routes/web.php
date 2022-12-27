@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 use Inertia\Inertia;
 
 /*
@@ -66,6 +67,7 @@ Route::middleware([
     })->name('historial');
 });
 
+Route::post('/contact', ContactController::class)->name('contact');
 
 /* IMPOTRACTOR S.A
 //Auth::routes();

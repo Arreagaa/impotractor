@@ -1,6 +1,14 @@
-<h1>Mensaje de {{$name}}</h1>
-<h4>Es posible contactar con el Cliente por medio de su No. de Contacto {{$phone}}, o bien por su
-    correo electronico {{$email}}
-</h4>
+@component('mail::message')
+<h1>Correo de Cotización</h1>
+<h2>Mensaje de {{$name}}</h2>
+
+<br>
 <p>{{$body}}</p>
 
+<br>
+<p>Contactar al Cliente por Número Teléfono {{$phone}} o por Correo Electrónico {{$email}}.
+</p>
+
+<br>
+<p>¡Más que repuestos, todo un servicio!</p>
+@endcomponent

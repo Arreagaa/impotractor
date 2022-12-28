@@ -31,7 +31,7 @@ class ContactMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Contact Mail',
+            subject: 'Correo Cotizaciones Recibido',
         );
     }
 
@@ -43,7 +43,7 @@ class ContactMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.contact',
+            markdown: 'emails.contact'
         );
     }
 

@@ -9,6 +9,9 @@
 <p>Contactar al Cliente por Número Teléfono {{$phone}} o por Correo Electrónico {{$email}}.
 </p>
 
-<br>
+@component('mail::button', [ 'url' => 'http://127.0.0.1:8000/' ])
+    Cotizaciones Impotractor S.A.
+@endcomponent
+
 <p>¡Más que repuestos, todo un servicio!</p>
 @endcomponent

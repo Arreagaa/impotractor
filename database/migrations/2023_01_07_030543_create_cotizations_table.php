@@ -15,18 +15,16 @@ return new class extends Migration
     {
         Schema::create('cotizations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('referencia');
-            $table->boolean('status')->default(0);
-            $table->string('codigoProveedor');
-            $table->double('cambio', 10, 4);
-            $table->string('transporte');
-            $table->double('fleteExtra', 10, 4);
-            $table->double('pesoTotal', 10, 4);
-            $table->text('numeroParte');
-            $table->text('cantidad');
-            $table->text('descripcion');
-            $table->double('pesoUnidad');
-            $table->double('precio');
+            $table->string('reference');
+            $table->boolean('is_ordered')->default(0);
+            $table->double('rate', 10, 4);
+            $table->double('total_weight', 10, 4);
+            $table->integer('option');
+            $table->double('extra_shipping', 10, 4);
+            $table->string('provider_code');
+            $table->integer('policy')->default(0);
+
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

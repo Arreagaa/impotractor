@@ -26,6 +26,8 @@ return new class extends Migration
             $table->double("descuento", 10, 2);
             $table->integer('cotization_id')->unsigned();
             $table->foreign('cotization_id')->references('id')->on('cotizations');
+
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

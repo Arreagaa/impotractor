@@ -5,8 +5,7 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { ref } from "vue";
 import { GoogleMap, Marker } from "vue3-google-map";
 
-const center = ref({ lat: 14.610338545616212, lng: -90.5402761460274 });
-
+const center = ref({ lat: 14.6094559723096, lng: -90.54014887218062 });
 const form = useForm({
     name: "",
     email: "",
@@ -14,10 +13,14 @@ const form = useForm({
     body: "",
 });
 
+function cleanForm() {
+    form.reset();
+}
+
 const submit = () => {
     form.post(route("contact"), {
-        onSuccess: () => form.reset(),
-        onSuccess: onclick="location.href = '/Succes'",
+        onSuccess: () => cleanForm(),
+        preserveScroll: true,
     });
 };
 </script>
@@ -52,48 +55,95 @@ const submit = () => {
                         <form @submit.prevent="submit" method="POST">
                             <div class="mb-6">
                                 <input
+                                    v-if="form.errors.name"
                                     v-model="form.name"
                                     type="text"
                                     placeholder="Nombre"
-                                    name="Nombre&nbsp;del&nbsp;Cliente"
-                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
-                                    required
+                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus-form focus-danger"
+                                />
+                                <span
+                                    v-if="form.errors.name"
+                                    class="text-sm m-2 text-red-400"
+                                >
+                                    {{ form.errors.name }}
+                                </span>
+                                <input
+                                    v-else
+                                    v-model="form.name"
+                                    type="text"
+                                    placeholder="Nombre"
+                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus-form"
                                 />
                             </div>
                             <div class="mb-6">
                                 <input
+                                    v-if="form.errors.email"
                                     v-model="form.email"
                                     type="email"
                                     placeholder="Correo Electrónico"
-                                    name="Correo&nbsp;Electrónico"
-                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
-                                    required
+                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus-form focus-danger"
+                                />
+                                <span
+                                    v-if="form.errors.email"
+                                    class="text-sm m-2 text-red-400"
+                                >
+                                    {{ form.errors.email }}
+                                </span>
+                                <input
+                                    v-else
+                                    v-model="form.email"
+                                    type="email"
+                                    placeholder="Correo Electrónico"
+                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus-form"
                                 />
                             </div>
                             <div class="mb-6">
                                 <input
+                                    v-if="form.errors.phone"
                                     v-model="form.phone"
-                                    type="text"
+                                    type="tel"
                                     placeholder="Número de teléfono"
-                                    name="Número&nbsp;de&nbsp;Teléfono"
-                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
-                                    required
+                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus-form focus-danger"
+                                />
+                                <span
+                                    v-if="form.errors.phone"
+                                    class="text-sm m-2 text-red-400"
+                                >
+                                    {{ form.errors.phone }}
+                                </span>
+                                <input
+                                    v-else
+                                    v-model="form.phone"
+                                    type="tel"
+                                    placeholder="Número de teléfono"
+                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus-form"
                                 />
                             </div>
                             <div class="mb-6">
                                 <textarea
+                                    v-if="form.errors.body"
                                     v-model="form.body"
                                     rows="6"
                                     placeholder="Mensaje o Cotización"
-                                    name="Mensaje&nbsp;o&nbsp;Cotización"
-                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] resize-none outline-none focus-visible:shadow-none focus:border-primary"
-                                    required
+                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] resize-none outline-none focus-visible:shadow-none focus-form focus-danger"
+                                ></textarea>
+                                <span
+                                    v-if="form.errors.body"
+                                    class="text-sm m-2 text-red-400"
+                                >
+                                    {{ form.errors.body }}
+                                </span>
+                                <textarea
+                                    v-else
+                                    v-model="form.body"
+                                    rows="6"
+                                    placeholder="Mensaje o Cotización"
+                                    class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] resize-none outline-none focus-visible:shadow-none focus-form"
                                 ></textarea>
                             </div>
                             <div>
                                 <button
                                     type="submit"
-                                    onclick="location.href = '/Succes'"
                                     class="w-full text-white bg-zinc-900 rounded border border-primary p-3 transition hover:bg-yellow-400"
                                 >
                                     Enviar

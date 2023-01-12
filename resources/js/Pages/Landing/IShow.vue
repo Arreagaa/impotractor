@@ -23,7 +23,7 @@ import IContact from "./IContact.vue";
     </section>
 
     <section>
-        <div class="relative pb-10">
+        <div class="relative bg-[url('/images/bg/bg-deco.png')] bg-cover pb-10">
             <br />
             <IBagTitle id="About" title="Conócenos" />
             <br />
@@ -35,12 +35,11 @@ import IContact from "./IContact.vue";
     <section>
         <div class="">
             <ICta />
-            <br />
         </div>
     </section>
 
     <section>
-        <div class="bg-white">
+        <div class="bg-[url('/images/bg/bg-values.png')] bg-cover">
             <br />
             <IBagTitle id="Values" title="Valores" />
             <br />
@@ -49,7 +48,7 @@ import IContact from "./IContact.vue";
     </section>
 
     <section>
-        <div class="bg-white">
+        <div class="bg-[url('/images/bg/bg-products.png')] bg-fit bg-no-repeat">
             <br />
             <IBagTitle id="Products" title="Productos" />
             <IProducts />
@@ -58,7 +57,7 @@ import IContact from "./IContact.vue";
     </section>
 
     <section>
-        <div class="relative">
+        <div class="contact relative">
             <br />
             <IBagTitle id="Contact" title="Contacto" />
             <br />
@@ -68,12 +67,12 @@ import IContact from "./IContact.vue";
     </section>
     <section>
         <AppFooter />
-        <IWidget/>
+        <IWidget />
     </section>
 </template>
 
 <style>
-.relative {
+.contact {
     background-color: #ebedef;
 }
 </style>

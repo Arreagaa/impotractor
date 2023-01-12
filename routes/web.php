@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CotizationController;
 use Inertia\Inertia;
 
 /*
@@ -31,11 +32,7 @@ Route::get('/', function () {
 
 Route::get('/Succes', function () {
     return Inertia::render('IContact/ISucces');
-});
-
-/*Route::get('/IDashboard', function () {
-    return Inertia::render('IDashboard/IShow');
-});*/
+})->name('Succes');
 
 Route::middleware([
     'auth:sanctum',
@@ -68,6 +65,9 @@ Route::middleware([
 });
 
 Route::post('/contact', ContactController::class)->name('contact');
+
+Route::resource('cotizations', CotizationController::class)->middleware(['auth:sanctum','verified']);
+
 
 /* IMPOTRACTOR S.A
 //Auth::routes();

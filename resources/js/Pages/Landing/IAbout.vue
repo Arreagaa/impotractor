@@ -6,7 +6,7 @@
                     <div class="lg:w-1/2 w-full pb-16">
                         <div class="row position-relative">
                             <div class="col-lg-7">
-                                <div class="our-story bg-white">
+                                <div class="our-story bg-gray-100">
                                     <h4>Ciudad de Guatemala</h4>
                                     <h3>Nuestra Historia</h3>
                                     <p class="text-lg">
@@ -109,7 +109,9 @@
                                 src="images/impotractor/about-us.jpg"
                                 class="w-full align-middle rounded-t-lg shadow-lg"
                             />
-                            <blockquote class="box relative p-5 mb-0 bg-white">
+                            <blockquote
+                                class="box relative p-5 mb-0 bg-gray-100"
+                            >
                                 <svg
                                     preserveAspectRatio="none"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +139,9 @@
                                 src="https://0201.nccdn.net/4_2/000/000/017/e75/F4-727x483.jpg#RDAMDAID25688643"
                                 class="w-full align-middle rounded-t-lg shadow-lg"
                             />
-                            <blockquote class="box relative p-5 mb-0 bg-white">
+                            <blockquote
+                                class="box relative p-5 mb-0 bg-gray-100"
+                            >
                                 <svg
                                     preserveAspectRatio="none"
                                     xmlns="http://www.w3.org/2000/svg"

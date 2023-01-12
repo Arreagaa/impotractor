@@ -1,41 +1,7 @@
-<script>
+<!--<script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import AppDashboard from "../../Layouts/AppDashboard.vue";
 import IShowCotization from "./IShowCotization.vue";
-
-export default {
-    components: {
-        AppLayout,
-        AppDashboard,
-        IShowCotization,
-    },
-    props: {
-        errors: Object,
-    },
-    data() {
-        return {
-            form: {
-                referencia: null,
-                status: false,
-                codigoProveedor: null,
-                cambio: null,
-                transporte: null,
-                fleteExtra: null,
-                pesoTotal: null,
-                numeroParte: null,
-                cantidad: null,
-                descripcion: null,
-                pesoUnidad: null,
-                precio: null,
-            },
-        };
-    },
-    methods: {
-        submit() {
-            this.$inertia.post(route("cotizations.store"), this.form);
-        },
-    },
-};
 </script>
 
 <template>
@@ -72,7 +38,7 @@ export default {
                                         <div
                                             class="max-w-full mx-auto bg-white pt-6 pr-6 pl-6"
                                         >
-                                            <form @submit.prevent="submit">
+                                            <form>
                                                 <div
                                                     class="grid gap-6 mb-6 lg:grid-cols-4"
                                                 >
@@ -84,9 +50,6 @@ export default {
                                                             Cotización</label
                                                         >
                                                         <input
-                                                            v-model="
-                                                                form.referencia
-                                                            "
                                                             type="text"
                                                             id="referencia"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
@@ -102,9 +65,6 @@ export default {
                                                             proveedor</label
                                                         >
                                                         <input
-                                                            v-model="
-                                                                form.codigoProveedor
-                                                            "
                                                             type="text"
                                                             id="proveedor"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
@@ -120,14 +80,11 @@ export default {
                                                             Cambio</label
                                                         >
                                                         <input
-                                                            v-model="
-                                                                form.cambio
-                                                            "
                                                             type="number"
                                                             id="Cambio"
                                                             class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
-                                                            min="0.00"
-                                                            placeholder="7.75"
+                                                            min="0"
+                                                            value="7.75"
                                                             step="0.01"
                                                             pattern="^\d+(?:\.\d{1,2})?$"
                                                             required
@@ -140,9 +97,6 @@ export default {
                                                             >Tipo de Transporte
                                                         </label>
                                                         <select
-                                                            v-model="
-                                                                form.transporte
-                                                            "
                                                             id="Transporte"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
                                                         >
@@ -175,13 +129,10 @@ export default {
                                                             ($)</label
                                                         >
                                                         <input
-                                                            v-model="
-                                                                form.fleteExtra
-                                                            "
                                                             type="number"
                                                             id="Flete"
                                                             min="0"
-                                                            placeholder="0.00"
+                                                            value="0.00"
                                                             class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
                                                             step="0.01"
                                                             pattern="^\d+(?:\.\d{1,2})?$"
@@ -196,14 +147,11 @@ export default {
                                                             (Lb)</label
                                                         >
                                                         <input
-                                                            v-model="
-                                                                form.pesoTotal
-                                                            "
                                                             type="number"
                                                             id="Peso"
                                                             class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
                                                             min="0"
-                                                            placeholder="0.00"
+                                                            value="0.00"
                                                             step="0.01"
                                                             pattern="^\d+(?:\.\d{1,2})?$"
                                                             required
@@ -217,9 +165,6 @@ export default {
                                                             Parte</label
                                                         >
                                                         <input
-                                                            v-model="
-                                                                form.numeroParte
-                                                            "
                                                             type="text"
                                                             id="Parte"
                                                             class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
@@ -234,9 +179,6 @@ export default {
                                                             >Cantidad</label
                                                         >
                                                         <input
-                                                            v-model="
-                                                                form.cantidad
-                                                            "
                                                             type="number"
                                                             id="Cantidad"
                                                             class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
@@ -253,9 +195,6 @@ export default {
                                                         >Descripción</label
                                                     >
                                                     <textarea
-                                                        v-model="
-                                                            form.descripcion
-                                                        "
                                                         type="email"
                                                         id="Descripcion"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
@@ -272,14 +211,11 @@ export default {
                                                             >Peso (Lb)</label
                                                         >
                                                         <input
-                                                            v-model="
-                                                                form.pesoUnidad
-                                                            "
                                                             type="number"
                                                             id="Peso_Product"
                                                             class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
                                                             min="0"
-                                                            placeholder="0.00"
+                                                            value="0.00"
                                                             step="0.01"
                                                             pattern="^\d+(?:\.\d{1,2})?$"
                                                             required
@@ -292,14 +228,11 @@ export default {
                                                             >Precio ($)</label
                                                         >
                                                         <input
-                                                            v-model="
-                                                                form.precio
-                                                            "
                                                             type="number"
                                                             id="Precio_Product"
                                                             class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-400 dark:focus:border-yellow-400"
                                                             min="0"
-                                                            placeholder="0.00"
+                                                            value="0.00"
                                                             step="0.01"
                                                             pattern="^\d+(?:\.\d{1,2})?$"
                                                             required
@@ -362,3 +295,5 @@ th:not(:last-child) {
     font-weight: bold;
 }
 </style>
+-->
+<template></template>

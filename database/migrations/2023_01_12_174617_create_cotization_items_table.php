@@ -15,16 +15,14 @@ return new class extends Migration
     {
         Schema::create('cotization_items', function (Blueprint $table) {
             $table->id();
-            $table->text('numeroParte');
-            $table->text('cantidad');
-            $table->text('descripcion');
-            $table->double('pesoUnidad');
-            $table->double('precio')->nullable();
+            $table->text('partNumber');
+            $table->text('quantity'); //cantidad
+            $table->text('description');
+            $table->double('weightUnit'); //Peso Unitario
+            $table->double('price')->nullable();
             
             
-
-
-            $table->foreignId('cotization_id')->constrained('cotizations')->onDelete('cascade');
+            $table->foreignId('cotization_id')->on('cotizations')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

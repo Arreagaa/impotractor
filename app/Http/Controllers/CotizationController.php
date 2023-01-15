@@ -44,25 +44,22 @@ class CotizationController extends Controller
      */
     public function store(Request $request)
     {
-        $cotizations = auth()->user->cotizations;
+        $cotizations = auth()->user()->cotizations;
         
-
         $request->validate([
-            'referencia' => 'required',
-            'status' => 'required',
-            'codigoProveedor' => 'required',
-            'cambio' => 'required',
-            'transporte' => 'required',
-            'fleteExtra' => 'required',
-            'pesoTotal' => 'required',
-
-
-
-            'numeroParte' => 'required',
-            'cantidad' => 'required',
-            'descripcion' => 'required',
-            'pesoUnidad' => 'required',
-            'precio' => 'required',
+            'reference' => 'required',
+            'is_ordered' => 'required',
+            'provider_code' => 'required',
+            'rate' => 'required',
+            'transport' => 'required',
+            'extra_shipping' => 'required',
+            'total_weight' => 'required',
+            /**/
+            'partNumber' => 'required',
+            'quantity' => 'required',
+            'description' => 'required',
+            'weightUnit' => 'required',
+            'price' => 'required',
         ]);
 
         if (request()->cotizationId == 0) {
@@ -73,8 +70,14 @@ class CotizationController extends Controller
         }
 
         $cotization_item = new CotizationItem();
+        $cotization_item->partNumber = $request->partNumber;
+        $cotization_item->quantity = $request->quantity;
+        $cotization_item->description = $request->description;
+        $cotization_item->weightUnit = $request->weightUnit;
+        $cotization_item->price = $request->price;
         $cotization_item->cotization_id = $cotization->id;
-        $cotization_item->user_id = auth()->user()->id;
+        
+        //$cotization_item->user_id = auth()->user()->id;
         $cotization_item->save();
 
         $cotization = $this->calculateCotization($cotization);

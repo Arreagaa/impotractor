@@ -280,13 +280,13 @@ const Products = {
 };
 </script>
 <template>
-    <section class="bg-white dark:bg-gray-900 pb-10 max-w-app">
+    <section class="bg-white pb-10 max-w-app">
         <div class="container px-6 py-8 mx-auto">
             <div class="lg:flex lg:-mx-2">
                 <div class="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
                     <div v-for="(item, index) in Products">
                         <a
-                            class="block font-medium text-gray-500 dark:text-gray-300 cursor-pointer"
+                            class="block font-medium text-gray-500 cursor-pointer"
                             @click="active = item.slug"
                             :class="{
                                 'text-yellow-500': active == item.slug,
@@ -300,9 +300,7 @@ const Products = {
                     <div
                         class="flex items-center justify-between text-sm tracking-widest uppercase"
                     >
-                        <p class="text-gray-500 dark:text-gray-300">
-                            Nuestros Productos
-                        </p>
+                        <p class="text-gray-500">Nuestros Productos</p>
                     </div>
 
                     <div
@@ -324,9 +322,7 @@ const Products = {
                                 >
                                     {{ item.name }}
                                 </h4>
-                                <p class="ext-gray-500 dark:text-gray-300">
-                                    Impotractor S.A.
-                                </p>
+                                <p class="ext-gray-500">Impotractor S.A.</p>
 
                                 <IProductsButton />
                             </div>

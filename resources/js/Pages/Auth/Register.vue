@@ -55,7 +55,7 @@ const submit = () => {
                             />
                         </a>
 
-                        <p class="mt-3 text-gray-500 dark:text-gray-300">
+                        <p class="mt-3 text-gray-500">
                             Regístrate para poder continuar
                         </p>
                     </div>

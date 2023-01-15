@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->string("nit");
-            $table->string("cliente");
-            $table->string("contacto");
-            $table->string("telefono");
+            $table->string("client");
+            $table->string("contact");
+            $table->string("phone");
             $table->string("email");
             $table->string("city");
-            $table->string("metodoPago");
-            $table->string("tipo");
-            $table->double("descuento", 10, 2);
+            $table->string("paymentMethod");
+            $table->string("type");
+            $table->double("discount", 10, 2);
             $table->integer('cotization_id')->unsigned();
             $table->foreign('cotization_id')->references('id')->on('cotizations');
 

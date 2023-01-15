@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CotizationItem extends Model
 {
     use HasFactory;
+    protected $table = 'cotization_items';
+
+    public function cotization()
+    {
+        return $this->belongsTo(Cotization::class);
+    }
 }

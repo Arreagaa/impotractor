@@ -65,7 +65,7 @@ const submit = () => {
                             />
                         </a>
 
-                        <p class="mt-3 text-gray-500 dark:text-gray-300">
+                        <p class="mt-3 text-gray-500">
                             Inicia sesión para poder continuar
                         </p>
                     </div>
@@ -148,7 +148,7 @@ const submit = () => {
                             <a
                                 href="/register"
                                 class="text-blue-500 focus:outline-none focus:underline hover:underline"
-                                >Regístrate </a
+                                >Regístrate</a
                             >.
                         </p>
                     </div>

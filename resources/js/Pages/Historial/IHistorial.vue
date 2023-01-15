@@ -96,7 +96,7 @@ export default {
                                                             class="border-grey-light border hover:bg-gray-100 p-3"
                                                         >
                                                             {{
-                                                                cotization.referencia
+                                                                cotization.reference
                                                             }}
                                                         </td>
                                                         <td
@@ -105,15 +105,13 @@ export default {
                                                             {{
                                                                 cotization.created_at
                                                             }}
-
-
                                                         </td>
                                                         <td
                                                             class="border hover:bg-gray-100 p-2"
                                                         >
                                                             <span
                                                                 v-if="
-                                                                    cotization.status ==
+                                                                    cotization.is_ordered ==
                                                                     1
                                                                 "
                                                                 class="relative px-3 py-1 font-semibold text-green-900"
@@ -129,7 +127,7 @@ export default {
                                                             </span>
                                                             <span
                                                                 v-if="
-                                                                    cotization.status ==
+                                                                    cotization.is_ordered ==
                                                                     0
                                                                 "
                                                                 class="relative px-3 py-1 font-semibold text-red-900"
@@ -150,7 +148,7 @@ export default {
                                                         >
                                                             <button
                                                                 v-if="
-                                                                    cotization.status ==
+                                                                    cotization.is_ordered ==
                                                                     1
                                                                 "
                                                                 class="focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 text-sm leading-none text-gray-600 py-2 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
@@ -175,7 +173,7 @@ export default {
                                                             </button>
                                                             <button
                                                                 v-if="
-                                                                    cotization.status ==
+                                                                    cotization.is_ordered ==
                                                                     0
                                                                 "
                                                                 class="focus:ring-2 ml-2 focus:ring-offset-2 focus:ring-yellow-400 text-sm leading-none text-gray-600 py-2 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"

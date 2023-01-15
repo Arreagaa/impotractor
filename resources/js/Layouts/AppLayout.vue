@@ -44,7 +44,7 @@ const logout = () => {
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
+                            <div class="z-50 shrink-0 flex items-center">
                                 <Link :href="route('landing')">
                                     <img
                                         src="/images/impotractor/impotractor-light-logo.png"

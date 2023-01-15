@@ -16,9 +16,7 @@
                     <div
                         class="hidden sm:block absolute sm:bottom-8 bottom-4 pr-10 sm:pr-0 left-4 sm:left-8 flex justify-start items-start"
                     >
-                        <p
-                            class="sm:text-3xl font-bold text-white uppercase"
-                        >
+                        <p class="sm:text-3xl font-bold text-white uppercase">
                             Impotractor S.A
                         </p>
                     </div>
@@ -31,17 +29,15 @@
                 >
                     <a
                         href="/cotization"
-                        class="flex flex-col md:flex-row items-strech justify-between bg-gray-50 dark:bg-gray-800 py-6 px-6 md:py-12 lg:px-12 md:w-8/12 lg:w-7/12 xl:w-8/12 2xl:w-9/12"
+                        class="flex flex-col md:flex-row items-strech justify-between bg-gray-50 py-6 px-6 md:py-12 lg:px-12 md:w-8/12 lg:w-7/12 xl:w-8/12 2xl:w-9/12"
                     >
                         <div class="flex flex-col justify-center md:w-1/2">
                             <h1
-                                class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white"
+                                class="text-3xl lg:text-4xl font-bold text-gray-800"
                             >
                                 Cotizaciones
                             </h1>
-                            <p
-                                class="text-base lg:text-xl text-gray-800 dark:text-white mt-2"
-                            >
+                            <p class="text-base lg:text-xl text-gray-800 mt-2">
                                 Cotizador y Control
                             </p>
                         </div>
@@ -57,17 +53,15 @@
                     </a>
                     <a
                         href="/cotizations"
-                        class="md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 bg-gray-50 dark:bg-gray-800 py-6 px-6 md:py-0 md:px-4 lg:px-6 flex flex-col justify-center relative"
+                        class="md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 bg-gray-50 py-6 px-6 md:py-0 md:px-4 lg:px-6 flex flex-col justify-center relative"
                     >
                         <div class="flex flex-col justify-center">
                             <h1
-                                class="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white"
+                                class="text-3xl lg:text-4xl font-bold text-gray-800"
                             >
                                 Historial de Cotizaciones
                             </h1>
-                            <p
-                                class="text-base lg:text-xl text-gray-800 dark:text-white"
-                            >
+                            <p class="text-base lg:text-xl text-gray-800">
                                 Cotizaciones y Referencias
                             </p>
                         </div>

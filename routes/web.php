@@ -49,9 +49,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/cotization', function () {
-        return Inertia::render('Cotization/ICotization');
-    })->name('cotization');
+    // cotizations.update-items
+    Route::resource('cotizations', CotizationController::class);
+    Route::get('/cotization', 'App\Http\Controllers\CotizationController@cotization')->name('cotization');
+    Route::post('/cotization/update-items', 'App\Http\Controllers\CotizationController@updateItems')->name('cotization.update-items');
 });
 
 Route::middleware([
@@ -65,9 +66,6 @@ Route::middleware([
 });
 
 Route::post('/contact', ContactController::class)->name('contact');
-
-Route::resource('cotizations', CotizationController::class)->middleware(['auth:sanctum','verified']);
-
 
 /* IMPOTRACTOR S.A
 //Auth::routes();

@@ -7,6 +7,7 @@ use App\Models\CotizationItem;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
+use Nette\Utils\Json;
 
 class CotizationController extends Controller
 {
@@ -31,9 +32,39 @@ class CotizationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function cotization()
     {
-        return Inertia::render('Cotization/ICotization');
+        $cotizationId = request()->get('id', 0);
+        $cotization = null;
+        $cotization = Cotization::with('items')
+            ->withSum('items', 'weightUnit')
+            ->withSum('items', 'quantity')
+            ->find($cotizationId);
+
+        if($cotizationId != 0){
+            if($cotization == null){
+                return abort(404);
+            }
+        }
+
+        return Inertia::render(
+            'Cotization/ICotization',
+            ['cotization' => $cotization]
+        );
+    }
+
+    public function updateItems(){
+        $items = request()->items;
+        
+        foreach ($items as $value) {
+            $cotization_item = CotizationItem::find($value['id']);
+            $cotization_item->percentage = $value['percentage'];
+            $cotization_item->total_unit = $value['total_unit'];
+            $cotization_item->total = $value['total'];
+            $cotization_item->update();
+        }
+
+        return response()->json(['msg' => 'ta bien']);
     }
 
     /**
@@ -44,8 +75,6 @@ class CotizationController extends Controller
      */
     public function store(Request $request)
     {
-        $cotizations = auth()->user()->cotizations;
-        
         $request->validate([
             'reference' => 'required',
             'is_ordered' => 'required',
@@ -62,13 +91,26 @@ class CotizationController extends Controller
             'price' => 'required',
         ]);
 
+
         if (request()->cotizationId == 0) {
             $cotization = new Cotization();
+            $cotization->reference = $request->reference;
+            $cotization->is_ordered = $request->is_ordered;
+            $cotization->provider_code = $request->provider_code;
+            $cotization->rate = $request->rate;
+            $cotization->transport = $request->transport;
+            $cotization->extra_shipping = $request->extra_shipping;
+            $cotization->total_weight = $request->total_weight;
+            $cotization->user_id = auth()->user()->id;
+            $cotization->save();
+
             $cotization->items = collect();
         } else {
-            $cotization = Cotization::with('items')->find(request()->cotizationId);
+            $cotization = Cotization::with('items')
+                ->withSum('items', 'weightUnit')
+                ->find(request()->cotizationId);
         }
-
+        
         $cotization_item = new CotizationItem();
         $cotization_item->partNumber = $request->partNumber;
         $cotization_item->quantity = $request->quantity;
@@ -76,13 +118,14 @@ class CotizationController extends Controller
         $cotization_item->weightUnit = $request->weightUnit;
         $cotization_item->price = $request->price;
         $cotization_item->cotization_id = $cotization->id;
-        
-        //$cotization_item->user_id = auth()->user()->id;
         $cotization_item->save();
 
-        $cotization = $this->calculateCotization($cotization);
+        $cotization->items->push($cotization_item);
 
-        return response()->json(['cotization' => $cotization, 'items' => $cotization->items]);
+        $cotization->total_weight = $cotization->items_weight_unit_sum + $cotization_item->weightUnit;
+        $cotization->save();
+        
+        return Redirect::route('cotization', ['id' => $cotization->id]);
     }
 
     public function calculateCotization($cotization)
@@ -99,43 +142,6 @@ class CotizationController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Cotization  $cotization
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Cotization $cotization)
-    {
-        return Inertia::render('Cotization/IShowCotization', ['cotizations' => $cotization]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cotization  $cotization
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cotization $cotization)
-    {
-        return Inertia::render('Cotization/IEditCotization', ['cotizations' => $cotization]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cotization  $cotization
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Cotization $cotization)
-    {
-
-        $items = $request->items;
-        $cotization->update($request->all());
-        return Redirect::route('cotizations.index');
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Cotization  $cotization
@@ -143,11 +149,8 @@ class CotizationController extends Controller
      */
     public function destroy(Cotization $cotization)
     {
-        $cotization->delete();
-        return Redirect::route('cotizations.create');
-
-
-        $cotization = $this->calculateCotization($cotization);
+        // estges es un ejemplo de response json
         return response()->json(['cotization' => $cotization, 'items' => $cotization->items]);
+        return Redirect::route('cotization', ['id' => $cotization->id]);
     }
 }

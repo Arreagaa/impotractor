@@ -146,6 +146,9 @@ export default {
                                                         <td
                                                             class="border-grey-light border hover:bg-gray-100 p-3"
                                                         >
+                                                        <a :href="`/cotization?id=${cotization.id}`">
+                                                            ir
+                                                        </a>
                                                             <button
                                                                 v-if="
                                                                     cotization.is_ordered ==

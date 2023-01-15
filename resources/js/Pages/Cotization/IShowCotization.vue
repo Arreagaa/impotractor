@@ -4,6 +4,7 @@ import ICalculateItem from "./ICalculateItem.vue";
 export default {
   props: {
     cotizationItems: Array,
+    cotization: Object,
   },
   components: { ICalculateItem },
 };
@@ -60,10 +61,11 @@ export default {
                   v-for="(item, index) in cotizationItems"
                   :key="index"
                 >
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.total }}</td>
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.name }}</td>
+                  <td>{{ item.partNumber }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.description }}</td>
+                  <td>{{ item.weightUnit }}</td>
+                  <td>{{ item.price }}</td>
                   <td @click="$emit('delete', item.id)">{{ item.name }}</td>
                 </tr>
               </tbody>
@@ -150,6 +152,7 @@ export default {
               <tbody class="flex-1 sm:flex-none">
                 <ICalculateItem
                   v-for="(item, index) in cotizationItems"
+                  :cotization="cotization"
                   :item="item"
                   :key="index"
                   @item-update="$emit('update-item', $event)"

@@ -219,7 +219,7 @@ class CotizationController extends Controller {
 		$order = new Order;
 		$order->fill($newOrder);
 		$order->save();
-		$cotization->save();
+		$cotization->save(); 
 
 		return response()->json(["success" => 1]);
 	}

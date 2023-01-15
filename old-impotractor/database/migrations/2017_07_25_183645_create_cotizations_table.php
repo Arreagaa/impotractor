@@ -23,6 +23,13 @@ class CreateCotizationsTable extends Migration
             $table->double('extra_shipping', 10, 4);
             $table->string('provider_code');
             $table->integer('policy')->default(0);
+            
+            $table->double('percentage', 10, 4);
+            $table->double('total_unit', 10, 4);
+            $table->double('total', 10, 4);
+
+            $table->foreignId('user_id')->constrained();
+
             $table->timestamps();
         });
     }

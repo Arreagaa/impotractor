@@ -1,6 +1,6 @@
 <template>
     <section class="values">
-        <section class="dark:bg-gray-900 max-w-app pb-20">
+        <section class="max-w-app pb-20">
             <div class="container px-6 mx-auto">
                 <div class="lg:flex lg:items-center text-justify">
                     <div
@@ -23,7 +23,7 @@
                     <div class="w-full space-y-12 lg:w-1/2">
                         <div>
                             <h1
-                                class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white"
+                                class="text-2xl font-semibold text-gray-800 lg:text-4xl"
                             >
                                 Nuestros Objetivos
                             </h1>
@@ -43,7 +43,7 @@
 
                         <div class="md:flex md:items-start md:-mx-4">
                             <span
-                                class="inline-block p-2 text-white bg-yellow-400 rounded-xl md:mx-4 dark:text-white dark:bg-yellow-400"
+                                class="inline-block p-2 text-white bg-yellow-400 rounded-xl md:mx-4"
                             >
                                 <l-icon
                                     icon="fa-solid fa-screwdriver"
@@ -53,14 +53,12 @@
 
                             <div class="mt-4 md:mx-4 md:mt-0">
                                 <h1
-                                    class="text-2xl font-semibold text-gray-700 capitalize dark:text-white"
+                                    class="text-2xl font-semibold text-gray-700 capitalize"
                                 >
                                     Misión Planteada
                                 </h1>
 
-                                <p
-                                    class="mt-3 text-gray-500 dark:text-gray-300"
-                                >
+                                <p class="mt-3 text-gray-500">
                                     Ser una empresa líder en repuestos
                                     aftermarket y la opción número 1 de los
                                     clientes por nuestra calidad, valor y
@@ -71,7 +69,7 @@
 
                         <div class="md:flex md:items-start md:-mx-4">
                             <span
-                                class="inline-block p-2 text-white bg-yellow-400 rounded-xl md:mx-4 dark:text-white dark:bg-yellow-400"
+                                class="inline-block p-2 text-white bg-yellow-400 rounded-xl md:mx-4"
                             >
                                 <l-icon
                                     icon="fa-solid fa-tractor"
@@ -81,14 +79,12 @@
 
                             <div class="mt-4 md:mx-4 md:mt-0">
                                 <h1
-                                    class="text-2xl font-semibold text-gray-700 capitalize dark:text-white"
+                                    class="text-2xl font-semibold text-gray-700 capitalize"
                                 >
                                     Propósito Principal
                                 </h1>
 
-                                <p
-                                    class="mt-3 text-gray-500 dark:text-gray-300"
-                                >
+                                <p class="mt-3 text-gray-500">
                                     De satisfacer los requerimientos de
                                     repuestos legítimos de marcas reconocidas y
                                     de calidad a nivel mundial.
@@ -98,7 +94,7 @@
 
                         <div class="md:flex md:items-start md:-mx-4">
                             <span
-                                class="inline-block p-2 text-white bg-yellow-400 rounded-xl md:mx-4 dark:text-white dark:bg-yellow-400"
+                                class="inline-block p-2 text-white bg-yellow-400 rounded-xl md:mx-4"
                             >
                                 <l-icon
                                     icon="fa-solid fa-briefcase"
@@ -108,14 +104,12 @@
 
                             <div class="mt-4 md:mx-4 md:mt-0">
                                 <h1
-                                    class="text-2xl font-semibold text-gray-700 capitalize dark:text-white"
+                                    class="text-2xl font-semibold text-gray-700 capitalize"
                                 >
                                     Visión Planteada
                                 </h1>
 
-                                <p
-                                    class="mt-3 text-gray-500 dark:text-gray-300"
-                                >
+                                <p class="mt-3 text-gray-500">
                                     Impotractor S.A. es una empresa líder e
                                     independiente, centrada en cumplir, Así como
                                     de proveer repuestos, para motor y

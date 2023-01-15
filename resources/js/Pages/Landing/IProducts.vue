@@ -318,7 +318,7 @@ const Products = {
                                     />
                                 </a>
                                 <h4
-                                    class="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200"
+                                    class="mt-2 text-lg font-medium text-gray-700"
                                 >
                                     {{ item.name }}
                                 </h4>

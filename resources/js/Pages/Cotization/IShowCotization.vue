@@ -6,7 +6,9 @@ export default {
         cotizationItems: Array,
         cotization: Object,
     },
-    components: { ICalculateItem },
+    components: {
+        ICalculateItem,
+    },
 };
 </script>
 <template>

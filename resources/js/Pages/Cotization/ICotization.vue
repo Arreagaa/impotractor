@@ -19,7 +19,7 @@ export default {
                 reference: "",
                 is_ordered: false,
                 provider_code: "",
-                rate: 0.0,
+                rate: 0,
                 transport: "",
                 extra_shipping: 0,
                 total_weight: 0,
@@ -36,13 +36,13 @@ export default {
                 reference: "",
                 is_ordered: false,
                 provider_code: "",
-                rate: 0.0,
-                transport: "",
+                rate: 7.75,
+                transport: "Elegir un Transporte",
                 extra_shipping: 0,
                 total_weight: 0,
                 /*ITEMS*/
                 partNumber: "",
-                quantity: 2,
+                quantity: 0,
                 description: "",
                 weightUnit: 0,
                 price: 0,
@@ -85,7 +85,7 @@ export default {
                     console.log("success", e);
                 },
                 onError: (errors) => {
-                    console.log("errorsin", errors);
+                    console.log("error submit", errors);
                 },
             });
         },
@@ -122,7 +122,7 @@ export default {
                         this.form.total = e.data.cotization.total;
                     },
                     onError: (errors) => {
-                        console.log("errorsin", errors);
+                        console.log("error deleteItem", errors);
                     },
                 }
             );
@@ -162,9 +162,11 @@ export default {
                                         </h3>
                                     </div>
                                     <div class="flow-root">
-                                        <span v-if="alertSuccess"
-                                            >ALertaaaaaaa</span
-                                        >
+                                        <!--<span
+                                            v-if="alertSuccess"
+                                            class="bg-green-300 text-green-700 rounded-lg"
+                                            >saveItems</span
+                                        >-->
                                         <div
                                             class="max-w-full mx-auto bg-white pt-6 pr-6 pl-6"
                                         >
@@ -242,7 +244,7 @@ export default {
                                                         >
                                                             <option selected>
                                                                 Elegir un
-                                                                transport
+                                                                Transporte
                                                             </option>
                                                             <option
                                                                 value="Courier"
@@ -300,6 +302,7 @@ export default {
                                                             placeholder="0.00"
                                                             step="0.01"
                                                             pattern="^\d+(?:\.\d{1,2})?$"
+                                                            disabled
                                                         />
                                                     </div>
                                                     <div>
@@ -418,9 +421,12 @@ export default {
                             />
                         </div>
 
-                        <button @click="saveItems" class="btn btn-primary">
+                        <!--<button
+                            @click="saveItems"
+                            class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                        >
                             Guardar
-                        </button>
+                        </button>-->
                     </main>
 
                     <br />

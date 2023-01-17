@@ -29,7 +29,7 @@
                 >
                     <a
                         href="/cotization"
-                        class="flex flex-col md:flex-row items-strech justify-between bg-gray-50 py-6 px-6 md:py-12 lg:px-12 md:w-8/12 lg:w-7/12 xl:w-8/12 2xl:w-9/12"
+                        class="flex flex-col md:flex-row items-strech justify-between bg-gray-50 py-6 px-6 md:py-12 lg:px-12 md:w-8/12 lg:w-7/12 xl:w-8/12 2xl:w-9/12 hover:translate-x-1 hover:-translate-y-1 delay-50 duration-100"
                     >
                         <div class="flex flex-col justify-center md:w-1/2">
                             <h1
@@ -53,7 +53,7 @@
                     </a>
                     <a
                         href="/cotizations"
-                        class="md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 bg-gray-50 py-6 px-6 md:py-0 md:px-4 lg:px-6 flex flex-col justify-center relative"
+                        class="md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 bg-gray-50 py-6 px-6 md:py-0 md:px-4 lg:px-6 flex flex-col justify-center relative hover:translate-x-1 hover:-translate-y-1 delay-50 duration-100"
                     >
                         <div class="flex flex-col justify-center">
                             <h1

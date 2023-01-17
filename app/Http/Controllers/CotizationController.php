@@ -64,7 +64,7 @@ class CotizationController extends Controller
             $cotization_item->update();
         }
 
-        return response()->json(['msg' => 'ta bien']);
+        return response()->json(['msg' => 'updateItems']);
     }
 
     /**
@@ -104,26 +104,27 @@ class CotizationController extends Controller
             $cotization->user_id = auth()->user()->id;
             $cotization->save();
 
-            $cotization->items = collect();
         } else {
             $cotization = Cotization::with('items')
                 ->withSum('items', 'weightUnit')
                 ->find(request()->cotizationId);
         }
-        
-        $cotization_item = new CotizationItem();
-        $cotization_item->partNumber = $request->partNumber;
-        $cotization_item->quantity = $request->quantity;
-        $cotization_item->description = $request->description;
-        $cotization_item->weightUnit = $request->weightUnit;
-        $cotization_item->price = $request->price;
-        $cotization_item->cotization_id = $cotization->id;
-        $cotization_item->save();
 
-        $cotization->items->push($cotization_item);
+            $cotization_item = new CotizationItem();
+            $cotization_item->partNumber = $request->partNumber;
+            $cotization_item->quantity = $request->quantity;
+            $cotization_item->description = $request->description;
+            $cotization_item->weightUnit = $request->weightUnit;
+            $cotization_item->price = $request->price;
+            $cotization_item->cotization_id = $cotization->id;
+            $cotization_item->save();
 
-        $cotization->total_weight = $cotization->items_weight_unit_sum + $cotization_item->weightUnit;
-        $cotization->save();
+            $cotization->items->push($cotization_item);
+
+            $cotization->total_weight = $cotization->items_weight_unit_sum + $cotization_item->weightUnit;
+            $cotization->save();
+
+            $cotization->items = collect();
         
         return Redirect::route('cotization', ['id' => $cotization->id]);
     }

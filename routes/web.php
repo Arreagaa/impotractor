@@ -49,10 +49,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    // cotizations.update-items
     Route::resource('cotizations', CotizationController::class);
     Route::get('/cotization', 'App\Http\Controllers\CotizationController@cotization')->name('cotization');
     Route::post('/cotization/update-items', 'App\Http\Controllers\CotizationController@updateItems')->name('cotization.update-items');
+    Route::post('/cotization/calculate-cotization', 'App\Http\Controllers\CotizationController@calculateCotization')->name('cotization.calculate-cotization');
 });
 
 Route::middleware([

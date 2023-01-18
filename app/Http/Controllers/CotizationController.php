@@ -37,12 +37,10 @@ class CotizationController extends Controller
         $cotizationId = request()->get('id', 0);
         $cotization = null;
         $cotization = Cotization::with('items')
-            ->withSum('items', 'weightUnit')
-            ->withSum('items', 'quantity')
             ->find($cotizationId);
 
-        if($cotizationId != 0){
-            if($cotization == null){
+        if ($cotizationId != 0) {
+            if ($cotization == null) {
                 return abort(404);
             }
         }
@@ -53,9 +51,10 @@ class CotizationController extends Controller
         );
     }
 
-    public function updateItems(){
+    public function updateItems()
+    {
         $items = request()->items;
-        
+
         foreach ($items as $value) {
             $cotization_item = CotizationItem::find($value['id']);
             $cotization_item->percentage = $value['percentage'];
@@ -81,13 +80,10 @@ class CotizationController extends Controller
             'provider_code' => 'required',
             'rate' => 'required',
             'transport' => 'required',
-            'extra_shipping' => 'required',
-            'total_weight' => 'required',
             /**/
             'partNumber' => 'required',
             'quantity' => 'required',
             'description' => 'required',
-            'weightUnit' => 'required',
             'price' => 'required',
         ]);
 
@@ -99,33 +95,27 @@ class CotizationController extends Controller
             $cotization->provider_code = $request->provider_code;
             $cotization->rate = $request->rate;
             $cotization->transport = $request->transport;
-            $cotization->extra_shipping = $request->extra_shipping;
-            $cotization->total_weight = $request->total_weight;
             $cotization->user_id = auth()->user()->id;
             $cotization->save();
-
         } else {
             $cotization = Cotization::with('items')
-                ->withSum('items', 'weightUnit')
                 ->find(request()->cotizationId);
         }
 
-            $cotization_item = new CotizationItem();
-            $cotization_item->partNumber = $request->partNumber;
-            $cotization_item->quantity = $request->quantity;
-            $cotization_item->description = $request->description;
-            $cotization_item->weightUnit = $request->weightUnit;
-            $cotization_item->price = $request->price;
-            $cotization_item->cotization_id = $cotization->id;
-            $cotization_item->save();
+        $cotization_item = new CotizationItem();
+        $cotization_item->partNumber = $request->partNumber;
+        $cotization_item->quantity = $request->quantity;
+        $cotization_item->description = $request->description;
+        $cotization_item->price = $request->price;
+        $cotization_item->cotization_id = $cotization->id;
+        $cotization_item->save();
 
-            $cotization->items->push($cotization_item);
+        $cotization->items->push($cotization_item);
 
-            $cotization->total_weight = $cotization->items_weight_unit_sum + $cotization_item->weightUnit;
-            $cotization->save();
+        $cotization->save();
 
-            $cotization->items = collect();
-        
+        $cotization->items = collect();
+
         return Redirect::route('cotization', ['id' => $cotization->id]);
     }
 
@@ -133,13 +123,14 @@ class CotizationController extends Controller
     {
         $total  = 0;
         foreach ($cotization->items as $item) {
-            $item->total = $item->cantidad * $item->precio;
+            $item->total = $item->quantity * $item->price;
         }
 
         $cotization->total = $total;
         $cotization->save();
 
-        return $cotization;
+        return response()->json(['cotization' => $cotization, 'items' => $cotization->items]);
+        //return $cotization;
     }
 
     /**
@@ -150,7 +141,7 @@ class CotizationController extends Controller
      */
     public function destroy(Cotization $cotization)
     {
-        // estges es un ejemplo de response json
+        // ejemplo json
         return response()->json(['cotization' => $cotization, 'items' => $cotization->items]);
         return Redirect::route('cotization', ['id' => $cotization->id]);
     }

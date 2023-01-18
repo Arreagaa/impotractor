@@ -6,20 +6,6 @@ export default {
     },
     data() {
         return {
-            prices: {
-                35: {
-                    unit: 0,
-                    total: 0,
-                },
-                30: {
-                    unit: 0,
-                    total: 0,
-                },
-                25: {
-                    unit: 0,
-                    total: 0,
-                },
-            },
             itemable: {
                 id: 0,
                 percentage: 0,
@@ -32,7 +18,7 @@ export default {
         this.calculate();
     },
     methods: {
-        upodateItem() {
+        updateItem() {
             this.itemable.total =
                 parseFloat(this.itemable.percentage) *
                 parseFloat(this.itemable.total_unit);
@@ -58,34 +44,39 @@ export default {
 </script>
 <template>
     <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-        <td class="border-grey-light border hover:bg-gray-100 p-3">
+        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
             {{ item.partNumber }}
         </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3">
+        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
             {{ item.quantity }}
         </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3">
+        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
             {{ item.description }}
         </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3">
-            {{ item.weightUnit }}
-        </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3">
-            {{ item.price }}
+        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
+            Q.{{ item.price }}
         </td>
 
-        <td class="border-grey-light border hover:bg-gray-100 p-3">
-            <input
-                v-model="itemable.percentage"
-                type="text"
-                @keydown.enter="upodateItem"
-            />
+        <td class="border-grey-light border hover:bg-gray-100 p-3 text-left">
+            <div class="flex">
+                <input
+                    v-model="itemable.percentage"
+                    class="w-full rounded-sm rounded-l-lg border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
+                    type="number"
+                    @keydown.enter="updateItem"
+                />
+                <span
+                    class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-r-md dark:bg-gray-600"
+                >
+                    %
+                </span>
+            </div>
         </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3">
-            {{ itemable.total_unit }}
+        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
+            Q.{{ itemable.total_unit }}
         </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3">
-            {{ itemable.total }}
+        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
+            Q.{{ itemable.total }}
         </td>
     </tr>
 </template>

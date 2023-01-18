@@ -3,6 +3,9 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import AppDashboard from "../../Layouts/AppDashboard.vue";
 import IShowCotization from "./IShowCotization.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+//ALERTS
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/dist/sweetalert2.min.css";
 
 export default {
     components: {
@@ -21,8 +24,6 @@ export default {
                 provider_code: "",
                 rate: 0,
                 transport: "",
-                extra_shipping: 0,
-                total_weight: 0,
                 items: [],
             }),
         },
@@ -37,14 +38,11 @@ export default {
                 is_ordered: false,
                 provider_code: "",
                 rate: 7.75,
-                transport: "Elegir un Transporte",
-                extra_shipping: 0,
-                total_weight: 0,
+                transport: "Elegir Cotización",
                 /*ITEMS*/
                 partNumber: "",
                 quantity: 0,
                 description: "",
-                weightUnit: 0,
                 price: 0,
             },
             formOrder: {
@@ -71,22 +69,32 @@ export default {
                 this.form.provider_code = this.cotization.provider_code;
                 this.form.rate = this.cotization.rate;
                 this.form.transport = this.cotization.transport;
-                this.form.extra_shipping = this.cotization.extra_shipping;
-                this.form.total_weight = this.cotization.items_sum_weight_unit;
                 this.items = this.cotization.items;
             }
         },
         submit() {
-            this.form.post(route("cotizations.store"), {
-                errorBag: "processForm",
-                forceFormData: true,
-                preserveScroll: true,
-                onSuccess: (e) => {
-                    console.log("success", e);
-                },
-                onError: (errors) => {
-                    console.log("error submit", errors);
-                },
+            Swal.fire({
+                title: "¿Estás seguro?",
+                text: "Asegúrate que la Cotización este completa.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#FFCC00",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "¡Si, generar Cotización!",
+                cancelButtonText: "Cancelar",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.$inertia.post(route("cotizations.store"), this.form, {
+                        forceFormData: true,
+                        preserveScroll: true,
+                    });
+                    Swal.fire({
+                        title: "¡Cotización Creada!",
+                        text: "La Cotización ha sido creada exitosamente.",
+                        icon: "success",
+                        confirmButtonColor: "#FFCC00",
+                    });
+                }
             });
         },
         updateItem(item) {
@@ -162,11 +170,6 @@ export default {
                                         </h3>
                                     </div>
                                     <div class="flow-root">
-                                        <!--<span
-                                            v-if="alertSuccess"
-                                            class="bg-green-300 text-green-700 rounded-lg"
-                                            >saveItems</span
-                                        >-->
                                         <div
                                             class="max-w-full mx-auto bg-white pt-6 pr-6 pl-6"
                                         >
@@ -233,7 +236,7 @@ export default {
                                                         <label
                                                             for="transport"
                                                             class="block mb-2 text-base font-medium text-gray-900"
-                                                            >Tipo de Transporte
+                                                            >Tipo de Cotización
                                                         </label>
                                                         <select
                                                             v-model="
@@ -243,13 +246,13 @@ export default {
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
                                                         >
                                                             <option selected>
-                                                                Elegir un
-                                                                Transporte
+                                                                Elegir
+                                                                Cotización
                                                             </option>
                                                             <option
-                                                                value="Courier"
+                                                                value="Stock"
                                                             >
-                                                                Courier
+                                                                Stock
                                                             </option>
                                                             <option
                                                                 value="Aereo"
@@ -261,50 +264,14 @@ export default {
                                                             >
                                                                 Reservado
                                                             </option>
+                                                            <option
+                                                                value="Reservado"
+                                                            >
+                                                                Courier
+                                                            </option>
                                                         </select>
                                                     </div>
-                                                    <div>
-                                                        <label
-                                                            for="Flete"
-                                                            class="block mb-2 text-base font-medium text-gray-900"
-                                                            >Flete Extra
-                                                            ($)</label
-                                                        >
-                                                        <input
-                                                            v-model="
-                                                                form.extra_shipping
-                                                            "
-                                                            type="number"
-                                                            id="Flete"
-                                                            min="0"
-                                                            placeholder="0.00"
-                                                            class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
-                                                            step="0.01"
-                                                            pattern="^\d+(?:\.\d{1,2})?$"
-                                                            required
-                                                        />
-                                                    </div>
-                                                    <div>
-                                                        <label
-                                                            for="Peso"
-                                                            class="block mb-2 text-base font-medium text-gray-900"
-                                                            >Peso total
-                                                            (Lb)</label
-                                                        >
-                                                        <input
-                                                            v-model="
-                                                                form.total_weight
-                                                            "
-                                                            type="number"
-                                                            id="Peso"
-                                                            class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
-                                                            min="0"
-                                                            placeholder="0.00"
-                                                            step="0.01"
-                                                            pattern="^\d+(?:\.\d{1,2})?$"
-                                                            disabled
-                                                        />
-                                                    </div>
+
                                                     <div>
                                                         <label
                                                             for="Parte"
@@ -341,43 +308,19 @@ export default {
                                                             required
                                                         />
                                                     </div>
-                                                </div>
-                                                <div class="mb-6">
-                                                    <label
-                                                        for="description"
-                                                        class="block mb-2 text-base font-medium text-gray-900"
-                                                        >Descripción</label
-                                                    >
-                                                    <textarea
-                                                        v-model="
-                                                            form.description
-                                                        "
-                                                        type="email"
-                                                        id="description"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
-                                                        required
-                                                    />
-                                                </div>
-                                                <div
-                                                    class="grid gap-6 mb-6 lg:grid-cols-2"
-                                                >
                                                     <div>
                                                         <label
-                                                            for="Peso_Product"
+                                                            for="description"
                                                             class="block mb-2 text-base font-medium text-gray-900"
-                                                            >Peso (Lb)</label
+                                                            >Descripción</label
                                                         >
                                                         <input
                                                             v-model="
-                                                                form.weightUnit
+                                                                form.description
                                                             "
-                                                            type="number"
-                                                            id="Peso_Product"
-                                                            class="bg-gray-50 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
-                                                            min="0"
-                                                            placeholder="0.00"
-                                                            step="0.01"
-                                                            pattern="^\d+(?:\.\d{1,2})?$"
+                                                            type="text"
+                                                            id="description"
+                                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
                                                             required
                                                         />
                                                     </div>
@@ -385,7 +328,7 @@ export default {
                                                         <label
                                                             for="price_Product"
                                                             class="block mb-2 text-base font-medium text-gray-900"
-                                                            >Precio ($)</label
+                                                            >Precio (Q)</label
                                                         >
                                                         <input
                                                             v-model="form.price"
@@ -420,13 +363,16 @@ export default {
                                 @update-item="updateItem($event)"
                             />
                         </div>
-
-                        <!--<button
-                            @click="saveItems"
-                            class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-                        >
-                            Guardar
-                        </button>-->
+                        <div v-if="cotization" class="flex justify-end m-12">
+                            <button
+                                :cotization-items="cotization.items"
+                                :cotization="cotization"
+                                @click="saveItems"
+                                class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                            >
+                                Guardar
+                            </button>
+                        </div>
                     </main>
 
                     <br />

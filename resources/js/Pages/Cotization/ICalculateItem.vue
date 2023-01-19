@@ -54,7 +54,7 @@ export default {
             {{ item.description }}
         </td>
         <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
-            Q.{{ item.price }}
+            Q.{{ item.price.toFixed(2) }}
         </td>
 
         <td class="border-grey-light border hover:bg-gray-100 p-3 text-left">

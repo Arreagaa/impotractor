@@ -55,16 +55,14 @@ export default {
                                         {{ item.description }}
                                     </td>
                                     <td class="p-3 text-center">
-                                        Q.{{ item.price }}
+                                        Q.{{ item.price.toFixed(2) }}
                                     </td>
                                     <td class="p-3 text-center">
                                         Q.{{ item.total }}
                                     </td>
-                                    <td
-                                        class="p-3 text-center"
-                                        @click="$emit('delete', item.id)"
-                                    >
+                                    <td class="p-3 text-center">
                                         <button
+                                            @click="$emit('delete', item.id)"
                                             class="focus:ring-2 focus:ring-offset-2 focus:ring-red-400 text-sm leading-none text-gray-600 py-2 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
                                         >
                                             <svg

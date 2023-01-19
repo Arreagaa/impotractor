@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('cotization_items', function (Blueprint $table) {
             $table->id();
             $table->text('partNumber');
-            $table->text('quantity'); //cantidad
+            $table->double('quantity'); //cantidad
             $table->text('description');
             $table->double('price', 10, 2)->nullable();
             

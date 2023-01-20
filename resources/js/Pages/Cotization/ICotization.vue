@@ -2,6 +2,7 @@
 import AppLayout from "@/Layouts/AppLayout.vue";
 import AppDashboard from "../../Layouts/AppDashboard.vue";
 import IShowCotization from "./IShowCotization.vue";
+import IModal from "../Order/IModal.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 //ALERTS
 import Swal from "sweetalert2/dist/sweetalert2.js";
@@ -12,6 +13,7 @@ export default {
         AppLayout,
         AppDashboard,
         IShowCotization,
+        IModal,
     },
     props: {
         errors: Object,
@@ -395,6 +397,9 @@ export default {
                             >
                                 Guardar
                             </button>
+                        </div>
+                        <div class="flex justify-end m-12">
+                            <IModal />
                         </div>
                     </main>
 

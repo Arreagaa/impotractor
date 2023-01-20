@@ -139,10 +139,21 @@ class CotizationController extends Controller
      * @param  \App\Models\Cotization  $cotization
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cotization $cotization)
+    public function destroy(Cotization $cotization, CotizationItem $cotization_item)
     {
-        // ejemplo json
-        return response()->json(['cotization' => $cotization, 'items' => $cotization->items]);
+        //$cotization = CotizationItem::find('id');
+        //$cotization->items()->find('id')->delete();
+        //return response()->json(['cotization' => $cotization, 'items' => $cotization->items]);
+
+        $cotization = CotizationItem::find('id');
+        
+        $cotization->delete();
+
+        //CotizationItem::where('id', 1 )->delete();
+
+        /*$cotization_item = CotizationItem::find($cotization_item->id);
+        $cotization_item->delete();*/
+        
         return Redirect::route('cotization', ['id' => $cotization->id]);
     }
 }

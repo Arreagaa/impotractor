@@ -44,6 +44,7 @@ export default {
                 quantity: 0,
                 description: "",
                 price: 0,
+                itemId: 0,
             },
             formOrder: {
                 cotizationId: 0,
@@ -117,7 +118,7 @@ export default {
                     this.itemsUpdate = [];
                 });
         },
-        deleteItem() {
+        /*deleteItem() {
             this.form.delete(
                 route("cotizations.destroy", this.form.cotizationId),
                 {
@@ -134,6 +135,28 @@ export default {
                     },
                 }
             );
+        },*/
+        deleteItem() {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "Activity Deletion Process!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#667eea",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.$inertia.delete(
+                        route("cotizations.destroy", this.form.itemId)
+                    );
+                    Swal.fire(
+                        "Activity Deleted!",
+                        "Your Activity has been Deleted.",
+                        "success"
+                    );
+                }
+            });
         },
     },
 };

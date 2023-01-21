@@ -51,10 +51,10 @@ Route::middleware([
 ])->group(function () {
     Route::resource('cotizations', CotizationController::class);
     Route::get('/cotization', 'App\Http\Controllers\CotizationController@cotization')->name('cotization');
-    Route::post('/cotization/update-items', 'App\Http\Controllers\CotizationController@updateItems')->name('cotization.update-items');
-    Route::post('/cotization/calculate-cotization', 'App\Http\Controllers\CotizationController@calculateCotization')->name('cotization.calculate-cotization');
+    Route::post('/cotization/{id}/order', 'App\Http\Controllers\CotizationController@cotizationOrder')->name('cotizations.order');
+    Route::delete('/cotization/{cotization_id}/item/{id}', 'App\Http\Controllers\CotizationController@deleteItem')->name('cotization_item.delete');
+    Route::post('/cotization/{cotization_id}/item/{id}', 'App\Http\Controllers\CotizationController@updateItem')->name('cotization_item.update');
 });
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

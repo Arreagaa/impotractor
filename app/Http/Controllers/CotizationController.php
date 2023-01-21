@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cotization;
 use App\Models\CotizationItem;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
@@ -108,6 +109,7 @@ class CotizationController extends Controller
         $cotization_item->description = $request->description;
         $cotization_item->price = $request->price;
         $cotization_item->cotization_id = $cotization->id;
+        $cotization_item->total = $cotization_item->quantity * $cotization_item->price;
         $cotization_item->save();
 
         $cotization->items->push($cotization_item);
@@ -139,21 +141,46 @@ class CotizationController extends Controller
      * @param  \App\Models\Cotization  $cotization
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cotization $cotization, CotizationItem $cotization_item)
-    {
-        //$cotization = CotizationItem::find('id');
-        //$cotization->items()->find('id')->delete();
-        //return response()->json(['cotization' => $cotization, 'items' => $cotization->items]);
 
-        $cotization = CotizationItem::find('id');
-        
+    public function updateItem($cotization_id, $id)
+    {
+        $cotization_item = CotizationItem::with('cotization')->find($id);
+        $cotization_item->percentage = request()->percentage;
+        $cotization_item->total = request()->total;
+
+        $cotization_item->update();
+
+        return Redirect::route('cotization', ['id' => $cotization_id]);
+    }
+
+    public function destroy(Cotization $cotization)
+    {
         $cotization->delete();
 
-        //CotizationItem::where('id', 1 )->delete();
+        return Redirect::route('cotization');
+    }
 
-        /*$cotization_item = CotizationItem::find($cotization_item->id);
-        $cotization_item->delete();*/
-        
+    public function deleteItem($cotization_id, $id)
+    {
+
+        $cotization_item = CotizationItem::find($id);
+        $cotization_item->delete();
+
+        return Redirect::route('cotization', ['id' => $cotization_id]);
+    }
+
+    public function cotizationOrder($id)
+    {
+        $cotization = Cotization::with('items')->find($id);
+        $cotization->is_ordered = true;
+        $cotization->update();
+
+        $order = new Order();
+        $order->cotization_id = $cotization->id;
+        $order->user_id = auth()->user()->id;
+        $order->save();
+
+
         return Redirect::route('cotization', ['id' => $cotization->id]);
     }
 }

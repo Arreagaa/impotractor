@@ -21,7 +21,6 @@ return new class extends Migration
             $table->double('price', 10, 2)->nullable();
             
             $table->double('percentage', 10, 4)->nullable();
-            $table->double('total_unit', 10, 4)->nullable();
             $table->double('total', 10, 4)->nullable();
             
             $table->foreignId('cotization_id')->on('cotizations')->onDelete('cascade');

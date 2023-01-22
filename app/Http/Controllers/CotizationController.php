@@ -59,7 +59,6 @@ class CotizationController extends Controller
         foreach ($items as $value) {
             $cotization_item = CotizationItem::find($value['id']);
             $cotization_item->percentage = $value['percentage'];
-            $cotization_item->total_unit = $value['total_unit'];
             $cotization_item->total = $value['total'];
             $cotization_item->update();
         }
@@ -119,20 +118,6 @@ class CotizationController extends Controller
         $cotization->items = collect();
 
         return Redirect::route('cotization', ['id' => $cotization->id]);
-    }
-
-    public function calculateCotization($cotization)
-    {
-        $total  = 0;
-        foreach ($cotization->items as $item) {
-            $item->total = $item->quantity * $item->price;
-        }
-
-        $cotization->total = $total;
-        $cotization->save();
-
-        return response()->json(['cotization' => $cotization, 'items' => $cotization->items]);
-        //return $cotization;
     }
 
     /**

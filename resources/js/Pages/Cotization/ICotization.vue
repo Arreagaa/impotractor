@@ -34,6 +34,7 @@ export default {
         return {
             items: [],
             itemsUpdate: [],
+            totalGrand: 0,
             form: {
                 cotizationId: 0,
                 reference: "",
@@ -52,6 +53,15 @@ export default {
             },
             alertSuccess: false,
         };
+    },
+    computed: {
+        grandTotal() {
+            this.totalGrand = 0;
+            for (this.item of this.items) {
+                this.totalGrand = this.totalGrand + this.item.total;
+            }
+            return this.totalGrand;
+        },
     },
     mounted() {
         this.form = useForm(this.form);
@@ -525,6 +535,7 @@ export default {
                             <IShowCotization
                                 :cotization-items="cotization.items"
                                 :cotization="cotization"
+                                :grandTotal="grandTotal"
                                 @delete="deleteItem($event)"
                                 @update-item="updateItem($event)"
                             />

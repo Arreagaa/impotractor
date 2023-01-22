@@ -94,7 +94,7 @@ export default {
                         >
                             <div>Gran Total</div>
                             <div>
-                                <span>Q.{{ grandTotal }} *</span>
+                                <span>Q.{{ grandTotal.toFixed(2) }}</span>
                             </div>
                         </div>
                     </div>

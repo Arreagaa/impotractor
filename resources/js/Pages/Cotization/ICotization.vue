@@ -228,7 +228,7 @@ export default {
                                                         <input
                                                             v-if="
                                                                 form.is_ordered ==
-                                                                    1 || false
+                                                                1
                                                             "
                                                             v-model="
                                                                 form.reference
@@ -261,7 +261,7 @@ export default {
                                                         <input
                                                             v-if="
                                                                 form.is_ordered ==
-                                                                    1 || false
+                                                                1
                                                             "
                                                             v-model="
                                                                 form.provider_code
@@ -294,7 +294,7 @@ export default {
                                                         <input
                                                             v-if="
                                                                 form.is_ordered ==
-                                                                    1 || false
+                                                                1
                                                             "
                                                             v-model="form.rate"
                                                             type="number"
@@ -328,7 +328,7 @@ export default {
                                                         <select
                                                             v-if="
                                                                 form.is_ordered ==
-                                                                    1 || false
+                                                                1
                                                             "
                                                             v-model="
                                                                 form.transport
@@ -407,7 +407,7 @@ export default {
                                                         <input
                                                             v-if="
                                                                 form.is_ordered ==
-                                                                    1 || false
+                                                                1
                                                             "
                                                             v-model="
                                                                 form.partNumber
@@ -439,7 +439,7 @@ export default {
                                                         <input
                                                             v-if="
                                                                 form.is_ordered ==
-                                                                    1 || false
+                                                                1
                                                             "
                                                             v-model="
                                                                 form.quantity
@@ -473,7 +473,7 @@ export default {
                                                         <input
                                                             v-if="
                                                                 form.is_ordered ==
-                                                                    1 || false
+                                                                1
                                                             "
                                                             v-model="
                                                                 form.description
@@ -503,7 +503,7 @@ export default {
                                                         <input
                                                             v-if="
                                                                 form.is_ordered ==
-                                                                    1 || false
+                                                                1
                                                             "
                                                             v-model="form.price"
                                                             type="number"
@@ -530,6 +530,15 @@ export default {
                                                     </div>
                                                 </div>
                                                 <button
+                                                    v-if="form.is_ordered == 1"
+                                                    type="submit"
+                                                    class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                                                    disabled
+                                                >
+                                                    Guardar
+                                                </button>
+                                                <button
+                                                    v-else
                                                     type="submit"
                                                     class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                                                 >
@@ -550,12 +559,28 @@ export default {
                                 @update-item="updateItem($event)"
                             />
                         </div>
-                        <div v-if="cotization" class="flex justify-end m-12">
-                            <IModal
-                                @order="order($event)"
-                                :formOrder="formOrder"
-                            />
-                        </div>
+                        <section v-if="form.is_ordered == 1">
+                            <div
+                                v-if="cotization"
+                                class="hidden flex justify-end m-12"
+                            >
+                                <IModal
+                                    @order="order($event)"
+                                    :formOrder="formOrder"
+                                />
+                            </div>
+                        </section>
+                        <section v-else>
+                            <div
+                                v-if="cotization"
+                                class="flex justify-end m-12"
+                            >
+                                <IModal
+                                    @order="order($event)"
+                                    :formOrder="formOrder"
+                                />
+                            </div>
+                        </section>
                     </main>
 
                     <br />

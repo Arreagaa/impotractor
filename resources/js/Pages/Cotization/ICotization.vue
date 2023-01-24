@@ -50,6 +50,15 @@ export default {
             },
             formOrder: {
                 cotizationId: 0,
+                nit: "",
+                client: "",
+                contact: "",
+                phone: 0,
+                email: "",
+                city: "",
+                paymentMethod: "",
+                type: "",
+                discount: 0,
             },
             alertSuccess: false,
         };
@@ -112,11 +121,12 @@ export default {
         order() {
             this.formOrder.cotizationId = this.form.cotizationId;
             this.$inertia.post(
-                route("cotizations.order", { id: this.form.cotizationId }),
+                route("cotizations.order", {
+                    id: this.form.cotizationId,
+                }),
                 this.formOrder,
                 {
                     forceFormData: true,
-                    preserveScroll: true,
                 }
             );
         },
@@ -541,7 +551,10 @@ export default {
                             />
                         </div>
                         <div v-if="cotization" class="flex justify-end m-12">
-                            <IModal @order="order($event)" />
+                            <IModal
+                                @order="order($event)"
+                                :formOrder="formOrder"
+                            />
                         </div>
                     </main>
 

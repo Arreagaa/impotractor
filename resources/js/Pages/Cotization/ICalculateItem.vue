@@ -12,11 +12,14 @@ export default {
             },
         };
     },
-    created() {},
+    computed: {
+        discount() {
+            return (this.itemable.total * this.itemable.percentage) / 100;
+        },
+    },
     methods: {
         updateItem() {
-            this.itemable.total =
-                (this.itemable.total * this.itemable.percentage) / 100;
+            this.itemable.total = this.itemable.total - this.discount;
             this.$inertia.post(
                 route("cotization_item.update", {
                     cotization_id: this.cotization.id,
@@ -56,6 +59,15 @@ export default {
         <td class="border-grey-light border hover:bg-gray-100 p-3 text-left">
             <div class="flex">
                 <input
+                    v-if="cotization.is_ordered == 1"
+                    v-model="itemable.percentage"
+                    class="w-full rounded-sm rounded-l-lg border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
+                    type="number"
+                    @keydown.enter="updateItem"
+                    disabled
+                />
+                <input
+                    v-else
                     v-model="itemable.percentage"
                     class="w-full rounded-sm rounded-l-lg border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                     type="number"

@@ -2,6 +2,7 @@
 export default {
     props: {
         order: Object,
+        formOrder: Object,
     },
 };
 </script>
@@ -64,7 +65,7 @@ export default {
                 class="flex max-w-app h-auto py-10 px-2 justify-center items-center"
             >
                 <div class="max-w-2xl mx-auto bg-white p-4">
-                    <form>
+                    <form @submit.prevent="$emit('order')">
                         <div class="grid gap-6 mb-6 lg:grid-cols-2">
                             <div>
                                 <label
@@ -73,7 +74,8 @@ export default {
                                     >NIT</label
                                 >
                                 <input
-                                    type="number"
+                                    v-model="formOrder.nit"
+                                    type="text"
                                     id="nit"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
                                     placeholder="NIT del Cliente"
@@ -87,6 +89,7 @@ export default {
                                     >Cliente</label
                                 >
                                 <input
+                                    v-model="formOrder.client"
                                     type="text"
                                     id="name"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
@@ -101,6 +104,7 @@ export default {
                                     >Contacto</label
                                 >
                                 <input
+                                    v-model="formOrder.contact"
                                     type="text"
                                     id="contact"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
@@ -115,6 +119,7 @@ export default {
                                     >Teléfono</label
                                 >
                                 <input
+                                    v-model="formOrder.phone"
                                     type="tel"
                                     id="phone"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
@@ -129,6 +134,7 @@ export default {
                                     >Correo Electrónico</label
                                 >
                                 <input
+                                    v-model="formOrder.email"
                                     type="email"
                                     id="email"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
@@ -143,6 +149,7 @@ export default {
                                     >Ciudad</label
                                 >
                                 <input
+                                    v-model="formOrder.city"
                                     type="text"
                                     id="city"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
@@ -158,6 +165,7 @@ export default {
                                 >Forma de Pago</label
                             >
                             <input
+                                v-model="formOrder.paymentMethod"
                                 type="text"
                                 id="pay"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
@@ -173,6 +181,7 @@ export default {
                                     >Tipo de Cotización</label
                                 >
                                 <select
+                                    v-model="formOrder.type"
                                     id="transport"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 focus-form"
                                 >
@@ -190,6 +199,7 @@ export default {
                                     >Descuento</label
                                 >
                                 <input
+                                    v-model="formOrder.discount"
                                     type="text"
                                     id="percentage"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
@@ -199,7 +209,6 @@ export default {
                             </div>
                         </div>
                         <button
-                            @click="order"
                             type="submit"
                             class="inline-flex items-center text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                         >

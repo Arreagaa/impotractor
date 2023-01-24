@@ -154,18 +154,39 @@ class CotizationController extends Controller
         return Redirect::route('cotization', ['id' => $cotization_id]);
     }
 
-    public function cotizationOrder($id)
+    public function cotizationOrder(Request $request, $id)
     {
         $cotization = Cotization::with('items')->find($id);
         $cotization->is_ordered = true;
         $cotization->update();
 
+        $request->validate([
+            'nit' => 'required',
+            'client' => 'required',
+            'contact' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'city' => 'required',
+            'paymentMethod' => 'required',
+            'type' => 'required',
+            'discount' => 'required',
+        ]);
+
         $order = new Order();
+        $order->nit = $request->nit;
+        $order->client = $request->client;
+        $order->contact = $request->contact;
+        $order->phone = $request->phone;
+        $order->email = $request->email;
+        $order->city = $request->city;
+        $order->paymentMethod = $request->paymentMethod;
+        $order->type = $request->type;
+        $order->discount = $request->discount;
         $order->cotization_id = $cotization->id;
         $order->user_id = auth()->user()->id;
         $order->save();
-
-
-        return Redirect::route('cotization', ['id' => $cotization->id]);
+        
+        return Redirect::route('cotizations.index');
+        //return Redirect::route('cotization', ['id' => $cotization->id]);
     }
 }

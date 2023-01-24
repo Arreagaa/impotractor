@@ -6,7 +6,6 @@ export default {
         cotizationItems: Array,
         cotization: Object,
         grandTotal: Object,
-        
     },
     components: {
         ICalculateItem,
@@ -147,7 +146,7 @@ export default {
                         >
                             <div>Gran Total</div>
                             <div>
-                                <span>Q.700.00 *</span>
+                                <span>Q.{{ grandTotal.toFixed(2) }}</span>
                             </div>
                         </div>
                     </div>

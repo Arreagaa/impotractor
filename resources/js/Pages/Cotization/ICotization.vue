@@ -7,6 +7,7 @@ import { useForm } from "@inertiajs/inertia-vue3";
 //ALERTS
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/dist/sweetalert2.min.css";
+import IClient from "../Order/IClient.vue";
 
 export default {
     components: {
@@ -14,6 +15,7 @@ export default {
         AppDashboard,
         IShowCotization,
         IModal,
+        IClient,
     },
     props: {
         errors: Object,
@@ -532,7 +534,7 @@ export default {
                                                 <button
                                                     v-if="form.is_ordered == 1"
                                                     type="submit"
-                                                    class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                                                    class="text-white bg-gray-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                                                     disabled
                                                 >
                                                     Guardar
@@ -558,6 +560,10 @@ export default {
                                 @delete="deleteItem($event)"
                                 @update-item="updateItem($event)"
                             />
+
+                            <section v-if="form.is_ordered == 1">
+                                <IClient />
+                            </section>
                         </div>
                         <section v-if="form.is_ordered == 1">
                             <div

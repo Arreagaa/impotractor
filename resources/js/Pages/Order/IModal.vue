@@ -1,7 +1,7 @@
 <script>
 export default {
     props: {
-        order: Object,
+        cotizationOrder: Object,
         formOrder: Object,
     },
 };
@@ -65,7 +65,7 @@ export default {
                 class="flex max-w-app h-auto py-10 px-2 justify-center items-center"
             >
                 <div class="max-w-2xl mx-auto bg-white p-4">
-                    <form @submit.prevent="$emit('order')">
+                    <form @submit.prevent="$emit('cotizationOrder')">
                         <div class="grid gap-6 mb-6 lg:grid-cols-2">
                             <div>
                                 <label

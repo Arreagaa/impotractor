@@ -93,6 +93,7 @@ export default {
                 this.form.rate = this.cotization.rate;
                 this.form.transport = this.cotization.transport;
                 this.items = this.cotization.items;
+                this.order = this.cotization.order;
             }
         },
         submit() {
@@ -120,7 +121,7 @@ export default {
                 }
             });
         },
-        order() {
+        cotizationOrder() {
             this.formOrder.cotizationId = this.form.cotizationId;
             this.$inertia.post(
                 route("cotizations.order", {
@@ -562,7 +563,10 @@ export default {
                             />
 
                             <section v-if="form.is_ordered == 1">
-                                <IClient />
+                                <IClient
+                                    :cotization-order="cotization.order"
+                                    :cotization="cotization"
+                                />
                             </section>
                         </div>
                         <section v-if="form.is_ordered == 1">
@@ -571,7 +575,7 @@ export default {
                                 class="hidden flex justify-end m-12"
                             >
                                 <IModal
-                                    @order="order($event)"
+                                    @cotizationOrder="cotizationOrder($event)"
                                     :formOrder="formOrder"
                                 />
                             </div>
@@ -582,7 +586,7 @@ export default {
                                 class="flex justify-end m-12"
                             >
                                 <IModal
-                                    @order="order($event)"
+                                    @cotizationOrder="cotizationOrder($event)"
                                     :formOrder="formOrder"
                                 />
                             </div>

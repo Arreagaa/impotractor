@@ -37,8 +37,7 @@ class CotizationController extends Controller
     {
         $cotizationId = request()->get('id', 0);
         $cotization = null;
-        $cotization = Cotization::with('items')
-            ->find($cotizationId);
+        $cotization = Cotization::with(['items', 'order'])->find($cotizationId);
 
         if ($cotizationId != 0) {
             if ($cotization == null) {
@@ -187,6 +186,26 @@ class CotizationController extends Controller
         $order->save();
         
         return Redirect::route('cotizations.index');
-        //return Redirect::route('cotization', ['id' => $cotization->id]);
     }
+
+    /*public function order()
+    {
+        $cotizationId = request()->get('id', 0);
+        $cotization = null;
+        $cotization = Cotization::with('order')
+            ->find($cotizationId);
+
+        if ($cotizationId != 0) {
+            if ($cotization == null) {
+                return abort(404);
+            }
+        }
+
+        return Inertia::render(
+            'Cotization/ICotization',
+            ['cotization' => $cotization]
+        );
+
+        //return Redirect::route('cotization', ['id' => $cotization->id]);
+    }*/
 }

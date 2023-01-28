@@ -1,5 +1,5 @@
 <template>
-    <button class="download-button">
+    <a href="/cotizationPDF" class="download-button">
         <div class="docs">
             <svg
                 class="css-i6dzq1"
@@ -39,7 +39,7 @@
                 <line y2="3" x2="12" y1="15" x1="12"></line>
             </svg>
         </div>
-    </button>
+    </a>
 </template>
 <style>
 .download-button {

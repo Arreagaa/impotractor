@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 use Nette\Utils\Json;
+use PDF;
 
 class CotizationController extends Controller
 {
@@ -27,6 +28,19 @@ class CotizationController extends Controller
 
         return Inertia::render('Historial/IHistorial', ['cotizations' => $cotizations]);
     }
+
+    public function printPDF() {
+        /*$cotizationId = $id;
+		$cotization = Cotization::with(['items', 'order'])->find($cotizationId);
+
+		$order = Order::where('cotization_id', $cotizationId)->first();
+        $cotization_item = CotizationItem::where('cotization_id', $cotizationId)->first();
+		$data = ['items' => $cotization_item, 'order' => $order];*/
+
+		$pdf = PDF::loadView('pdf.cotization');
+		//return $pdf->download('Cotizacion.pdf');
+        return $pdf->stream('');
+	}
 
     /**
      * Show the form for creating a new resource.

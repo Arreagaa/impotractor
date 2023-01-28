@@ -54,6 +54,8 @@ Route::middleware([
     Route::post('/cotization/{id}/order', 'App\Http\Controllers\CotizationController@cotizationOrder')->name('cotizations.order');
     Route::delete('/cotization/{cotization_id}/item/{id}', 'App\Http\Controllers\CotizationController@deleteItem')->name('cotization_item.delete');
     Route::post('/cotization/{cotization_id}/item/{id}', 'App\Http\Controllers\CotizationController@updateItem')->name('cotization_item.update');
+
+    Route::get('/cotizationPDF', 'App\Http\Controllers\CotizationController@printPDF')->name('cotization.pdf');
 });
 Route::middleware([
     'auth:sanctum',

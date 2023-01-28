@@ -1,0 +1,183 @@
+@page {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12px;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.section {
+    display: block;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 5px 60px;
+}
+
+.header {
+    height: 130px;
+    text-align: left;
+    background-color: #fdd40a;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 130px;
+    background-color: #161616;
+    color: white;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.col {
+    display: inline-block;
+    width: 49%;
+    text-align: left;
+    margin-left: 60px;
+    margin-top: 30px;
+
+    font-size: 12px;
+
+    padding: 0;
+}
+
+.line {
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #161616;
+}
+
+h2 {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.light-font {
+    font-size: 8px !important;
+}
+
+/* General CSS */
+/**************************************************/
+/* Logos CSS */
+
+.logo-display {
+    position: absolute;
+    top: 70px;
+    left: 60px;
+    height: 30px;
+}
+
+.link-a {
+    position: absolute;
+    top: 20px;
+    left: 500px;
+    height: 30px;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.footer-logo {
+    position: absolute;
+    top: 35px;
+    left: 480px;
+    height: 30px;
+}
+
+/* Logos CSS */
+/**************************************************/
+/* Tables CSS */
+
+.table-content {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.table-content tr td,
+.table-content tr th {
+    border-bottom: 1px solid #d9d9d9;
+    padding: 5px;
+}
+
+.table-content tr td:last-child,
+.table-content tr th:last-child {
+    text-align: right;
+}
+
+.table-header-group {
+    border-bottom: 1px solid #161616 !important;
+    font-size: 17px;
+}
+
+.table-no-border-bottom {
+    border: none !important;
+}
+
+.table-total th {
+    color: white;
+    background-color: black;
+
+}
+
+table {
+    width: 100%;
+    margin: 10px auto;
+    border-spacing: 20px 5px;
+}
+
+table thead tr {
+    padding: 10px;
+}
+
+table thead tr td {
+    padding-top: 10px;
+    border-bottom: solid 2px #d9d9d9;
+}
+
+/* Tables CSS */
+
+/* Observaciones */
+.ob-text {
+    font-size: 17px;
+    margin-top: 12px;
+    margin-left: 17px;
+}
+
+/* Footer text */
+.footer-text {
+    font-size: 17px;
+    line-height: 1.3;
+}
+
+/* Order Table */
+.table-title {
+  font-size: 17px;
+}
+
+.table-content{
+  font-size: 15px;
+}
+
+

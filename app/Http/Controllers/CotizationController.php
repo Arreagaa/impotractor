@@ -29,17 +29,18 @@ class CotizationController extends Controller
         return Inertia::render('Historial/IHistorial', ['cotizations' => $cotizations]);
     }
 
-    public function printPDF() {
-        /*$cotizationId = $id;
-		$cotization = Cotization::with(['items', 'order'])->find($cotizationId);
+    public function printPDF($cotization_id) {
+        $cotization = Cotization::with(['items', 'order'])->find($cotization_id);
 
-		$order = Order::where('cotization_id', $cotizationId)->first();
-        $cotization_item = CotizationItem::where('cotization_id', $cotizationId)->first();
-		$data = ['items' => $cotization_item, 'order' => $order];*/
+        $order = Order::with('cotization')->find($cotization_id);
+        $cotization_item = CotizationItem::where('cotization_id', $cotization_id)->get();
+        
+		$data = ['items' => $cotization_item, 'order' => $order];
 
-		$pdf = PDF::loadView('pdf.cotization');
+        $pdf = PDF::loadView('pdf.cotization', $data); 
 		//return $pdf->download('Cotizacion.pdf');
-        return $pdf->stream('');
+
+        return $pdf->stream('Cotizacion.pdf', array('Attachment'=>1) );
 	}
 
     /**
@@ -201,25 +202,4 @@ class CotizationController extends Controller
         
         return Redirect::route('cotizations.index');
     }
-
-    /*public function order()
-    {
-        $cotizationId = request()->get('id', 0);
-        $cotization = null;
-        $cotization = Cotization::with('order')
-            ->find($cotizationId);
-
-        if ($cotizationId != 0) {
-            if ($cotization == null) {
-                return abort(404);
-            }
-        }
-
-        return Inertia::render(
-            'Cotization/ICotization',
-            ['cotization' => $cotization]
-        );
-
-        //return Redirect::route('cotization', ['id' => $cotization->id]);
-    }*/
 }

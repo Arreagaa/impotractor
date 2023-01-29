@@ -18,12 +18,12 @@ use Inertia\Inertia;
 */
 
 /*Route::get('/', function () {
-    return Inertia::render('Landing/IShow', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+return Inertia::render('Landing/IShow', [
+'canLogin' => Route::has('login'),
+'canRegister' => Route::has('register'),
+'laravelVersion' => Application::VERSION,
+'phpVersion' => PHP_VERSION,
+]);
 });*/
 
 Route::get('/', function () {
@@ -41,7 +41,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
-    })->name('dashboard');
+    }
+    )->name('dashboard');
 });
 
 Route::middleware([
@@ -55,7 +56,7 @@ Route::middleware([
     Route::delete('/cotization/{cotization_id}/item/{id}', 'App\Http\Controllers\CotizationController@deleteItem')->name('cotization_item.delete');
     Route::post('/cotization/{cotization_id}/item/{id}', 'App\Http\Controllers\CotizationController@updateItem')->name('cotization_item.update');
 
-    Route::get('/cotizationPDF', 'App\Http\Controllers\CotizationController@printPDF')->name('cotization.pdf');
+    Route::get('/cotization/{cotization_id}/cotizationPDF', 'App\Http\Controllers\CotizationController@printPDF')->name('cotization.pdf');
 });
 Route::middleware([
     'auth:sanctum',
@@ -64,7 +65,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/historial', function () {
         return Inertia::render('Historial/IHistorial');
-    })->name('historial');
+    }
+    )->name('historial');
 });
 
 Route::post('/contact', ContactController::class)->name('contact');

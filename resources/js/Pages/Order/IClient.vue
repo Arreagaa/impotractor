@@ -5,6 +5,7 @@ export default {
     props: {
         cotizationOrder: Object,
         cotization: Object,
+        cotizationPdf: Object,
     },
     components: {
         IBtn,
@@ -27,7 +28,7 @@ export default {
                     {{ this.cotizationOrder.discount }}%
                 </p>
                 <div class="flex items-center gap-x-4 mt-2">
-                    <IBtn />
+                    <IBtn :cotization="cotization" />
                 </div>
             </div>
             <div class="sm:ml-0 ml-8 flex flex-col">

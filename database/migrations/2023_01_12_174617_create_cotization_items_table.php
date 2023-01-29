@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->double('price', 10, 2)->nullable();
             
-            $table->double('percentage', 10, 4)->nullable();
+            $table->double('percentage', 10, 4)->default(0);
             $table->double('total', 10, 4)->nullable();
             
             $table->foreignId('cotization_id')->on('cotizations')->onDelete('cascade');

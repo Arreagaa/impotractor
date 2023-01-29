@@ -1,6 +1,20 @@
+<script>
+export default {
+    props: {
+        cotization: Object,
+    },
+    created() {
+        console.log("IBtn", this.cotization);
+    },
+};
+</script>
 <template>
-    <a href="/cotizationPDF" class="download-button">
-        <div class="docs">
+    <a  
+        :href="`/cotization/${cotization.id}/cotizationPDF`"
+        target="_blank"
+        class="download-button"
+    >
+        <div class="docs text-center items-center">
             <svg
                 class="css-i6dzq1"
                 stroke-linejoin="round"

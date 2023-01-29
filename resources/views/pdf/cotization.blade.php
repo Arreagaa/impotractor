@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
-    <link href="css/pdf.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link href="css/pdf.css" rel="stylesheet">
+	<title>Cotización Impotractor S.A</title>
 </head>
 <body>
-    <!-- HEADER start -->
+
+<!-- HEADER start -->
 <div class="section">
 	<div class="header">
 		<img class="logo-display" src="images/impotractor/impotractor-logo-x2.png"/>
@@ -28,7 +26,7 @@
 
 		<table class="table-header light-font">
 			<thead>
-
+			@if($order)
 				<tr class="table-title">
 					<th>NIT</th>
 					<th>Cliente</th>
@@ -36,26 +34,26 @@
 					<th>Ciudad</th>
 				</tr>
 				<tr class="table-content">
-                    <td>0101</td>
-                    <td>Javier Rivas</td>
-                    <td>JR</td>
-                    <td>Guatemala</td>
+                    <td>{{ $order->nit }}</td>
+                    <td>{{ $order->client }}</td>
+                    <td>{{ $order->contact }}</td>
+                    <td>{{ $order->city }}</td>
 					
 				</tr>
 				<tr class="table-title">
 					<th>Teléfono</th>
-					<th>E-mail</th>
+					<th>Correo</th>
 					<th>Tipo</th>
 					<th>Forma de pago</th>
 				</tr>
 				<tr class="table-content">
-					<td>4278-3573</td>
-					<td>crjavier1021@gmail.com</td>
-					<td>Stock</td>
-					<td>Tarjeta</td>
+					<td>{{ $order->phone }}</td>
+					<td>{{ $order->email }}</td>
+					<td>{{ $order->type }}</td>
+					<td>{{ $order->paymentMethod }}</td>
                     
 				</tr>
-
+			@endif
 			</thead>
 		</table>
         <br>
@@ -66,31 +64,36 @@
 					<th class="table-header-group">Cantidad</th>
 					<th class="table-header-group">Descripción</th>
 					<th class="table-header-group">Precio</th>
+					<th class="table-header-group">Descuento</th>
 					<th class="table-header-group">Total</th>
 				</tr>
 			</thead>
 			<tbody>
+				<?php $Grandtotal = 0; ?>
+				@foreach($items as $item)
 					<tr>
-						<td>3P956</td>
-						<td>7</td>
-						<td>JAKE</td>
+						<td>{{ $item->partNumber }}</td>
+						<td>{{ $item->quantity }}</td>
+						<td>{{ $item->description }}</td>
 
 
-						<td>Q.100.00</td>
-						<td>Q.700.00</td>
-
+						<td>Q.{{ number_format((float) $item->price, 2, '.', ',') }}</td>
+						<td>{{ $item->percentage }}%</td>
+						<td>Q.{{ number_format((float) $item->total, 2, '.', ',') }}</td>
 					</tr>
+					<?php $Grandtotal = $Grandtotal + $item->total; ?>
+				@endforeach
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="3" rowspan="5" class="table-no-border-bottom">
+					<th colspan="4" rowspan="6" class="table-no-border-bottom">
 					</th>
 					<th>Descuento Aplicado</th>
-					<th>25%</th>
+					<th>{{ $order->discount }}%</th>
 				</tr>
                 <tr class="table-total ">
 					<th>Gran Total</th>
-					<th>Q.700.00</th>
+					<th>Q.{{ number_format((float) $Grandtotal, 2, '.', ',') }}</th>
 				</tr>
 			</tfoot>
 		</table>
@@ -139,6 +142,6 @@
 </div>
 <!-- FOOTER end -->
 
+
 </body>
 </html>
-

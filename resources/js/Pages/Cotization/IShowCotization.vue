@@ -58,10 +58,24 @@ export default {
                                         {{ item.description }}
                                     </td>
                                     <td class="p-3 text-center">
-                                        Q.{{ item.price.toFixed(2) }}
+                                        Q.{{
+                                            item.price
+                                                .toFixed(2)
+                                                .replace(
+                                                    /(\d)(?=(\d{3})+\.\d\d$)/g,
+                                                    "$1,"
+                                                )
+                                        }}
                                     </td>
                                     <td class="p-3 text-center">
-                                        Q.{{ item.total.toFixed(2) }}
+                                        Q.{{
+                                            item.total
+                                                .toFixed(2)
+                                                .replace(
+                                                    /(\d)(?=(\d{3})+\.\d\d$)/g,
+                                                    "$1,"
+                                                )
+                                        }}
                                     </td>
                                     <td class="p-3 text-center">
                                         <button
@@ -115,7 +129,16 @@ export default {
                         >
                             <div>Gran Total</div>
                             <div>
-                                <span>Q.{{ grandTotal.toFixed(2) }}</span>
+                                <span
+                                    >Q.{{
+                                        grandTotal
+                                            .toFixed(2)
+                                            .replace(
+                                                /(\d)(?=(\d{3})+\.\d\d$)/g,
+                                                "$1,"
+                                            )
+                                    }}</span
+                                >
                             </div>
                         </div>
                     </div>
@@ -168,7 +191,16 @@ export default {
                         >
                             <div>Gran Total</div>
                             <div>
-                                <span>Q.{{ grandTotal.toFixed(2) }}</span>
+                                <span
+                                    >Q.{{
+                                        grandTotal
+                                            .toFixed(2)
+                                            .replace(
+                                                /(\d)(?=(\d{3})+\.\d\d$)/g,
+                                                "$1,"
+                                            )
+                                    }}</span
+                                >
                             </div>
                         </div>
                     </div>

@@ -53,7 +53,9 @@ export default {
             {{ item.description }}
         </td>
         <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
-            Q.{{ item.price.toFixed(2) }}
+            Q.{{
+                item.price.toFixed(2).replace(/(\d)(?=(\d{3})+\.\d\d$)/g, "$1,")
+            }}
         </td>
 
         <td class="border-grey-light border hover:bg-gray-100 p-3 text-left">
@@ -81,7 +83,11 @@ export default {
             </div>
         </td>
         <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
-            Q.{{ itemable.total.toFixed(2) }}
+            Q.{{
+                itemable.total
+                    .toFixed(2)
+                    .replace(/(\d)(?=(\d{3})+\.\d\d$)/g, "$1,")
+            }}
         </td>
     </tr>
 </template>

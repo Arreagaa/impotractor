@@ -3,9 +3,6 @@ export default {
     props: {
         cotization: Object,
     },
-    created() {
-        console.log("IBtn", this.cotization);
-    },
 };
 </script>
 <template>

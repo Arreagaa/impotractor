@@ -5,7 +5,7 @@ export default {
     props: {
         cotizationItems: Array,
         cotization: Object,
-        grandTotal: Object,
+        grandTotal: Number,
     },
     components: {
         ICalculateItem,

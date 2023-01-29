@@ -5,7 +5,6 @@ export default {
     props: {
         cotizationOrder: Object,
         cotization: Object,
-        cotizationPdf: Object,
     },
     components: {
         IBtn,

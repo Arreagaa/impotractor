@@ -535,7 +535,7 @@ export default {
                                                 <button
                                                     v-if="form.is_ordered == 1"
                                                     type="submit"
-                                                    class="text-white bg-gray-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                                                    class="hidden text-white bg-gray-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                                                     disabled
                                                 >
                                                     Guardar

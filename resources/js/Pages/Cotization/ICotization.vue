@@ -104,7 +104,7 @@ export default {
                 showCancelButton: true,
                 confirmButtonColor: "#FFCC00",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "¡Si, agregar a la Cotización!",
+                confirmButtonText: "¡Si, adjuntar a la Cotización!",
                 cancelButtonText: "Cancelar",
             }).then((result) => {
                 if (result.isConfirmed) {

@@ -42,28 +42,35 @@ export default {
 };
 </script>
 <template>
-    <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
+    <tr>
+        <td
+            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+        >
             {{ item.partNumber }}
         </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
+        <td
+            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+        >
             {{ item.quantity }}
         </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
+        <td
+            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+        >
             {{ item.description }}
         </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
+        <td
+            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+        >
             Q.{{
                 item.price.toFixed(2).replace(/(\d)(?=(\d{3})+\.\d\d$)/g, "$1,")
             }}
         </td>
-
         <td class="border-grey-light border hover:bg-gray-100 p-3 text-left">
             <div class="flex">
                 <input
                     v-if="cotization.is_ordered == 1"
                     v-model="itemable.percentage"
-                    class="w-full rounded-sm rounded-l-lg border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
+                    class="rounded-sm rounded-l-lg border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                     type="number"
                     @keydown.enter="updateItem"
                     disabled
@@ -71,7 +78,7 @@ export default {
                 <input
                     v-else
                     v-model="itemable.percentage"
-                    class="w-full rounded-sm rounded-l-lg border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
+                    class="rounded-sm rounded-l-lg border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                     type="number"
                     @keydown.enter="updateItem"
                 />
@@ -82,11 +89,11 @@ export default {
                 </span>
             </div>
         </td>
-        <td class="border-grey-light border hover:bg-gray-100 p-3 text-center">
+        <td
+            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+        >
             Q.{{
-                itemable.total
-                    .toFixed(2)
-                    .replace(/(\d)(?=(\d{3})+\.\d\d$)/g, "$1,")
+                item.total.toFixed(2).replace(/(\d)(?=(\d{3})+\.\d\d$)/g, "$1,")
             }}
         </td>
     </tr>

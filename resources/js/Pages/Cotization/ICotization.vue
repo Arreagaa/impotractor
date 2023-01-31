@@ -104,7 +104,7 @@ export default {
                 showCancelButton: true,
                 confirmButtonColor: "#FFCC00",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "¡Si, generar Cotización!",
+                confirmButtonText: "¡Si, agregar a la Cotización!",
                 cancelButtonText: "Cancelar",
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -113,8 +113,8 @@ export default {
                         preserveScroll: true,
                     });
                     Swal.fire({
-                        title: "¡Cotización Creada!",
-                        text: "La Cotización ha sido creada exitosamente.",
+                        title: "¡Actualización de Cotización!",
+                        text: "Se ha agregado exitosamente.",
                         icon: "success",
                         confirmButtonColor: "#FFCC00",
                     });
@@ -135,23 +135,6 @@ export default {
         },
         updateItem(item) {
             this.itemsUpdate.push(item);
-        },
-        saveItems() {
-            axios
-                .post(route("cotization.update-items"), {
-                    items: this.itemsUpdate,
-                    cotizationId: this.form.cotizationId,
-                })
-                .then((response) => {
-                    console.log(response);
-                    this.alertSuccess = true;
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-                .finally(() => {
-                    this.itemsUpdate = [];
-                });
         },
         deleteItem(id) {
             Swal.fire({

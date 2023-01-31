@@ -38,7 +38,15 @@ export default {
                                     <th class="p-3 text-center">
                                         Precio Unitario
                                     </th>
-                                    <th class="p-3 text-center">Total</th>
+                                    <th
+                                        v-if="cotization.is_ordered == 1"
+                                        class="hidden p-3 text-center"
+                                    >
+                                        Total
+                                    </th>
+                                    <th v-else class="p-3 text-center">
+                                        Total
+                                    </th>
                                     <th class="p-3 text-center">Acciones</th>
                                 </tr>
                             </thead>
@@ -77,10 +85,11 @@ export default {
                                                 )
                                         }}
                                     </td>
-                                    <td class="p-3 text-center">
+                                    <td
+                                        v-if="cotization.is_ordered == 1"
+                                        class="hidden p-3 text-center"
+                                    >
                                         <button
-                                            v-if="cotization.is_ordered == 1"
-                                            @click="$emit('delete', item.id)"
                                             class="focus:ring-2 focus:ring-offset-2 focus:ring-red-400 text-sm leading-none text-gray-600 py-2 px-5 bg-gray-100 rounded focus:outline-none"
                                             disabled
                                         >
@@ -99,8 +108,9 @@ export default {
                                                 />
                                             </svg>
                                         </button>
+                                    </td>
+                                    <td v-else class="p-3 text-center">
                                         <button
-                                            v-else
                                             @click="$emit('delete', item.id)"
                                             class="focus:ring-2 focus:ring-offset-2 focus:ring-red-400 text-sm leading-none text-gray-600 py-2 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
                                         >

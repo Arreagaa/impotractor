@@ -6,12 +6,10 @@ export default {
 };
 </script>
 <template>
-    <a  
-        :href="`/cotization/${cotization.id}/cotizationPDF`"
-        target="_blank"
-        class="download-button"
-    >
-        <div class="docs text-center items-center">
+    <div class="lg:block hidden group inline-block mb-12">
+        <button
+            class="outline-none focus:outline-none border px-3 py-2 bg-zinc-900 text-white rounded-lg flex items-center min-w-32 hover:bg-yellow-400"
+        >
             <svg
                 class="css-i6dzq1"
                 stroke-linejoin="round"
@@ -31,9 +29,42 @@ export default {
                 <line y2="17" x2="8" y1="17" x1="16"></line>
                 <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
-            Exportar a PDF
+            <span class="pr-1 font-bold flex-1 ml-1">Exportar a PDF</span>
+            <span>
+                <svg
+                    class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                >
+                    <path
+                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
+                </svg>
+            </span>
+        </button>
+        <div
+            class="bg-white border rounded-lg transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
+        >
+            <a
+                :href="`/cotization/${cotization.id}/cotizationPDF`"
+                target="_blank"
+                class="inline-flex rounded-lg px-3 py-1 hover:bg-gray-100"
+            >
+                Con Número de Parte</a
+            >
+            <hr />
+            <a
+                :href="`/cotization/${cotization.id}/PDFcotization`"
+                target="_blank"
+                class="rounded-lg px-3 py-2 hover:bg-gray-100"
+                >Sin Número de Parte</a
+            >
         </div>
-        <div class="download">
+    </div>
+    <div class="lg:hidden group inline-block">
+        <button
+            class="outline-none focus:outline-none border px-3 py-2 bg-zinc-900 text-white rounded-lg flex items-center min-w-32 hover:bg-yellow-400"
+        >
             <svg
                 class="css-i6dzq1"
                 stroke-linejoin="round"
@@ -41,78 +72,74 @@ export default {
                 fill="none"
                 stroke-width="2"
                 stroke="currentColor"
-                height="24"
-                width="24"
+                height="20"
+                width="20"
                 viewBox="0 0 24 24"
             >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line y2="3" x2="12" y1="15" x1="12"></line>
+                <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line y2="13" x2="8" y1="13" x1="16"></line>
+                <line y2="17" x2="8" y1="17" x1="16"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
+            <span class="pr-1 font-bold flex-1 ml-1">Exportar</span>
+            <span>
+                <svg
+                    class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                >
+                    <path
+                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
+                </svg>
+            </span>
+        </button>
+        <div
+            class="bg-white border rounded-lg transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
+        >
+            <a
+                :href="`/cotization/${cotization.id}/cotizationPDF`"
+                target="_blank"
+                class="inline-flex rounded-lg px-3 py-1 hover:bg-gray-100"
+            >
+                Con Número de Parte</a
+            >
+            <hr />
+            <a
+                :href="`/cotization/${cotization.id}/PDFcotization`"
+                target="_blank"
+                class="rounded-lg px-3 py-1 hover:bg-gray-100"
+                >Sin Número de Parte</a
+            >
         </div>
-    </a>
+    </div>
 </template>
 <style>
-.download-button {
-    position: relative;
-    border-width: 0;
-    color: white;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 4px;
-    z-index: 1;
+li > div {
+    transform: translatex(100%) scale(0);
 }
-
-.download-button .docs {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    min-height: 40px;
-    padding: 0 10px;
-    border-radius: 4px;
-    z-index: 1;
-    background-color: #242a35;
-    border: solid 1px #e8e8e82d;
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+li:hover > div {
+    transform: translatex(101%) scale(1);
 }
-
-.download {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 90%;
-    margin: 0 auto;
-    z-index: -1;
-    border-radius: 4px;
-    transform: translateY(0%);
-    background-color: rgb(250 204 21);
-    border: solid 1px rgb(250 204 21);
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+li > button svg {
+    transform: rotate(-90deg);
 }
-
-.download-button:hover .download {
-    transform: translateY(100%);
+li:hover > button svg {
+    transform: rotate(-270deg);
 }
-
-.download svg polyline,
-.download svg line {
-    animation: docs 1s infinite;
+.group:hover .group-hover\:scale-100 {
+    transform: scale(1);
 }
-
-@keyframes docs {
-    0% {
-        transform: translateY(0%);
-    }
-
-    50% {
-        transform: translateY(-15%);
-    }
-
-    100% {
-        transform: translateY(0%);
-    }
+.group:hover .group-hover\:-rotate-180 {
+    transform: rotate(180deg);
+}
+.scale-0 {
+    transform: scale(0);
+}
+.min-w-32 {
+    min-width: 8rem;
 }
 </style>

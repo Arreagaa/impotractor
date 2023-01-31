@@ -26,14 +26,14 @@ export default {
                     Descuento en la Cotización:
                     {{ this.cotizationOrder.discount }}%
                 </p>
-                <div class="flex items-center gap-x-4 mt-2">
+                <div class="flex items-center gap-x-4 mt-1">
                     <IBtn :cotization="cotization" />
                 </div>
             </div>
             <div class="sm:ml-0 ml-8 flex flex-col">
-                <h2 class="text-base font-semibold leading-4 text-gray-800">
+                <span class="text-base font-semibold leading-4 text-gray-800">
                     NIT: {{ this.cotizationOrder.nit }}
-                </h2>
+                </span>
                 <span
                     class="focus:outline-none focus:underline font-semibold text-base leading-4 mt-6 text-gray-800"
                     >Cliente: {{ this.cotizationOrder.client }}</span
@@ -43,14 +43,18 @@ export default {
                     >Contacto: {{ this.cotizationOrder.contact }}</span
                 >
                 <span
-                    class="focus:outline-none focus:underline font-semibold text-base leading-4 mt-6 text-gray-800"
+                    class="lg:block hidden focus:outline-none focus:underline font-semibold text-base leading-4 mt-6 text-gray-800"
                     >Correo: {{ this.cotizationOrder.email }}</span
                 >
             </div>
             <div class="flex flex-col">
-                <h2 class="text-base font-semibold leading-4 text-gray-800">
+                <span class="text-base font-semibold leading-4 text-gray-800">
                     Teléfono: {{ this.cotizationOrder.phone }}
-                </h2>
+                </span>
+                <span
+                    class="lg:hidden focus:outline-none focus:underline font-semibold text-base leading-4 mt-6 text-gray-800"
+                    >Correo: {{ this.cotizationOrder.email }}</span
+                >
                 <span
                     class="focus:outline-none focus:underline font-semibold text-base leading-4 mt-6 text-gray-800"
                     >Ciudad: {{ this.cotizationOrder.city }}</span

@@ -43,6 +43,20 @@ class CotizationController extends Controller
         return $pdf->stream('Cotizacion.pdf', array('Attachment'=>1) );
 	}
 
+    public function newClientPDF($cotization_id) {
+        $cotization = Cotization::with(['items', 'order'])->find($cotization_id);
+
+        $order = Order::with('cotization')->find($cotization_id);
+        $cotization_item = CotizationItem::where('cotization_id', $cotization_id)->get();
+        
+		$data = ['items' => $cotization_item, 'order' => $order];
+
+        $pdf = PDF::loadView('pdf.cotizationClient', $data); 
+		//return $pdf->download('Cotizacion.pdf');
+
+        return $pdf->stream('Cotizacion.pdf', array('Attachment'=>1) );
+	}
+
     /**
      * Show the form for creating a new resource.
      *
@@ -64,20 +78,6 @@ class CotizationController extends Controller
             'Cotization/ICotization',
             ['cotization' => $cotization]
         );
-    }
-
-    public function updateItems()
-    {
-        $items = request()->items;
-
-        foreach ($items as $value) {
-            $cotization_item = CotizationItem::find($value['id']);
-            $cotization_item->percentage = $value['percentage'];
-            $cotization_item->total = $value['total'];
-            $cotization_item->update();
-        }
-
-        return response()->json(['msg' => 'updateItems']);
     }
 
     /**

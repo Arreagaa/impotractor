@@ -57,6 +57,7 @@ Route::middleware([
     Route::post('/cotization/{cotization_id}/item/{id}', 'App\Http\Controllers\CotizationController@updateItem')->name('cotization_item.update');
 
     Route::get('/cotization/{cotization_id}/cotizationPDF', 'App\Http\Controllers\CotizationController@printPDF')->name('cotization.pdf');
+    Route::get('/cotization/{cotization_id}/PDFcotization', 'App\Http\Controllers\CotizationController@newClientPDF')->name('cotization.pdf');
 });
 Route::middleware([
     'auth:sanctum',

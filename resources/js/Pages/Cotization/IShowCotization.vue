@@ -88,26 +88,26 @@ export default {
                                                         class="border-b-2"
                                                     >
                                                         <td
-                                                            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
+                                                            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
                                                         >
                                                             {{
                                                                 item.partNumber
                                                             }}
                                                         </td>
                                                         <td
-                                                            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
+                                                            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
                                                         >
                                                             {{ item.quantity }}
                                                         </td>
                                                         <td
-                                                            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
+                                                            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
                                                         >
                                                             {{
                                                                 item.description
                                                             }}
                                                         </td>
                                                         <td
-                                                            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
+                                                            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
                                                         >
                                                             Q.{{
                                                                 item.price
@@ -119,7 +119,7 @@ export default {
                                                             }}
                                                         </td>
                                                         <td
-                                                            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
+                                                            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light hover:bg-gray-100"
                                                         >
                                                             Q.{{
                                                                 item.total
@@ -159,7 +159,7 @@ export default {
                                                         </td>
                                                         <td
                                                             v-else
-                                                            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light"
+                                                            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light"
                                                         >
                                                             <button
                                                                 @click="

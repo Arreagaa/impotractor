@@ -100,28 +100,28 @@ export default {
                                                                             "
                                                                         >
                                                                             <td
-                                                                                class="text-left text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+                                                                                class="text-left text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
                                                                             >
                                                                                 {{
                                                                                     cotization.id
                                                                                 }}
                                                                             </td>
                                                                             <td
-                                                                                class="text-left text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+                                                                                class="text-left text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
                                                                             >
                                                                                 {{
                                                                                     cotization.reference
                                                                                 }}
                                                                             </td>
                                                                             <td
-                                                                                class="text-left text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+                                                                                class="text-left text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
                                                                             >
                                                                                 {{
                                                                                     cotization.created_at
                                                                                 }}
                                                                             </td>
                                                                             <td
-                                                                                class="text-left text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+                                                                                class="text-left text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
                                                                             >
                                                                                 <span
                                                                                     v-if="
@@ -158,7 +158,7 @@ export default {
                                                                                 </span>
                                                                             </td>
                                                                             <td
-                                                                                class="text-left text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+                                                                                class="text-left text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
                                                                             >
                                                                                 <a
                                                                                     :href="`/cotization?id=${cotization.id}`"

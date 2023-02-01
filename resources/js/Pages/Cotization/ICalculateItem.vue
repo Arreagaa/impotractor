@@ -44,22 +44,22 @@ export default {
 <template>
     <tr>
         <td
-            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
         >
             {{ item.partNumber }}
         </td>
         <td
-            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
         >
             {{ item.quantity }}
         </td>
         <td
-            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
         >
             {{ item.description }}
         </td>
         <td
-            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
         >
             Q.{{
                 item.price.toFixed(2).replace(/(\d)(?=(\d{3})+\.\d\d$)/g, "$1,")
@@ -90,7 +90,7 @@ export default {
             </div>
         </td>
         <td
-            class="text-center text-dark font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
+            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
         >
             Q.{{
                 item.total.toFixed(2).replace(/(\d)(?=(\d{3})+\.\d\d$)/g, "$1,")

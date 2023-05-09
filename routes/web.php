@@ -4,7 +4,9 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CotizationController;
-use Inertia\Inertia;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\SettlementController;
+use Inertia\Inertia; 
 
 /*
 |--------------------------------------------------------------------------
@@ -38,11 +40,37 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+    'can:dashboard',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     }
     )->name('dashboard');
+});
+
+Route::get('/error', function () {
+    return Inertia::render('IDashboard/utils/IError');
+})->name('error');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::resource('orders', ItemController::class); 
+    Route::get('/order', 'App\Http\Controllers\ItemController@onlyOrder')->name('only');
+    Route::get('/order/{id}', 'App\Http\Controllers\ItemController@order')->name('order');
+    Route::post('/order/{order_item_id}/item/{id}', 'App\Http\Controllers\ItemController@updateItem')->name('order_item.update');
+    Route::post('/order/{order_item_id}/item/update', 'App\Http\Controllers\ItemController@updateItems')->name('order_item.update_all');
+    Route::delete('/order/{order_item_id}/item/{id}', 'App\Http\Controllers\ItemController@deleteItem')->name('order_item.delete');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::resource('settlements', SettlementController::class);
 });
 
 Route::middleware([
@@ -57,17 +85,7 @@ Route::middleware([
     Route::post('/cotization/{cotization_id}/item/{id}', 'App\Http\Controllers\CotizationController@updateItem')->name('cotization_item.update');
 
     Route::get('/cotization/{cotization_id}/cotizationPDF', 'App\Http\Controllers\CotizationController@printPDF')->name('cotization.pdf');
-    Route::get('/cotization/{cotization_id}/PDFcotization', 'App\Http\Controllers\CotizationController@newClientPDF')->name('cotization.pdf');
-});
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/historial', function () {
-        return Inertia::render('Historial/IHistorial');
-    }
-    )->name('historial');
+    Route::get('/cotization/{cotization_id}/PDFcotization', 'App\Http\Controllers\CotizationController@newClientPDF')->name('cotizationClient.pdf');
 });
 
 Route::post('/contact', ContactController::class)->name('contact');

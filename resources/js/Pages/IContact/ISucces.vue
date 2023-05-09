@@ -1,5 +1,4 @@
 <template>
-    <!-- component -->
     <div class="bg-white dark:bg-gray-900">
         <div class="flex justify-center h-screen">
             <div class="img-login hidden bg-cover lg:block lg:w-2/3">

@@ -3,6 +3,8 @@ export default {
     props: {
         cotizationOrder: Object,
         formOrder: Object,
+        cotization: Object,
+        oldGrandTotal: Number,
     },
 };
 </script>
@@ -124,6 +126,7 @@ export default {
                                     id="phone"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
                                     placeholder="(+502)"
+                                    pattern="\d{4}[- ]?\d{4}$"
                                     required
                                 />
                             </div>
@@ -181,9 +184,10 @@ export default {
                                     >Tipo de Cotización</label
                                 >
                                 <select
-                                    v-model="formOrder.type"
+                                    :value="this.cotization.transport"
                                     id="transport"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5 focus-form"
+                                    disabled
                                 >
                                     <option selected>Elegir Cotización</option>
                                     <option value="Stock">Stock</option>
@@ -196,15 +200,16 @@ export default {
                                 <label
                                     for="percentage"
                                     class="block mb-2 text-sm font-medium text-gray-900"
-                                    >Descuento</label
+                                    >Descuento (Q)</label
                                 >
                                 <input
-                                    v-model="formOrder.discount"
+                                    :value="this.oldGrandTotal"
                                     type="text"
                                     id="percentage"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
                                     placeholder="Se aplico un Descuento del 20%"
                                     required
+                                    disabled
                                 />
                             </div>
                         </div>

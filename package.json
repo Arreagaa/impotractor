@@ -27,14 +27,9 @@
         "@fortawesome/free-regular-svg-icons": "^6.2.0",
         "@fortawesome/free-solid-svg-icons": "^6.2.0",
         "@fortawesome/vue-fontawesome": "^3.0.1",
-        "ag-grid-community": "^28.2.0",
-        "ag-grid-vue3": "^28.2.0",
-        "flatpickr": "^4.6.13",
-        "simplelightbox": "^2.10.4",
+        "laravel-permission-to-vuejs": "^3.0.1",
         "swiper": "^8.4.4",
-        "vue2-google-maps": "^0.10.7",
-        "vue3-google-map": "^0.15.0",
-        "sweetalert2": "^11.4.29",
-        "vue-sweetalert2": "^5.0.5"
+        "vue-sweetalert2": "^5.0.5",
+        "vue3-google-map": "^0.15.0"
     }
 }

@@ -116,6 +116,7 @@ const submit = () => {
                                     v-model="form.phone"
                                     type="tel"
                                     placeholder="Número de teléfono"
+                                    pattern="\d{4}[- ]?\d{4}$"
                                     class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus-form"
                                 />
                             </div>

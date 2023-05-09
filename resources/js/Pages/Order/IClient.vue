@@ -23,8 +23,11 @@ export default {
                     Datos de la Orden
                 </div>
                 <p class="mt-1 text-normal font-lg text-zinc-900">
-                    Descuento en la Cotización:
-                    {{ this.cotizationOrder.discount }}%
+                    Descuento en la Cotización: Q.{{
+                        this.cotizationOrder.discount
+                            .toFixed(2)
+                            .replace(/(\d)(?=(\d{3})+\.\d\d$)/g, "$1,")
+                    }}
                 </p>
                 <div class="flex items-center gap-x-4 mt-1">
                     <IBtn :cotization="cotization" />

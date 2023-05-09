@@ -9,17 +9,24 @@ export default {
             itemable: {
                 id: 0,
                 percentage: 0,
+                oldTotal: 0,
             },
         };
     },
     computed: {
-        discount() {
-            return (this.itemable.total * this.itemable.percentage) / 100;
+        priceDiscount() {
+            return (this.itemable.price * this.itemable.percentage) / 100;
+        },
+        noDiscount() {
+            return this.itemable.total / (1 - this.itemable.percentage / 100);
         },
     },
     methods: {
         updateItem() {
-            this.itemable.total = this.itemable.total - this.discount;
+            this.itemable.price = this.itemable.price - this.priceDiscount;
+            this.itemable.total = this.itemable.price * this.item.quantity;
+            this.itemable.oldTotal =
+                (this.noDiscount * this.itemable.percentage) / 100;
             this.$inertia.post(
                 route("cotization_item.update", {
                     cotization_id: this.cotization.id,

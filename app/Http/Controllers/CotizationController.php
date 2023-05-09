@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cotization;
 use App\Models\CotizationItem;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
@@ -13,20 +14,21 @@ use PDF;
 
 class CotizationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $cotizations = Cotization::get()
-            ->map(function ($cotization) {
+        if(auth()->user()->hasRole('Admin')){
+            $cotizations = Cotization::paginate(10);
 
-                return $cotization;
-            });
+            return Inertia::render('Historial/IHistorial', ['cotizations' => $cotizations]);
+        }
+        elseif(auth()->user()->hasRole('Seller')){
+            $cotizations = Cotization::where('user_id', auth()->user()->id)->paginate(10);
 
-        return Inertia::render('Historial/IHistorial', ['cotizations' => $cotizations]);
+            return Inertia::render('Historial/IHistorial', ['cotizations' => $cotizations]);
+        }
+        else{
+            return Inertia::render('IDashboard/utils/IError');
+        }
     }
 
     public function printPDF($cotization_id) {
@@ -38,8 +40,7 @@ class CotizationController extends Controller
 		$data = ['items' => $cotization_item, 'order' => $order];
 
         $pdf = PDF::loadView('pdf.cotization', $data); 
-		//return $pdf->download('Cotizacion.pdf');
-
+		
         return $pdf->stream('Cotizacion.pdf', array('Attachment'=>1) );
 	}
 
@@ -52,16 +53,10 @@ class CotizationController extends Controller
 		$data = ['items' => $cotization_item, 'order' => $order];
 
         $pdf = PDF::loadView('pdf.cotizationClient', $data); 
-		//return $pdf->download('Cotizacion.pdf');
 
         return $pdf->stream('Cotizacion.pdf', array('Attachment'=>1) );
 	}
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function cotization()
     {
         $cotizationId = request()->get('id', 0);
@@ -70,7 +65,7 @@ class CotizationController extends Controller
 
         if ($cotizationId != 0) {
             if ($cotization == null) {
-                return abort(404);
+                return Inertia::render('IDashboard/utils/IError');
             }
         }
 
@@ -80,12 +75,6 @@ class CotizationController extends Controller
         );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -134,18 +123,13 @@ class CotizationController extends Controller
         return Redirect::route('cotization', ['id' => $cotization->id]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Cotization  $cotization
-     * @return \Illuminate\Http\Response
-     */
-
     public function updateItem($cotization_id, $id)
     {
         $cotization_item = CotizationItem::with('cotization')->find($id);
         $cotization_item->percentage = request()->percentage;
+        $cotization_item->price = request()->price;
         $cotization_item->total = request()->total;
+        $cotization_item->oldTotal = request()->oldTotal;
 
         $cotization_item->update();
 

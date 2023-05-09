@@ -128,7 +128,7 @@ h2 {
 
 .table-header-group {
     border-bottom: 1px solid #161616 !important;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .table-no-border-bottom {
@@ -138,7 +138,6 @@ h2 {
 .table-total th {
     color: white;
     background-color: black;
-
 }
 
 table {

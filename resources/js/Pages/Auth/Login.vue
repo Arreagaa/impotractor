@@ -142,15 +142,6 @@ const submit = () => {
                                 </button>
                             </div>
                         </form>
-
-                        <p class="mt-6 text-sm text-center text-gray-400">
-                            ¿Aún no tienes una cuenta?
-                            <a
-                                href="/register"
-                                class="text-blue-500 focus:outline-none focus:underline hover:underline"
-                                >Regístrate</a
-                            >.
-                        </p>
                     </div>
                 </div>
             </div>

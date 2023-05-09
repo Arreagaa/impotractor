@@ -1,14 +1,17 @@
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import AppDashboard from "../../Layouts/AppDashboard.vue";
-
+import IFooter from "../Cotization/utils/IFooter.vue";
+import IPagination from "../Pagination/IShow.vue";
 export default {
     props: {
-        cotizations: Array,
+        cotizations: Object,
     },
     components: {
         AppLayout,
         AppDashboard,
+        IFooter,
+        IPagination,
     },
 };
 </script>
@@ -94,7 +97,7 @@ export default {
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr
-                                                                            v-for="cotization in cotizations"
+                                                                            v-for="cotization in cotizations.data"
                                                                             :key="
                                                                                 cotization.id
                                                                             "
@@ -231,19 +234,12 @@ export default {
                                 </div>
                             </div>
                         </div>
+                        <div>
+                            <IPagination :links="cotizations.links" />
+                        </div>
                     </main>
-
                     <br />
-                    <p class="text-center text-base text-gray-500 my-10">
-                        &copy; 2005-2022
-                        <a
-                            href="https://www.facebook.com/impotractorsa/"
-                            class="hover:text-yellow-400"
-                            target="_blank"
-                            >Impotractor S.A.</a
-                        >
-                        Todos los derechos reservados.
-                    </p>
+                    <IFooter />
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/dist/sweetalert2.min.css";
 import IClient from "../Order/IClient.vue";
+import IFooter from "./utils/IFooter.vue";
 
 export default {
     components: {
@@ -16,6 +17,7 @@ export default {
         IShowCotization,
         IModal,
         IClient,
+        IFooter,
     },
     props: {
         errors: Object,
@@ -37,6 +39,7 @@ export default {
             items: [],
             itemsUpdate: [],
             totalGrand: 0,
+            oldGrand: 0,
             form: {
                 cotizationId: 0,
                 reference: "",
@@ -55,7 +58,7 @@ export default {
                 nit: "",
                 client: "",
                 contact: "",
-                phone: 0,
+                phone: "",
                 email: "",
                 city: "",
                 paymentMethod: "",
@@ -72,6 +75,13 @@ export default {
                 this.totalGrand = this.totalGrand + this.item.total;
             }
             return this.totalGrand;
+        },
+        oldGrandTotal() {
+            this.oldGrand = 0;
+            for (this.item of this.items) {
+                this.oldGrand = this.oldGrand + this.item.oldTotal;
+            }
+            return this.oldGrand;
         },
     },
     mounted() {
@@ -123,9 +133,13 @@ export default {
         },
         cotizationOrder() {
             this.formOrder.cotizationId = this.form.cotizationId;
+            this.formOrder.type = this.form.transport;
+            this.formOrder.discount = this.oldGrandTotal;
             this.$inertia.post(
                 route("cotizations.order", {
                     id: this.form.cotizationId,
+                    type: this.form.transport,
+                    discount: this.oldGrandTotal
                 }),
                 this.formOrder,
                 {
@@ -560,6 +574,8 @@ export default {
                                 <IModal
                                     @cotizationOrder="cotizationOrder($event)"
                                     :formOrder="formOrder"
+                                    :cotization="cotization"
+                                    :oldGrandTotal="oldGrandTotal"
                                 />
                             </div>
                         </section>
@@ -571,22 +587,15 @@ export default {
                                 <IModal
                                     @cotizationOrder="cotizationOrder($event)"
                                     :formOrder="formOrder"
+                                    :cotization="cotization"
+                                    :oldGrandTotal="oldGrandTotal"
                                 />
                             </div>
                         </section>
                     </main>
 
                     <br />
-                    <p class="text-center text-base text-gray-500 my-10">
-                        &copy; 2005-2022
-                        <a
-                            href="https://www.facebook.com/impotractorsa/"
-                            class="hover:text-yellow-400"
-                            target="_blank"
-                            >Impotractor S.A.</a
-                        >
-                        Todos los derechos reservados.
-                    </p>
+                    <IFooter />
                 </div>
             </div>
         </div>

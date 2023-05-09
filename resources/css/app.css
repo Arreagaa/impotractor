@@ -9,7 +9,7 @@
     @apply m-2 p-4 bg-green-300 text-green-700 rounded-lg;
 }
 .alert-danger{
-    @apply m-2 p-4 bg-red-300 text-red-700 rounded-lg;
+    @apply m-2 p-3 bg-red-300 text-red-700 rounded-lg;
 }
 .focus-danger{
     @apply ring-red-400 border-red-400;

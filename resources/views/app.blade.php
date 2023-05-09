@@ -13,6 +13,12 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
+        <script type="text/javascript">
+            window.Laravel = {
+                csrfToken: "{{ csrf_token() }}",
+                jsPermissions: {!! auth()->check()?auth()->user()->jsPermissions():0 !!}
+            }
+        </script>
         @routes
         @vite('resources/js/app.js')
         @inertiaHead

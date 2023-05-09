@@ -61,33 +61,49 @@
 			<thead>
 				<tr>
 					<th class="table-header-group">Descripción</th>
-                    <th class="table-header-group">Cantidad</th>
+					<th class="table-header-group">Cantidad</th>
 					<th class="table-header-group">Precio</th>
 					<th class="table-header-group">Descuento</th>
-					<th class="table-header-group">Total</th>
+					<th class="table-header-group">Precio Actual</th>
+					<th class="table-header-group">Total Actual</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php $Grandtotal = 0; ?>
+				<?php 
+					$Grandtotal = 0;
+					$oldPrice = 0;
+					$priceDiscount = 0;
+					$oldGrandTotal = 0;
+				?>
 				@foreach($items as $item)
 					<tr>
 						<td>{{ $item->description }}</td>
 						<td>{{ $item->quantity }}</td>
-
-
-						<td>Q.{{ number_format((float) $item->price, 2, '.', ',') }}</td>
-						<td>{{ $item->percentage }}%</td>
+						<?php 
+							$oldPrice = $item->price / (1 - $item->percentage / 100);
+							$priceDiscount = ($oldPrice * $item->percentage) / 100;
+						?>
+						<td>Q.{{ number_format((float) $oldPrice, 2, '.', ',') }}</td>
+						<td>Q.{{ number_format((float) $priceDiscount, 2, '.', ',') }}</td>
+						<td>Q.{{ number_format((float) $item->price, 2, '.', ',') }}</td> 
 						<td>Q.{{ number_format((float) $item->total, 2, '.', ',') }}</td>
 					</tr>
-					<?php $Grandtotal = $Grandtotal + $item->total; ?>
+					<?php 
+						$Grandtotal = $Grandtotal + $item->total;
+						$oldGrandTotal = $Grandtotal / (1 - $item->percentage / 100);
+					?>
 				@endforeach
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="3" rowspan="5" class="table-no-border-bottom">
+					<th colspan="4" rowspan="6" class="table-no-border-bottom">
 					</th>
+					<th>Total sin Descuento</th>
+					<th>Q.{{ number_format((float) $oldGrandTotal, 2, '.', ',') }}</th> 
+				</tr>
+				<tr>
 					<th>Descuento Aplicado</th>
-					<th>{{ $order->discount }}%</th>
+					<th>Q.{{ number_format((float) $order->discount, 2, '.', ',') }}</th> 
 				</tr>
                 <tr class="table-total ">
 					<th>Gran Total</th>

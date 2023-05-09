@@ -1,6 +1,8 @@
 @component('mail::message')
 <h1>Correo de Cotización</h1>
-<h2>Mensaje de {{$name}}</h2>
+@component('mail::panel')
+    Mensaje de {{$name}}
+@endcomponent
 
 <br>
 <p>{{$body}}</p>
@@ -9,9 +11,9 @@
 <p>Contactar al Cliente por Número Teléfono {{$phone}} o por Correo Electrónico {{$email}}.
 </p>
 
-@component('mail::button', [ 'url' => 'http://127.0.0.1:8000/' ])
-    Cotizaciones Impotractor S.A.
+@component('mail::button', [ 'url' => 'https://impotractor.com/' ])
+    Impotractor S.A.
 @endcomponent
-
+<hr>
 <p>¡Más que repuestos, todo un servicio!</p>
 @endcomponent

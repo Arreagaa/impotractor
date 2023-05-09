@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('cotization_items', function (Blueprint $table) {
             $table->id();
             $table->text('partNumber');
-            $table->double('quantity'); //cantidad
+            $table->double('quantity');
             $table->text('description');
             $table->double('price', 10, 2)->nullable();
             
             $table->double('percentage', 10, 4)->default(0);
             $table->double('total', 10, 4)->nullable();
+            $table->double('oldTotal', 10, 4)->nullable();
             
             $table->foreignId('cotization_id')->on('cotizations')->onDelete('cascade');
             $table->timestamps();

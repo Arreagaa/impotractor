@@ -227,6 +227,7 @@ img {
     display: inline-block;
     overflow: hidden;
     text-decoration: none;
+    font-size: 15px;
 }
 
 .button-blue,
@@ -270,6 +271,7 @@ img {
 }
 
 .panel-content p {
+    font-size: 18px;
     color: #718096;
 }
 

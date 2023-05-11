@@ -57,7 +57,7 @@ import IContact from "./IContact.vue";
     </section>
 
     <section>
-        <div class="contact relative">
+        <div class="contact relative bg-[#ebedef]">
             <br />
             <IBagTitle id="Contact" title="Contacto" />
             <br />
@@ -70,9 +70,3 @@ import IContact from "./IContact.vue";
         <IWidget />
     </section>
 </template>
-
-<style>
-.contact {
-    background-color: #ebedef;
-}
-</style>

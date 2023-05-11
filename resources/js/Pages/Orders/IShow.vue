@@ -64,7 +64,7 @@ export default {
                                         <h3
                                             class="text-xl font-bold leading-none text-gray-900"
                                         >
-                                            Pedidos
+                                            Pedidos Stock
                                         </h3>
                                     </div>
                                     <div

@@ -1,12 +1,12 @@
 <script setup>
-import { Head, Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/inertia-vue3";
+import { ref } from "vue";
 
-defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
-});
+const isMenuOpen = ref(false);
+
+function toggleMenu() {
+    isMenuOpen.value = !isMenuOpen.value;
+}
 </script>
 <template>
     <div class="max-w-fill bg-zinc-900 text-white font-bold">
@@ -15,17 +15,18 @@ defineProps({
                 class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3"
             >
                 <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                    <svg
-                        class="fill-current text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                    >
-                        <path
-                            d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
-                        ></path>
-                    </svg>
+                    <l-icon
+                        v-if="!isMenuOpen"
+                        icon="fa-solid fa-bars"
+                        class="text-white text-xl"
+                        @click="toggleMenu"
+                    />
+                    <l-icon
+                        v-else
+                        icon="fa-solid fa-xmark"
+                        class="text-white text-xl"
+                        @click="toggleMenu"
+                    />
                 </label>
                 <input class="hidden" type="checkbox" id="menu-toggle" />
 
@@ -38,46 +39,46 @@ defineProps({
                             class="md:flex items-center justify-between text-base text-white pt-8 md:pt-0"
                         >
                             <li>
-                                <a
+                                <Link
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                                     href="/#About"
-                                    >NOSOTROS</a
+                                    >NOSOTROS</Link
                                 >
                             </li>
                             <li>
-                                <a
+                                <Link
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                                     href="/#Values"
-                                    >VALORES</a
+                                    >VALORES</Link
                                 >
                             </li>
                             <li>
-                                <a
+                                <Link
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                                     href="/#Products"
-                                    >PRODUCTOS</a
+                                    >PRODUCTOS</Link
                                 >
                             </li>
                             <li>
-                                <a
+                                <Link
                                     class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                                     href="/#Contact"
-                                    >CONTACTO</a
+                                    >CONTACTO</Link
                                 >
                             </li>
                             <li>
                                 <div>
-                                    <a
+                                    <Link
                                         v-if="$page.props.user"
                                         :href="route('dashboard')"
                                         class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                        >CUENTA</a
+                                        >CUENTA</Link
                                     >
-                                    <a
+                                    <Link
                                         v-else
                                         class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                        href="/login"
-                                        >INICIAR SESIÓN</a
+                                        :href="route('login')"
+                                        >INICIAR SESIÓN</Link
                                     >
                                 </div>
                             </li>
@@ -85,71 +86,81 @@ defineProps({
                     </nav>
                 </div>
 
-                <div class="">
-                    <a
+                <div>
+                    <Link
                         class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 mr-4"
-                        href="/"
+                        :href="route('landing')"
                     >
                         <img
                             src="/images/impotractor/impotractor-light-logo.png"
                             alt="image"
                             class="rounded mx-auto d-block"
                         />
-                    </a>
+                    </Link>
                 </div>
 
                 <div
                     class="order-2 md:order-3 flex items-center lg:block hidden"
                     id="nav-content"
                 >
-                    <a class="inline-block no-underline hover:text-yellow-300">
-                        <a
+                    <Link
+                        class="inline-block no-underline hover:text-yellow-300"
+                    >
+                        <Link
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                             href="/#About"
-                            >NOSOTROS</a
+                            >NOSOTROS</Link
                         >
-                    </a>
+                    </Link>
 
-                    <a class="inline-block no-underline hover:text-yellow-300">
-                        <a
+                    <Link
+                        class="inline-block no-underline hover:text-yellow-300"
+                    >
+                        <Link
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                             href="/#Values"
-                            >VALORES</a
+                            >VALORES</Link
                         >
-                    </a>
+                    </Link>
 
-                    <a class="inline-block no-underline hover:text-yellow-300">
-                        <a
+                    <Link
+                        class="inline-block no-underline hover:text-yellow-300"
+                    >
+                        <Link
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                             href="/#Products"
-                            >PRODUCTOS</a
+                            >PRODUCTOS</Link
                         >
-                    </a>
+                    </Link>
 
-                    <a class="inline-block no-underline hover:text-yellow-300">
-                        <a
+                    <Link
+                        class="inline-block no-underline hover:text-yellow-300"
+                    >
+                        <Link
                             class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
                             href="/#Contact"
-                            >CONTACTO</a
+                            >CONTACTO</Link
                         >
-                    </a>
+                    </Link>
 
-                    <a class="inline-block no-underline hover:text-yellow-300">
+                    <Link
+                        class="inline-block no-underline hover:text-yellow-300"
+                    >
                         <div>
-                            <a
+                            <Link
                                 v-if="$page.props.user"
                                 :href="route('dashboard')"
                                 class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                >CUENTA</a
+                                >CUENTA</Link
                             >
-                            <a
+                            <Link
                                 v-else
                                 class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
-                                href="/login"
-                                >INICIAR SESIÓN</a
+                                :href="route('login')"
+                                >INICIAR SESIÓN</Link
                             >
                         </div>
-                    </a>
+                    </Link>
                 </div>
 
                 <div
@@ -160,22 +171,3 @@ defineProps({
         </nav>
     </div>
 </template>
-
-<style>
-.work-sans {
-    font-family: "Work Sans", sans-serif;
-}
-
-#menu-toggle:checked + #menu {
-    display: block;
-}
-
-.hover\:grow {
-    transition: all 0.3s;
-    transform: scale(1);
-}
-
-.hover\:grow:hover {
-    transform: scale(1.02);
-}
-</style>

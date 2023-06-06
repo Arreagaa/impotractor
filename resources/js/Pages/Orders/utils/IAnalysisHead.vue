@@ -144,6 +144,12 @@ export default {
                 Sugerencia Vendedor
             </th>
             <th
+                v-if="$page.props.user.id == 1"
+                class="w-1/6 min-w-[160px] text-lg font-bold text-white py-1 px-2"
+            >
+                Sugerencia Vendedor
+            </th>
+            <th
                 v-if="is('Admin')"
                 class="w-1/6 min-w-[160px] text-lg font-bold text-white py-1 px-2"
             >

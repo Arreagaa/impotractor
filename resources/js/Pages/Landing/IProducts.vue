@@ -354,7 +354,6 @@ const Products = {
         </div>
     </section>
 </template>
-
 <style>
 .lightbox {
     background: black;

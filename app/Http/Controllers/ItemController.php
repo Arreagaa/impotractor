@@ -126,44 +126,9 @@ class ItemController extends Controller
 
         $item->suggestion = request()->suggestion;
         $item->suggestionSeller = request()->suggestionSeller;
+        $item->suggestionSeller3 = request()->suggestionSeller3;
 
         $item->update();
-
-        return Redirect::route('order', ['id' => $order_item_id]);
-    }
-
-    public function updateItems($order_item_id)
-    {
-        $items = Item::with('orderItem')->get();
-
-        foreach ($items as $item) {
-            $item->ene = request()->ene;
-            $item->feb = request()->feb;
-            $item->mar = request()->mar;
-            $item->abr = request()->abr;
-            $item->may = request()->may;
-            $item->jun = request()->jun;
-            $item->jul = request()->jul;
-            $item->ago = request()->ago;
-            $item->sep = request()->sep;
-            $item->oct = request()->oct;
-            $item->nov = request()->nov;
-            $item->dic = request()->dic;
-            $item->stock = request()->stock; 
-            $item->rotation = request()->rotation;
-            $item->settlement = request()->settlement;
-
-            $item->monthlyForecast = request()->monthlyForecast;
-            $item->quarterlyForecast = request()->quarterlyForecast;
-
-            $item->missingMonthly = request()->missingMonthly;
-            $item->quarterlyShortfall = request()->quarterlyShortfall;
-
-            $item->suggestion = request()->suggestion;
-            $item->suggestionSeller = request()->suggestionSeller;
-
-            $item->update();
-        }
 
         return Redirect::route('order', ['id' => $order_item_id]);
     }

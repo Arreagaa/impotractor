@@ -103,11 +103,13 @@
 					<th>Total sin Descuento</th>
 					<th>Q.{{ number_format((float) $oldGrandTotal, 2, '.', ',') }}</th> 
 				</tr>
+				@if($order)
 				<tr>
 					<th>Descuento Aplicado</th>
-					<th>Q.{{ number_format((float) $order->discount, 2, '.', ',') }}</th> 
+					<th>Q.{{ number_format((float) $order->discount, 2, '.', ',') }}</th>
 				</tr>
-                <tr class="table-total ">
+				@endif
+				<tr class="table-total">
 					<th>Gran Total</th>
 					<th>Q.{{ number_format((float) $Grandtotal, 2, '.', ',') }}</th>
 				</tr>

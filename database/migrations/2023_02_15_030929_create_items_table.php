@@ -39,6 +39,7 @@ return new class extends Migration
             $table->double('quarterlyShortfall')->default(0);
             $table->double('suggestion')->default(0);
             $table->double('suggestionSeller')->default(0);
+            $table->double('suggestionSeller3')->default(0);
             $table->foreignId('order_item_id')->on('order_items')->onDelete('cascade');
             $table->timestamps();
         });

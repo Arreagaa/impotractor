@@ -6,9 +6,17 @@
                     <div class="lg:w-1/2 w-full pb-16">
                         <div class="row position-relative">
                             <div class="col-lg-7">
-                                <div class="our-story bg-white">
-                                    <h4>Ciudad de Guatemala</h4>
-                                    <h3>Nuestra Historia</h3>
+                                <div class="our-story bg-white p-10">
+                                    <h4
+                                        class="uppercase text-base text-gray-700"
+                                    >
+                                        Ciudad de Guatemala
+                                    </h4>
+                                    <h3
+                                        class="text-3xl font-bold mb-4 text-secondary"
+                                    >
+                                        Nuestra Historia
+                                    </h3>
                                     <p class="text-lg">
                                         En agosto del año 2005, Impotractor S.A.
                                         abre sus puertas como una empresa de
@@ -20,8 +28,8 @@
                                         de construcción.
                                     </p>
                                     <br />
-                                    <ul class="lg:block hidden">
-                                        <li>
+                                    <ul class="lg:block hidden space-y-2">
+                                        <li class="flex items-center">
                                             <l-icon
                                                 icon="fa-solid fa-circle-check"
                                                 class="text-yellow-400 text-2xl"
@@ -32,7 +40,7 @@
                                                 para apoyar.</span
                                             >
                                         </li>
-                                        <li>
+                                        <li class="flex items-center">
                                             <l-icon
                                                 icon="fa-solid fa-circle-check"
                                                 class="text-yellow-400 text-2xl"
@@ -43,7 +51,7 @@
                                                 Trabajo.</span
                                             >
                                         </li>
-                                        <li>
+                                        <li class="flex items-center">
                                             <l-icon
                                                 icon="fa-solid fa-circle-check"
                                                 class="text-yellow-400 text-2xl"
@@ -55,8 +63,8 @@
                                             >
                                         </li>
                                     </ul>
-                                    <ul class="lg:hidden">
-                                        <li>
+                                    <ul class="lg:hidden space-y-2">
+                                        <li class="flex items-center">
                                             <l-icon
                                                 icon="fa-solid fa-circle-check"
                                                 class="text-yellow-400 text-2xl"
@@ -66,7 +74,7 @@
                                                 Clientes.</span
                                             >
                                         </li>
-                                        <li>
+                                        <li class="flex items-center">
                                             <l-icon
                                                 icon="fa-solid fa-circle-check"
                                                 class="text-yellow-400 text-2xl"
@@ -76,7 +84,7 @@
                                                 Experiencia.</span
                                             >
                                         </li>
-                                        <li>
+                                        <li class="flex items-center">
                                             <l-icon
                                                 icon="fa-solid fa-circle-check"
                                                 class="text-yellow-400 text-2xl"
@@ -106,8 +114,9 @@
                             class="lg:block hidden relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg mt-8"
                         >
                             <img
-                                src="images/impotractor/about-us.jpg"
-                                class="w-full align-middle rounded-t-lg shadow-lg"
+                                src="https://0201.nccdn.net/4_2/000/000/017/e75/F4-727x483.jpg#RDAMDAID25688643"
+                                alt=""
+                                class="w-full align-middle rounded-lg shadow-lg"
                             />
                             <blockquote class="box relative p-5 mb-0 bg-white">
                                 <svg
@@ -128,13 +137,12 @@
                                 </p>
                             </blockquote>
                         </div>
-
                         <div
                             class="lg:hidden relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg"
                         >
                             <img
-                                alt=""
                                 src="https://0201.nccdn.net/4_2/000/000/017/e75/F4-727x483.jpg#RDAMDAID25688643"
+                                alt=""
                                 class="w-full align-middle rounded-t-lg shadow-lg"
                             />
                             <blockquote class="box relative p-5 mb-0 bg-white">
@@ -162,59 +170,3 @@
         </div>
     </section>
 </template>
-<style>
-.about {
-    text-align: justify;
-}
-.about .our-story {
-    padding: 40px;
-}
-@media (min-width: 991px) {
-    .about .our-story {
-        padding-right: 15%;
-    }
-}
-
-.about .our-story h4 {
-    text-transform: uppercase;
-    font-size: 18px;
-    color: #838893;
-}
-
-.about .our-story h3 {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--color-secondary);
-}
-
-.about .our-story p:last-child {
-    margin-bottom: 0;
-}
-
-.about p {
-    font-size: 18px;
-}
-
-.about span {
-    font-size: 16px;
-}
-
-.about ul {
-    list-style: none;
-    padding: 0;
-    font-size: 15px;
-}
-
-.about ul li {
-    padding: 5px 0;
-    display: flex;
-    align-items: center;
-}
-
-.about ul i {
-    font-size: 20px;
-    margin-right: 4px;
-    color: var(--color-primary);
-}
-</style>

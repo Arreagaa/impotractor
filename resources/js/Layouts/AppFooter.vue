@@ -15,14 +15,14 @@
                     Tu maquinaria, nuestros repuestos.
                 </p>
                 <div class="flex justify-center mt-10">
-                    <div class="flex items-center w-auto px-4 w-52 mx-2">
+                    <div class="flex items-center w-auto px-4 mx-2">
                         <div class="flex justify-center mt-10 mb-2">
                             <a
                                 href="https://www.facebook.com/impotractorsa/"
                                 Target="_blank"
                             >
                                 <div
-                                    class="flex items-center border w-auto rounded-lg border-yellow-400 px-4 py-2 w-52 mx-2 hover:border hover:border-white"
+                                    class="flex items-center border w-auto rounded-lg border-yellow-400 px-4 py-2 w-68 mx-2 hover:border hover:border-white"
                                 >
                                     <l-icon
                                         icon="fa-brands fa-facebook"
@@ -49,8 +49,12 @@
                     &copy; Impotractor S.A, Guatemala 2022.
                 </p>
                 <div class="order-1 md:order-2">
-                    <a href="/#About" class="px-2 hover:text-yellow-400">Nosotros</a>
-                    <a href="/#Contact" class="px-2 border-l hover:text-yellow-400"
+                    <a href="/#About" class="px-2 hover:text-yellow-400"
+                        >Nosotros</a
+                    >
+                    <a
+                        href="/#Contact"
+                        class="px-2 border-l hover:text-yellow-400"
                         >Contáctanos</a
                     >
                     <a

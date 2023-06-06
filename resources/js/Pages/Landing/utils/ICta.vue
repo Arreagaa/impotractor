@@ -1,10 +1,9 @@
 <template>
-    <!-- component -->
     <div class="max-w-full flex justify-center items-center">
         <card
-            class="card grid grid-cols-6 w-full p-none bg-zinc-900 before:content-[attr(before)]"
+            class="card grid md:grid-cols-6 w-full p-none bg-zinc-900 before:content-[attr(before)]"
         >
-            <div class="col-span-4">
+            <div class="col-span-4 md:px-0 px-4">
                 <h2 class="font-bold text-3xl text-white ml-10 mt-8">
                     ¿Necesitas Asesoría?
                 </h2>
@@ -39,7 +38,6 @@
         </card>
     </div>
 </template>
-
 <style>
 .card {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),

@@ -2,10 +2,9 @@
 (function () {
     var options = {
         whatsapp: "+(502) 3109 7830",
-        //link: "https://api.whatsapp.com/send/?phone=+50245764149&text=Hablar+con+especialista+Case&type=phone_number&app_absent=0",
-        //link_color: "#A8CE50",
+        whatsapp_color: "#666666",
         call: "+(502) 4576 4149",
-        call_color: "#A8CE50",
+        call_color: "#666666",
         call_to_action: "Comunícate con los Especialistas",
         button_color: "#f1c40f",
         position: "right",
@@ -32,9 +31,6 @@
 }
 .cMsFzb {
     visibility: hidden;
-}
-.fPHwOg {
-    background-color: #a8ce50 !important;
 }
 div .dnIldB::before {
     content: "Especialista Case - ";

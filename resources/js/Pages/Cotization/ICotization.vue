@@ -4,6 +4,7 @@ import AppDashboard from "../../Layouts/AppDashboard.vue";
 import IShowCotization from "./IShowCotization.vue";
 import IModal from "../Order/IModal.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+import IBtn from "../Order/utils/IBtn.vue";
 //ALERTS
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/dist/sweetalert2.min.css";
@@ -18,6 +19,7 @@ export default {
         IModal,
         IClient,
         IFooter,
+        IBtn,
     },
     props: {
         errors: Object,
@@ -139,7 +141,7 @@ export default {
                 route("cotizations.order", {
                     id: this.form.cotizationId,
                     type: this.form.transport,
-                    discount: this.oldGrandTotal
+                    discount: this.oldGrandTotal,
                 }),
                 this.formOrder,
                 {
@@ -582,14 +584,21 @@ export default {
                         <section v-else>
                             <div
                                 v-if="cotization"
-                                class="flex justify-end m-12"
+                                class="flex justify-end m-12 gap-x-4"
                             >
-                                <IModal
-                                    @cotizationOrder="cotizationOrder($event)"
-                                    :formOrder="formOrder"
-                                    :cotization="cotization"
-                                    :oldGrandTotal="oldGrandTotal"
-                                />
+                                <div>
+                                    <IModal
+                                        @cotizationOrder="
+                                            cotizationOrder($event)
+                                        "
+                                        :formOrder="formOrder"
+                                        :cotization="cotization"
+                                        :oldGrandTotal="oldGrandTotal"
+                                    />
+                                </div>
+                                <div>
+                                    <IBtn :cotization="cotization" />
+                                </div>
                             </div>
                         </section>
                     </main>

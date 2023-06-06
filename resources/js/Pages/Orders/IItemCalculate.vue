@@ -12,30 +12,8 @@ export default {
         return {
             partNumber: "",
             partNumbers: [],
-            itemable: {
-                id: 0,
-                ene: 0,
-                feb: 0,
-                mar: 0,
-                abr: 0,
-                may: 0,
-                jun: 0,
-                jul: 0,
-                ago: 0,
-                sep: 0,
-                oct: 0,
-                nov: 0,
-                dic: 0,
-                stock: this.item.stock,
-                rotation: "",
-                monthlyForecast: 0,
-                quarterlyForecast: 0,
-                missingMonthly: 0,
-                quarterlyShortfall: 0,
-                suggestion: 0,
-                suggestionSeller: 0,
-                settlement: "",
-            },
+            itemable: {},
+            updatingItem: false,
         };
     },
     computed: {
@@ -110,66 +88,44 @@ export default {
     },
     methods: {
         updateItem() {
-            this.itemable.ene = this.itemable.ene;
-            this.itemable.feb = this.itemable.feb;
-            this.itemable.mar = this.itemable.mar;
-            this.itemable.abr = this.itemable.abr;
-            this.itemable.may = this.itemable.may;
-            this.itemable.jun = this.itemable.jun;
-            this.itemable.jul = this.itemable.jul;
-            this.itemable.ago = this.itemable.ago;
-            this.itemable.sep = this.itemable.sep;
-            this.itemable.oct = this.itemable.oct;
-            this.itemable.nov = this.itemable.nov;
-            this.itemable.dic = this.itemable.dic;
-            this.itemable.stock = this.itemable.stock;
-            this.itemable.rotation = this.rotations;
-            this.itemable.settlement = this.isListed;
-
-            this.itemable.monthlyForecast =
-                (this.itemable.ene +
-                    this.itemable.feb +
-                    this.itemable.mar +
-                    this.itemable.abr +
-                    this.itemable.may +
-                    this.itemable.jun +
-                    this.itemable.jul +
-                    this.itemable.ago +
-                    this.itemable.sep +
-                    this.itemable.oct +
-                    this.itemable.nov +
-                    this.itemable.dic) /
-                12;
-
-            this.itemable.quarterlyForecast =
-                ((this.itemable.ene +
-                    this.itemable.feb +
-                    this.itemable.mar +
-                    this.itemable.abr +
-                    this.itemable.may +
-                    this.itemable.jun +
-                    this.itemable.jul +
-                    this.itemable.ago +
-                    this.itemable.sep +
-                    this.itemable.oct +
-                    this.itemable.nov +
-                    this.itemable.dic) /
-                    12) *
-                3;
-
-            this.itemable.missingMonthly = this.monthlyMissing;
-            this.itemable.quarterlyShortfall = this.shortfallQuarterly;
-
-            this.itemable.suggestion = this.itemable.suggestion;
-            this.itemable.suggestionSeller = this.itemable.suggestionSeller;
-            this.$inertia.post(
-                route("order_item.update", {
-                    order_item_id: this.order.id,
-                    id: this.item.id,
-                    preserveScroll: true,
-                }),
-                this.itemable
-            );
+            this.updatingItem = true;
+            this.itemable = {
+                id: 0,
+                ene: this.itemable.ene,
+                feb: this.itemable.feb,
+                mar: this.itemable.mar,
+                abr: this.itemable.abr,
+                may: this.itemable.may,
+                jun: this.itemable.jun,
+                jul: this.itemable.jul,
+                ago: this.itemable.ago,
+                sep: this.itemable.sep,
+                oct: this.itemable.oct,
+                nov: this.itemable.nov,
+                dic: this.itemable.dic,
+                stock: this.itemable.stock,
+                rotation: this.rotations,
+                monthlyForecast: this.itemable.monthlyForecast,
+                quarterlyForecast: this.itemable.quarterlyForecast,
+                missingMonthly: this.monthlyMissing,
+                quarterlyShortfall: this.shortfallQuarterly,
+                suggestion: this.itemable.suggestion,
+                suggestionSeller: this.itemable.suggestionSeller,
+                suggestionSeller3: this.itemable.suggestionSeller3,
+                settlement: this.isListed,
+            };
+            this.$inertia
+                .post(
+                    route("order_item.update", {
+                        order_item_id: this.order.id,
+                        id: this.item.id,
+                        preserveScroll: true,
+                    }),
+                    this.itemable
+                )
+                /*.then(() => {
+                    this.updatingItem = false;
+                });*/
         },
         deleteItem(id) {
             Swal.fire({
@@ -201,7 +157,10 @@ export default {
     watch: {
         item: {
             handler: function (val) {
-                this.itemable = val;
+                if (!this.updatingItem) {
+                    this.itemable = val;
+                    this.updateItem();
+                }
             },
             deep: true,
             immediate: true,
@@ -452,6 +411,17 @@ export default {
             />
         </td>
         <td
+            v-if="$page.props.user.id == 4"
+            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
+        >
+            <input
+                v-model="itemable.suggestionSeller3"
+                @keydown.enter="updateItem"
+                class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
+                type="number"
+            />
+        </td>
+        <td
             v-if="$page.props.user.id == 1"
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
         >
@@ -466,6 +436,17 @@ export default {
             v-if="$page.props.user.id == 2"
             class="hidden text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
         ></td>
+        <td
+            v-if="$page.props.user.id == 1"
+            class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
+        >
+            <input
+                v-model="itemable.suggestionSeller3"
+                class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
+                type="number"
+                disabled
+            />
+        </td>
         <td
             v-if="is('Admin')"
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"

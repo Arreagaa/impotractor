@@ -26,7 +26,7 @@ const submit = () => {
 <template>
     <div class="bg-white">
         <div class="flex justify-center h-screen">
-            <div class="img-login hidden bg-cover lg:block lg:w-2/3">
+            <div class="bg-[url('/images/impotractor/main-bgx2.jpg')] bg-cover bg-center hidden bg-cover lg:block lg:w-2/3">
                 <div
                     class="flex items-center h-full px-20 bg-gray-900 bg-opacity-40 font-sans"
                 >
@@ -197,11 +197,3 @@ const submit = () => {
         </div>
     </div>
 </template>
-<style>
-.img-login {
-    background-image: url("/images/impotractor/main-bgx2.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-</style>

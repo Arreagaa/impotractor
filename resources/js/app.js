@@ -35,6 +35,7 @@ import {
     faTractor,
     faBriefcase,
     faScrewdriver,
+    faXmark
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
@@ -56,7 +57,8 @@ library.add(
     faTractor,
     faBriefcase,
     faScrewdriver,
-    faWhatsapp
+    faWhatsapp,
+    faXmark
 );
 
 const appName =

@@ -11,10 +11,6 @@ import IProducts from "./IProducts.vue";
 import IContact from "./IContact.vue";
 </script>
 <template>
-    <link
-        href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
-        rel="stylesheet"
-    />
     <section id="Welcome" class="bg-zinc-900">
         <div>
             <AppHeader />
@@ -57,7 +53,7 @@ import IContact from "./IContact.vue";
     </section>
 
     <section>
-        <div class="contact relative bg-[#ebedef]">
+        <div class="bg-[#ebedef] relative">
             <br />
             <IBagTitle id="Contact" title="Contacto" />
             <br />

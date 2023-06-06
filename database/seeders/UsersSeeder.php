@@ -27,5 +27,11 @@ class UsersSeeder extends Seeder
             'email' => 'ventas2@impotractor.com',
             'password' => bcrypt('@Impo-23'),
         ])->assignRole('Seller');
+
+        User::create([
+            'name' => 'Nuevo Vendedor',
+            'email' => 'ventas3@impotractor.com',
+            'password' => bcrypt('@Impo-23'),
+        ])->assignRole('Seller');
     }
 }

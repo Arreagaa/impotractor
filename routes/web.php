@@ -61,7 +61,6 @@ Route::middleware([
     Route::get('/order', 'App\Http\Controllers\ItemController@onlyOrder')->name('only');
     Route::get('/order/{id}', 'App\Http\Controllers\ItemController@order')->name('order');
     Route::post('/order/{order_item_id}/item/{id}', 'App\Http\Controllers\ItemController@updateItem')->name('order_item.update');
-    Route::post('/order/{order_item_id}/item/update', 'App\Http\Controllers\ItemController@updateItems')->name('order_item.update_all');
     Route::delete('/order/{order_item_id}/item/{id}', 'App\Http\Controllers\ItemController@deleteItem')->name('order_item.delete');
 });
 

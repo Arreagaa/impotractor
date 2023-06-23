@@ -3,7 +3,7 @@
         <div class="max-w-app relative w-full">
             <div>
                 <div class="lg:flex flex-wrap justify-center">
-                    <div class="lg:w-1/2 w-full pb-16">
+                    <div class="lg:w-1/2 w-full lg:pb-16">
                         <div class="row position-relative">
                             <div class="col-lg-7">
                                 <div class="our-story bg-white p-10">
@@ -119,12 +119,7 @@
                                 class="w-full align-middle rounded-lg shadow-lg"
                             />
                             <blockquote class="box relative p-5 mb-0 bg-white">
-                                <svg
-                                    preserveAspectRatio="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 583 95"
-                                    class="absolute left-0 w-full block h-95-px -top-94-px"
-                                ></svg>
+                                
                                 <h4 class="text-2xl font-bold text-black">
                                     De esto estamos hechos
                                 </h4>
@@ -146,12 +141,6 @@
                                 class="w-full align-middle rounded-t-lg shadow-lg"
                             />
                             <blockquote class="box relative p-5 mb-0 bg-white">
-                                <svg
-                                    preserveAspectRatio="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 583 95"
-                                    class="absolute left-0 w-full block h-95-px -top-94-px"
-                                ></svg>
                                 <h4 class="text-2xl font-bold text-black">
                                     De esto estamos hechos
                                 </h4>

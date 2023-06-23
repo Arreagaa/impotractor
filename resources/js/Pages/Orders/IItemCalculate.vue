@@ -1,6 +1,5 @@
 <script>
-import Swal from "sweetalert2/dist/sweetalert2.js";
-import "sweetalert2/dist/sweetalert2.min.css";
+import Swal from "sweetalert2";
 export default {
     props: {
         is: Function,
@@ -13,7 +12,6 @@ export default {
             partNumber: "",
             partNumbers: [],
             itemable: {},
-            updatingItem: false,
         };
     },
     computed: {
@@ -88,7 +86,6 @@ export default {
     },
     methods: {
         updateItem() {
-            this.updatingItem = true;
             this.itemable = {
                 id: 0,
                 ene: this.itemable.ene,
@@ -114,18 +111,14 @@ export default {
                 suggestionSeller3: this.itemable.suggestionSeller3,
                 settlement: this.isListed,
             };
-            this.$inertia
-                .post(
-                    route("order_item.update", {
-                        order_item_id: this.order.id,
-                        id: this.item.id,
-                        preserveScroll: true,
-                    }),
-                    this.itemable
-                )
-                /*.then(() => {
-                    this.updatingItem = false;
-                });*/
+            this.$inertia.post(
+                route("order_item.update", {
+                    order_item_id: this.order.id,
+                    id: this.item.id,
+                    preserveScroll: true,
+                }),
+                this.itemable
+            );
         },
         deleteItem(id) {
             Swal.fire({
@@ -142,14 +135,18 @@ export default {
                         route("order_item.delete", {
                             order_item_id: this.order.id,
                             id,
-                        })
+                        }),
+                        {
+                            onSuccess: () => {
+                                Swal.fire({
+                                    title: "¡Producto Eliminado!",
+                                    text: "Producto eliminado exitosamente.",
+                                    icon: "success",
+                                    confirmButtonColor: "#FFCC00",
+                                });
+                            },
+                        }
                     );
-                    Swal.fire({
-                        title: "¡Producto Eliminado!",
-                        text: "Producto eliminado exitosamente.",
-                        icon: "success",
-                        confirmButtonColor: "#FFCC00",
-                    });
                 }
             });
         },
@@ -157,10 +154,7 @@ export default {
     watch: {
         item: {
             handler: function (val) {
-                if (!this.updatingItem) {
-                    this.itemable = val;
-                    this.updateItem();
-                }
+                this.itemable = val;
             },
             deep: true,
             immediate: true,
@@ -455,20 +449,7 @@ export default {
                 @click="deleteItem(item.id)"
                 class="focus:ring-2 focus:ring-offset-2 focus:ring-red-400 text-sm leading-none text-gray-600 py-2 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
             >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-                    />
-                </svg>
+                <l-icon icon="fa-solid fa-trash-can-arrow-up" class="text-xl" />
             </button>
         </td>
     </tr>

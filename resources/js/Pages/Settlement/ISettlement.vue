@@ -4,8 +4,7 @@ import AppDashboard from "../../Layouts/AppDashboard.vue";
 import IFooter from "../Cotization/utils/IFooter.vue";
 import ISettData from "./ISettData.vue";
 import IPagination from "../Pagination/IShow.vue";
-import Swal from "sweetalert2/dist/sweetalert2.js";
-import "sweetalert2/dist/sweetalert2.min.css";
+import Swal from "sweetalert2";
 import { useForm } from "@inertiajs/inertia-vue3";
 export default {
     components: {
@@ -20,39 +19,50 @@ export default {
         settlements: Object,
         search: String,
     },
-    data() {
-        return {
-            form: {
-                file: "",
-            },
-        };
-    },
     mounted() {
         this.form = useForm(this.form);
     },
+    data() {
+        return {
+            form: {
+                file: null,
+            },
+        };
+    },
     methods: {
+        clearFileInput() {
+            const fileInput = document.getElementById("file");
+            fileInput.value = null;
+        },
         submit() {
             Swal.fire({
                 title: "¿Estás seguro?",
-                text: "Asegúrate que que sea el archivo correcto.",
+                text: "Asegúrate de que sea el archivo correcto.",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#FFCC00",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "¡Si, adjuntar a Liquidación!",
+                confirmButtonText: "¡Sí, adjuntar a la Liquidación!",
                 cancelButtonText: "Cancelar",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    this.$inertia.post(route("settlements.store"), this.form, {
-                        onSuccess: () => {
-                            Swal.fire({
-                                title: "¡Actualización listado de Liquidación!",
-                                text: "Se ha agregado exitosamente.",
-                                icon: "success",
-                                confirmButtonColor: "#FFCC00",
-                            });
-                        },
-                    });
+                    const { file } = this.form;
+
+                    this.$inertia.post(
+                        route("settlements.store"),
+                        { file },
+                        {
+                            onSuccess: () => {
+                                Swal.fire({
+                                    title: "¡Actualización del listado de Liquidación!",
+                                    text: "Se ha agregado exitosamente.",
+                                    icon: "success",
+                                    confirmButtonColor: "#FFCC00",
+                                });
+                                this.clearFileInput();
+                            },
+                        }
+                    );
                 }
             });
         },
@@ -60,7 +70,7 @@ export default {
 };
 </script>
 <template>
-    <AppLayout class="w-full" title="Cotizaciones">
+    <AppLayout class="w-full" title="Liquidación">
         <div>
             <div class="flex overflow-hidden bg-white">
                 <AppDashboard />
@@ -97,9 +107,9 @@ export default {
                                                         <label
                                                             for="file"
                                                             class="block mb-2 text-base font-medium text-gray-900"
-                                                            >Archivo de
-                                                            Productos en
-                                                            Liquidación
+                                                        >
+                                                            Archivo de Productos
+                                                            en Liquidación
                                                         </label>
                                                         <input
                                                             type="file"
@@ -128,13 +138,17 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <div v-if="this.settlements.data != 0">
+                        <div>
                             <ISettData
                                 :is="is"
                                 :settlements="settlements"
                                 :search="search"
                             />
-                            <IPagination :links="settlements.links" />
+                            <IPagination
+                                v-if="this.settlements.data.length > 0"
+                                :links="settlements.links"
+                                :preserve-scroll="true"
+                            />
                         </div>
                     </main>
                     <br />

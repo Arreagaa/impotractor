@@ -12,22 +12,9 @@ export default {
     <button
         onclick="document.getElementById('myModal').showModal()"
         id="btn"
-        class="inline-flex items-center text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        class="inline-flex items-center text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg gap-2 text-sm w-full sm:w-auto px-5 py-2.5 text-center"
     >
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-        >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75"
-            />
-        </svg>
+        <l-icon icon="fa-solid fa-arrow-up-from-bracket" class="text-base" />
 
         Ordenar
     </button>
@@ -46,21 +33,10 @@ export default {
                     onclick="document.getElementById('myModal').close();"
                     class="flex w-1/12 h-auto justify-center cursor-pointer"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#000000"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-x"
-                    >
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
+                    <l-icon
+                        icon="fa-solid fa-xmark"
+                        class="text-zinc-600 text-2xl feather feather-x"
+                    />
                 </div>
             </div>
             <div

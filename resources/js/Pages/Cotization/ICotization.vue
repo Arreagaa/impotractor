@@ -5,9 +5,7 @@ import IShowCotization from "./IShowCotization.vue";
 import IModal from "../Order/IModal.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import IBtn from "../Order/utils/IBtn.vue";
-//ALERTS
-import Swal from "sweetalert2/dist/sweetalert2.js";
-import "sweetalert2/dist/sweetalert2.min.css";
+import Swal from "sweetalert2";
 import IClient from "../Order/IClient.vue";
 import IFooter from "./utils/IFooter.vue";
 
@@ -111,24 +109,25 @@ export default {
         submit() {
             Swal.fire({
                 title: "¿Estás seguro?",
-                text: "Asegúrate que la Cotización este completa.",
+                text: "Asegúrate que la Cotización esté completa.",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#FFCC00",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "¡Si, adjuntar a la Cotización!",
+                confirmButtonText: "¡Sí, adjuntar a la Cotización!",
                 cancelButtonText: "Cancelar",
             }).then((result) => {
                 if (result.isConfirmed) {
                     this.$inertia.post(route("cotizations.store"), this.form, {
                         forceFormData: true,
                         preserveScroll: true,
-                    });
-                    Swal.fire({
-                        title: "¡Actualización de Cotización!",
-                        text: "Se ha agregado exitosamente.",
-                        icon: "success",
-                        confirmButtonColor: "#FFCC00",
+                        onSuccess: () => {
+                            this.showSuccessAlert(
+                                "¡Actualización de Cotización!",
+                                "Se ha agregado exitosamente."
+                            );
+                            this.clearForm();
+                        },
                     });
                 }
             });
@@ -160,28 +159,44 @@ export default {
                 showCancelButton: true,
                 confirmButtonColor: "#FFCC00",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "¡Si, eliminar de Cotización!",
+                confirmButtonText: "¡Sí, eliminar de Cotización!",
             }).then((result) => {
                 if (result.isConfirmed) {
                     this.$inertia.delete(
                         route("cotization_item.delete", {
                             cotization_id: this.form.cotizationId,
                             id,
-                        })
+                        }),
+                        {
+                            onSuccess: () => {
+                                this.showSuccessAlert(
+                                    "¡Producto Eliminado!",
+                                    "Producto eliminado exitosamente."
+                                );
+                            },
+                        }
                     );
-                    Swal.fire({
-                        title: "¡Producto Eliminado!",
-                        text: "Producto eliminado exitosamente.",
-                        icon: "success",
-                        confirmButtonColor: "#FFCC00",
-                    });
                 }
+            });
+        },
+        clearForm() {
+            this.form.partNumber = "";
+            this.form.quantity = 0;
+            this.form.description = "";
+            this.form.price = 0;
+        },
+        showSuccessAlert(title, text) {
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: "success",
+                confirmButtonColor: "#FFCC00",
+                showConfirmButton: true,
             });
         },
     },
 };
 </script>
-
 <template>
     <AppLayout class="w-full" title="Cotizaciones">
         <div>

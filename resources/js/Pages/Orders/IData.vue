@@ -3,8 +3,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import AppDashboard from "../../Layouts/AppDashboard.vue";
 import IFooter from "../Cotization/utils/IFooter.vue";
 import IAnalysis from "./IAnalysis.vue";
-import Swal from "sweetalert2/dist/sweetalert2.js";
-import "sweetalert2/dist/sweetalert2.min.css";
+import Swal from "sweetalert2";
 import { useForm } from "@inertiajs/inertia-vue3";
 export default {
     components: {
@@ -15,6 +14,7 @@ export default {
     },
     props: {
         errors: Object,
+        item: Object,
         orderItems: Object,
         search: String,
         settlements: Array,
@@ -30,6 +30,7 @@ export default {
     data() {
         return {
             itemsUpdate: [],
+            items: null,
             form: {
                 orderId: 0,
                 name: "",
@@ -57,6 +58,23 @@ export default {
                 this.items = this.order.items;
             }
         },
+        clearFileInput() {
+            const fileInput = document.getElementById("file");
+            fileInput.value = null;
+        },
+        clearFileStockInput() {
+            const stockFileInput = document.getElementById("stockFile");
+            stockFileInput.value = null;
+        },
+        clearFileAmountInput() {
+            const amountFileInput = document.getElementById("amountFile");
+            amountFileInput.value = null;
+        },
+        clearForm() {
+            this.clearFileInput();
+            this.clearFileStockInput();
+            this.clearFileAmountInput();
+        },
         submit() {
             Swal.fire({
                 title: "¿Estás seguro?",
@@ -72,12 +90,15 @@ export default {
                     this.$inertia.post(route("orders.store"), this.form, {
                         forceFormData: true,
                         preserveScroll: true,
-                    });
-                    Swal.fire({
-                        title: "¡Actualización del Pedido!",
-                        text: "Se ha agregado exitosamente.",
-                        icon: "success",
-                        confirmButtonColor: "#FFCC00",
+                        onSuccess: () => {
+                            Swal.fire({
+                                title: "¡Actualización del Pedido!",
+                                text: "Se ha agregado exitosamente.",
+                                icon: "success",
+                                confirmButtonColor: "#FFCC00",
+                            });
+                            this.clearForm();
+                        },
                     });
                 }
             });
@@ -177,14 +198,14 @@ export default {
                                                     </div>
                                                     <div>
                                                         <label
-                                                            for="file"
+                                                            for="stockFile"
                                                             class="block mb-2 text-base font-medium text-gray-900"
                                                             >Archivo de Stock
                                                         </label>
                                                         <input
                                                             v-if="is('Admin')"
                                                             type="file"
-                                                            id="file"
+                                                            id="stockFile"
                                                             name="stockFile"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
                                                             accept=".xlsx,.xls"
@@ -198,7 +219,7 @@ export default {
                                                             v-if="is('Seller')"
                                                             type="file"
                                                             id="stockFile"
-                                                            name="file"
+                                                            name="stockFile"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
                                                             accept=".xlsx,.xls"
                                                             disabled
@@ -206,7 +227,7 @@ export default {
                                                     </div>
                                                     <div>
                                                         <label
-                                                            for="file"
+                                                            for="amountFile"
                                                             class="block mb-2 text-base font-medium text-gray-900"
                                                             >Archivo de Cantidad
                                                             Mínima
@@ -214,7 +235,7 @@ export default {
                                                         <input
                                                             v-if="is('Admin')"
                                                             type="file"
-                                                            id="file"
+                                                            id="amountFile"
                                                             name="amountFile"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
                                                             accept=".xlsx,.xls"
@@ -227,7 +248,7 @@ export default {
                                                         <input
                                                             v-if="is('Seller')"
                                                             type="file"
-                                                            id="file"
+                                                            id="amountFile"
                                                             name="amountFile"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
                                                             accept=".xlsx,.xls"

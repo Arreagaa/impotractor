@@ -3,6 +3,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import AppDashboard from "../../Layouts/AppDashboard.vue";
 import IFooter from "../Cotization/utils/IFooter.vue";
 import IPagination from "../Pagination/IShow.vue";
+import IValidate from "../IValidate.vue";
 export default {
     props: {
         cotizations: Object,
@@ -12,10 +13,10 @@ export default {
         AppDashboard,
         IFooter,
         IPagination,
+        IValidate,
     },
 };
 </script>
-
 <template>
     <AppLayout class="w-full" title="Cotizaciones">
         <div>
@@ -45,6 +46,12 @@ export default {
                                         </h3>
                                     </div>
                                     <div
+                                        v-if="this.cotizations.data.length == 0"
+                                    >
+                                        <IValidate />
+                                    </div>
+                                    <div
+                                        v-else
                                         class="flex items-center justify-center"
                                     >
                                         <div class="container shadow-xl">
@@ -173,23 +180,10 @@ export default {
                                                                                         "
                                                                                         class="focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
                                                                                     >
-                                                                                        <svg
-                                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                                            width="16"
-                                                                                            height="16"
-                                                                                            fill="currentColor"
-                                                                                            class="bi bi-box-arrow-up"
-                                                                                            viewBox="0 0 16 16"
-                                                                                        >
-                                                                                            <path
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"
-                                                                                            />
-                                                                                            <path
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708l3-3z"
-                                                                                            />
-                                                                                        </svg>
+                                                                                        <l-icon
+                                                                                            icon="fa-solid fa-arrow-up-from-bracket"
+                                                                                            class="text-xl"
+                                                                                        />
                                                                                     </button>
                                                                                 </a>
 
@@ -203,22 +197,10 @@ export default {
                                                                                         "
                                                                                         class="focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
                                                                                     >
-                                                                                        <svg
-                                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                                            width="16"
-                                                                                            height="16"
-                                                                                            fill="currentColor"
-                                                                                            class="bi bi-pencil-square"
-                                                                                            viewBox="0 0 16 16"
-                                                                                        >
-                                                                                            <path
-                                                                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
-                                                                                            />
-                                                                                            <path
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
-                                                                                            />
-                                                                                        </svg></button
+                                                                                        <l-icon
+                                                                                            icon="fa-solid fa-pen-to-square"
+                                                                                            class="text-xl"
+                                                                                        /></button
                                                                                 ></a>
                                                                             </td>
                                                                         </tr>
@@ -235,7 +217,10 @@ export default {
                             </div>
                         </div>
                         <div>
-                            <IPagination :links="cotizations.links" />
+                            <IPagination
+                                :links="cotizations.links"
+                                :preserve-scroll="true"
+                            />
                         </div>
                     </main>
                     <br />
@@ -245,7 +230,6 @@ export default {
         </div>
     </AppLayout>
 </template>
-
 <style>
 @media (min-width: 640px) {
     table {

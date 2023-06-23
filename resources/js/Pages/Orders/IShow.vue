@@ -3,6 +3,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import AppDashboard from "../../Layouts/AppDashboard.vue";
 import IFooter from "../Cotization/utils/IFooter.vue";
 import IPagination from "../Pagination/IShow.vue";
+import IValidate from "../IValidate.vue";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/dist/sweetalert2.min.css";
 export default {
@@ -14,6 +15,7 @@ export default {
         AppDashboard,
         IFooter,
         IPagination,
+        IValidate,
     },
     methods: {
         deleteOrder(id) {
@@ -28,12 +30,15 @@ export default {
                 cancelButtonText: "Cancelar",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    this.$inertia.delete(route("orders.destroy", id));
-                    Swal.fire({
-                        title: "¡Eliminación del Pedido!",
-                        text: "Se ha eliminado exitosamente.",
-                        icon: "success",
-                        confirmButtonColor: "#FFCC00",
+                    this.$inertia.delete(route("orders.destroy", id), {
+                        onSuccess: () => {
+                            Swal.fire({
+                                title: "¡Eliminación del Pedido!",
+                                text: "Se ha eliminado exitosamente.",
+                                icon: "success",
+                                confirmButtonColor: "#FFCC00",
+                            });
+                        },
                     });
                 }
             });
@@ -87,7 +92,15 @@ export default {
                                             >
                                                 Productos en Liquidación
                                             </a>
+                                            <div
+                                                v-if="
+                                                    this.orders.data.length == 0
+                                                "
+                                            >
+                                                <IValidate />
+                                            </div>
                                             <section
+                                                v-else
                                                 class="bg-white rounded-lg border"
                                             >
                                                 <div class="container">
@@ -178,26 +191,10 @@ export default {
                                                                                     <button
                                                                                         class="focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
                                                                                     >
-                                                                                        <svg
-                                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                                            viewBox="0 0 24 24"
-                                                                                            fill="currentColor"
-                                                                                            class="w-6 h-6"
-                                                                                        >
-                                                                                            <path
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M12 6.75a5.25 5.25 0 016.775-5.025.75.75 0 01.313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 011.248.313 5.25 5.25 0 01-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 112.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0112 6.75zM4.117 19.125a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75h-.008a.75.75 0 01-.75-.75v-.008z"
-                                                                                                clip-rule="evenodd"
-                                                                                            />
-                                                                                            <path
-                                                                                                d="M10.076 8.64l-2.201-2.2V4.874a.75.75 0 00-.364-.643l-3.75-2.25a.75.75 0 00-.916.113l-.75.75a.75.75 0 00-.113.916l2.25 3.75a.75.75 0 00.643.364h1.564l2.062 2.062 1.575-1.297z"
-                                                                                            />
-                                                                                            <path
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M12.556 17.329l4.183 4.182a3.375 3.375 0 004.773-4.773l-3.306-3.305a6.803 6.803 0 01-1.53.043c-.394-.034-.682-.006-.867.042a.589.589 0 00-.167.063l-3.086 3.748zm3.414-1.36a.75.75 0 011.06 0l1.875 1.876a.75.75 0 11-1.06 1.06L15.97 17.03a.75.75 0 010-1.06z"
-                                                                                                clip-rule="evenodd"
-                                                                                            />
-                                                                                        </svg></button
+                                                                                        <l-icon
+                                                                                            icon="fa-solid fa-screwdriver-wrench"
+                                                                                            class="text-2xl"
+                                                                                        /></button
                                                                                 ></a>
 
                                                                                 <a
@@ -215,20 +212,10 @@ export default {
                                                                                         "
                                                                                         class="ml-2 focus:ring-2 focus:ring-offset-2 focus:ring-red-400 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
                                                                                     >
-                                                                                        <svg
-                                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                                            fill="none"
-                                                                                            viewBox="0 0 24 24"
-                                                                                            stroke-width="1.5"
-                                                                                            stroke="currentColor"
-                                                                                            class="w-6 h-6"
-                                                                                        >
-                                                                                            <path
-                                                                                                stroke-linecap="round"
-                                                                                                stroke-linejoin="round"
-                                                                                                d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-                                                                                            />
-                                                                                        </svg></button
+                                                                                        <l-icon
+                                                                                            icon="fa-solid fa-trash-can-arrow-up"
+                                                                                            class="text-2xl"
+                                                                                        /></button
                                                                                 ></a>
 
                                                                                 <a
@@ -242,18 +229,10 @@ export default {
                                                                                     <button
                                                                                         class="ml-4 focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
                                                                                     >
-                                                                                        <svg
-                                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                                            viewBox="0 0 24 24"
-                                                                                            fill="currentColor"
-                                                                                            class="w-6 h-6"
-                                                                                        >
-                                                                                            <path
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75H12a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
-                                                                                                clip-rule="evenodd"
-                                                                                            />
-                                                                                        </svg></button
+                                                                                        <l-icon
+                                                                                            icon="fa-solid fa-business-time"
+                                                                                            class="text-2xl"
+                                                                                        /></button
                                                                                 ></a>
                                                                             </td>
                                                                         </tr>
@@ -270,9 +249,7 @@ export default {
                             </div>
                         </div>
                     </main>
-                    <div>
-                        <IPagination :links="orders.links" />
-                    </div>
+                    <IPagination :links="orders.links" />
                     <br />
                     <IFooter />
                 </div>

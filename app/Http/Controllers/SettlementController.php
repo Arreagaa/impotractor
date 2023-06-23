@@ -14,8 +14,10 @@ class SettlementController extends Controller
 {
     public function index(Request $request)
     {
-        $search = request()->q;
+        $search = $request->input('q');
         $settlements = Settlement::where('partNumber', 'like', '%' . $search . '%')->paginate(10);
+
+        $settlements->withQueryString();
 
         return Inertia::render('Settlement/ISettlement', ['settlements' => $settlements, 'search' => $search]);
     }

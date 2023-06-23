@@ -60,6 +60,7 @@ Route::middleware([
     Route::resource('orders', ItemController::class); 
     Route::get('/order', 'App\Http\Controllers\ItemController@onlyOrder')->name('only');
     Route::get('/order/{id}', 'App\Http\Controllers\ItemController@order')->name('order');
+    Route::get('/order/{id}/items/export', 'App\Http\Controllers\ItemController@exportExcel')->name('items.export');
     Route::post('/order/{order_item_id}/item/{id}', 'App\Http\Controllers\ItemController@updateItem')->name('order_item.update');
     Route::delete('/order/{order_item_id}/item/{id}', 'App\Http\Controllers\ItemController@deleteItem')->name('order_item.delete');
 });

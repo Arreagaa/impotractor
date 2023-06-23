@@ -6,6 +6,7 @@ export default {
     },
     props: {
         links: Array,
+        preserveScroll: Boolean,
     },
 };
 </script>
@@ -24,6 +25,7 @@ export default {
                         :href="link.url"
                         v-html="link.label"
                         :class="{ 'text-white bg-amber-300': link.active }"
+                        :preserve-scroll="preserveScroll"
                         class="page-link relative block py-1.5 px-3 rounded border-0 outline-none transition-all rounded text-gray-800 hover:bg-amber-300 focus:shadow-none"
                     />
                 </li>

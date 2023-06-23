@@ -13,7 +13,9 @@ use App\Imports\ItemImport;
 use App\Imports\StockImport; 
 use App\Imports\MinimumImport;
 use Excel;
+use App\Exports\ItemExport;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ItemController extends Controller
 {
@@ -22,6 +24,19 @@ class ItemController extends Controller
         $orders = OrderItem::paginate(10);
 
         return Inertia::render('Orders/IShow', ['orders' => $orders]);
+    }
+
+    public function exportExcel($id)
+    {
+        $order = OrderItem::find($id);
+        if ($order == null) {
+            return Inertia::render('IDashboard/utils/IError');
+        }
+
+        $year = Carbon::parse($order->created_at)->format('Y');
+        $fileName = 'Analisis-' . $order->name . '-' . $year . '.xlsx';
+
+        return Excel::download(new ItemExport($year), $fileName);
     }
 
     public function onlyOrder()
@@ -56,7 +71,8 @@ class ItemController extends Controller
         $items = Item::query()->where('order_item_id', $order->id)
             ->where('partNumber', 'like', '%' . $search . '%')
             ->orderBy('quarterlyShortfall', 'desc')
-            ->paginate(10);
+            ->paginate(10)
+            ->withQueryString();
 
         return Inertia::render(
             'Orders/IData',

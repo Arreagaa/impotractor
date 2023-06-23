@@ -18,8 +18,16 @@ class SettlementImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
+        $partNumber = $row['d'];
+
+        $existingSettlement = Settlement::where('partNumber', $partNumber)->first();
+
+        if ($existingSettlement) {
+            return null;
+        }
+
         return new Settlement([
-            'partNumber' => $row['d'],
+            'partNumber' => $partNumber,
             'description' => $row['Descripción'],
         ]);
     }

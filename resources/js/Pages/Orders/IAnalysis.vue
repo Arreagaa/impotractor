@@ -2,6 +2,8 @@
 import IAnalysisHead from "./utils/IAnalysisHead.vue";
 import IItemCalculate from "./IItemCalculate.vue";
 import IPagination from "../Pagination/IShow.vue";
+import IValidate from "../IValidate.vue";
+import { Link } from "@inertiajs/inertia-vue3";
 export default {
     props: {
         is: Function,
@@ -15,6 +17,8 @@ export default {
         IAnalysisHead,
         IItemCalculate,
         IPagination,
+        IValidate,
+        Link,
     },
     data() {
         return {
@@ -46,18 +50,10 @@ export default {
                         <div
                             class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
                         >
-                            <svg
-                                class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                    clip-rule="evenodd"
-                                ></path>
-                            </svg>
+                            <l-icon
+                                icon="fa-solid fa-magnifying-glass"
+                                class="text-lg text-gray-600"
+                            />
                         </div>
                         <div class="inline-flex">
                             <input
@@ -73,18 +69,18 @@ export default {
                                 v-if="this.query != null"
                                 class="inline-flex ml-2"
                             >
-                                <a
+                                <Link
                                     :href="`/order/${order.id}`"
                                     class="lg:block hidden text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                                 >
                                     Volver al Pedido
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     :href="`/order/${order.id}`"
                                     class="lg:hidden text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                                 >
                                     Regresar
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -95,9 +91,19 @@ export default {
                         >
                             Actualizar Análisis
                         </button>
+                        <a
+                            v-if="is('Admin')"
+                            :href="route('items.export', { id: order.id })"
+                            class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 lg:ml-2 focus:outline-none font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                        >
+                            Exportar a Excel
+                        </a>
                     </div>
                 </div>
-                <div class="flex items-center justify-center">
+                <div v-if="this.orderItems.data.length == 0">
+                    <IValidate />
+                </div>
+                <div v-else class="flex items-center justify-center">
                     <div class="container shadow-xl">
                         <section class="bg-white">
                             <div class="container">
@@ -137,9 +143,11 @@ export default {
                     </div>
                 </div>
             </div>
-            <div>
-                <IPagination :links="orderItems.links" />
-            </div>
+            <IPagination
+                v-if="this.orderItems.data.length > 0"
+                :links="orderItems.links"
+                :preserve-scroll="true"
+            />
         </div>
     </div>
 </template>

@@ -85,6 +85,7 @@ class ItemExport implements FromCollection, WithHeadings, WithMapping, ShouldAut
 
     public function map($item): array
     {
+        
         return [
             $item->partNumber,
             $item->description,

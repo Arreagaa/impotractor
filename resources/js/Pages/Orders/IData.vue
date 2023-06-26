@@ -14,8 +14,8 @@ export default {
     },
     props: {
         errors: Object,
-        item: Object,
         orderItems: Object,
+        item: Object,
         search: String,
         settlements: Array,
         order: {
@@ -29,12 +29,12 @@ export default {
     },
     data() {
         return {
-            itemsUpdate: [],
-            items: null,
+            items: {
+                data: [],
+            },
             form: {
                 orderId: 0,
                 name: "",
-                /*EXCEL*/
                 file: "",
                 stockFile: "",
                 amountFile: "",
@@ -55,7 +55,7 @@ export default {
             if (this.order) {
                 this.form.orderId = this.order.id;
                 this.form.name = this.order.name;
-                this.items = this.order.items;
+                this.items = this.orderItems;
             }
         },
         clearFileInput() {
@@ -104,7 +104,27 @@ export default {
             });
         },
         updateItem(item) {
-            this.itemsUpdate.push(item);
+            const index = this.items.data.findIndex((i) => i.id === item.id);
+            this.items.data[index] = item;
+        },
+        updateAnalysis() {
+            this.$inertia.post(
+                route("order.items.update", {
+                    id: this.order.id,
+                    _method: "PUT",
+                }),
+                {
+                    items: this.items.data,
+                    page: this.items.current_page,
+                },
+                {
+                    forceFormData: true,
+                    preserveScroll: true,
+                    onSuccess: (e) => {
+                        console.log(e);
+                    },
+                }
+            );
         },
     },
 };
@@ -272,14 +292,14 @@ export default {
                         <div v-if="order">
                             <IAnalysis
                                 :is="is"
-                                :order-items="order.items"
+                                :order-items="items"
                                 :order="order"
                                 :item="item"
-                                :orderItems="orderItems"
                                 :search="search"
                                 :settlements="settlements"
                                 @update-item="updateItem($event)"
                                 @delete="deleteItem($event)"
+                                @update-analysis="updateAnalysis()"
                             />
                         </div>
                     </main>

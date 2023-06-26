@@ -87,6 +87,7 @@ export default {
                     <div class="py-4">
                         <button
                             v-if="is('Admin')"
+                            @click="$emit('update-analysis')"
                             class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                         >
                             Actualizar Análisis
@@ -100,7 +101,7 @@ export default {
                         </a>
                     </div>
                 </div>
-                <div v-if="this.orderItems.data.length == 0">
+                <div v-if="orderItems.data.length == 0">
                     <IValidate />
                 </div>
                 <div v-else class="flex items-center justify-center">
@@ -126,7 +127,7 @@ export default {
                                                         :settlements="
                                                             settlements
                                                         "
-                                                        @item-update="
+                                                        @update-item="
                                                             $emit(
                                                                 'update-item',
                                                                 $event
@@ -144,7 +145,7 @@ export default {
                 </div>
             </div>
             <IPagination
-                v-if="this.orderItems.data.length > 0"
+                v-if="orderItems.data.length > 0"
                 :links="orderItems.links"
                 :preserve-scroll="true"
             />

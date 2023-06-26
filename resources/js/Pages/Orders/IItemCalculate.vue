@@ -12,6 +12,7 @@ export default {
             partNumber: "",
             partNumbers: [],
             itemable: {},
+            timeout: null,
         };
     },
     computed: {
@@ -86,39 +87,17 @@ export default {
     },
     methods: {
         updateItem() {
-            this.itemable = {
-                id: 0,
-                ene: this.itemable.ene,
-                feb: this.itemable.feb,
-                mar: this.itemable.mar,
-                abr: this.itemable.abr,
-                may: this.itemable.may,
-                jun: this.itemable.jun,
-                jul: this.itemable.jul,
-                ago: this.itemable.ago,
-                sep: this.itemable.sep,
-                oct: this.itemable.oct,
-                nov: this.itemable.nov,
-                dic: this.itemable.dic,
-                stock: this.itemable.stock,
-                rotation: this.rotations,
-                monthlyForecast: this.itemable.monthlyForecast,
-                quarterlyForecast: this.itemable.quarterlyForecast,
-                missingMonthly: this.monthlyMissing,
-                quarterlyShortfall: this.shortfallQuarterly,
-                suggestion: this.itemable.suggestion,
-                suggestionSeller: this.itemable.suggestionSeller,
-                suggestionSeller3: this.itemable.suggestionSeller3,
-                settlement: this.isListed,
-            };
-            this.$inertia.post(
-                route("order_item.update", {
-                    order_item_id: this.order.id,
-                    id: this.item.id,
-                    preserveScroll: true,
-                }),
-                this.itemable
-            );
+            clearTimeout(this.timeout);
+            this.timeout = setTimeout(() => {
+                this.itemable = {
+                    ...this.itemable,
+                    rotation: this.rotations,
+                    missingMonthly: this.monthlyMissing,
+                    quarterlyShortfall: this.shortfallQuarterly,
+                    settlement: this.isListed,
+                };
+                this.$emit("update-item", this.itemable);
+            }, 500);
         },
         deleteItem(id) {
             Swal.fire({
@@ -180,7 +159,7 @@ export default {
         >
             <input
                 v-model="itemable.ene"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -191,7 +170,7 @@ export default {
         >
             <input
                 v-model="itemable.feb"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -202,7 +181,7 @@ export default {
         >
             <input
                 v-model="itemable.mar"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -213,7 +192,7 @@ export default {
         >
             <input
                 v-model="itemable.abr"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -224,7 +203,7 @@ export default {
         >
             <input
                 v-model="itemable.may"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -235,7 +214,7 @@ export default {
         >
             <input
                 v-model="itemable.jun"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -246,7 +225,7 @@ export default {
         >
             <input
                 v-model="itemable.jul"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -257,7 +236,7 @@ export default {
         >
             <input
                 v-model="itemable.ago"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -268,7 +247,7 @@ export default {
         >
             <input
                 v-model="itemable.sep"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -279,7 +258,7 @@ export default {
         >
             <input
                 v-model="itemable.oct"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -290,7 +269,7 @@ export default {
         >
             <input
                 v-model="itemable.nov"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -301,7 +280,7 @@ export default {
         >
             <input
                 v-model="itemable.dic"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -312,10 +291,10 @@ export default {
             <input
                 v-if="is('Admin')"
                 v-model="itemable.stock"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 :class="[
                     'rounded-md px-2 py-1 hover:border-yellow-400 focus:ring',
-                    item.minimumAmount > itemable.stock
+                    itemable.minimumAmount > itemable.stock
                         ? 'border-red-400 text-red-400 focus:border-red-400 focus:ring-red-400'
                         : 'border-zinc-400 focus:border-zinc-400 focus:ring-yellow-400',
                 ]"
@@ -324,7 +303,7 @@ export default {
             <input
                 v-if="is('Seller')"
                 v-model="itemable.stock"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
                 disabled
@@ -333,19 +312,19 @@ export default {
         <td
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
         >
-            {{ item.minimumAmount }}
+            {{ itemable.minimumAmount }}
         </td>
         <td
             v-if="is('Admin')"
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border hover:bg-gray-100"
         >
-            {{ itemable.rotation }}
+            {{ rotations }}
         </td>
         <td
             v-if="is('Admin')"
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
         >
-            {{ this.isListed }}
+            {{ isListed }}
         </td>
         <td
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
@@ -360,12 +339,12 @@ export default {
         <td
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
         >
-            {{ Math.round(itemable.missingMonthly) }}
+            {{ Math.round(monthlyMissing) }}
         </td>
         <td
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
         >
-            {{ Math.round(itemable.quarterlyShortfall) }}
+            {{ Math.round(shortfallQuarterly) }}
         </td>
         <td
             v-if="$page.props.user.id == 2"
@@ -373,7 +352,7 @@ export default {
         >
             <input
                 v-model="itemable.suggestion"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -399,7 +378,7 @@ export default {
         >
             <input
                 v-model="itemable.suggestionSeller"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />
@@ -410,7 +389,7 @@ export default {
         >
             <input
                 v-model="itemable.suggestionSeller3"
-                @keydown.enter="updateItem"
+                @input="updateItem"
                 class="rounded-md border border-zinc-400 px-2 py-1 hover:border-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400"
                 type="number"
             />

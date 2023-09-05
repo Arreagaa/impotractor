@@ -40,6 +40,7 @@ export default {
             itemsUpdate: [],
             totalGrand: 0,
             oldGrand: 0,
+            invalidPhone: false,
             form: {
                 cotizationId: 0,
                 reference: "",
@@ -136,6 +137,11 @@ export default {
             this.formOrder.cotizationId = this.form.cotizationId;
             this.formOrder.type = this.form.transport;
             this.formOrder.discount = this.oldGrandTotal;
+
+            if (!/^(\+\d{1,3})?\d{4}[- ]?\d{4}$/.test(this.formOrder.phone)) {
+                this.invalidPhone = true;
+                return;
+            }
             this.$inertia.post(
                 route("cotizations.order", {
                     id: this.form.cotizationId,
@@ -583,20 +589,7 @@ export default {
                                 />
                             </section>
                         </div>
-                        <section v-if="form.is_ordered == 1">
-                            <div
-                                v-if="cotization"
-                                class="hidden flex justify-end m-12"
-                            >
-                                <IModal
-                                    @cotizationOrder="cotizationOrder($event)"
-                                    :formOrder="formOrder"
-                                    :cotization="cotization"
-                                    :oldGrandTotal="oldGrandTotal"
-                                />
-                            </div>
-                        </section>
-                        <section v-else>
+                        <section v-if="form.is_ordered != 1">
                             <div
                                 v-if="cotization"
                                 class="flex justify-end m-12 gap-x-4"
@@ -609,6 +602,7 @@ export default {
                                         :formOrder="formOrder"
                                         :cotization="cotization"
                                         :oldGrandTotal="oldGrandTotal"
+                                        :invalidPhone="invalidPhone"
                                     />
                                 </div>
                                 <div>

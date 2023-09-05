@@ -32,7 +32,9 @@ const submit = () => {
 <template>
     <div class="bg-white">
         <div class="flex justify-center h-screen">
-            <div class="bg-[url('/images/impotractor/main-bgx2.jpg')] bg-cover bg-center hidden bg-cover lg:block lg:w-2/3">
+            <div
+                class="bg-[url('/images/impotractor/main-bgx2.jpg')] bg-cover bg-center hidden bg-cover lg:block lg:w-2/3"
+            >
                 <div class="flex items-center h-full px-20">
                     <div>
                         <h2 class="text-4xl font-bold text-white">
@@ -82,6 +84,7 @@ const submit = () => {
                                     class="mt-1 block w-full"
                                     required
                                     autofocus
+                                    autocomplete="email"
                                 />
                                 <InputError
                                     class="mt-2"

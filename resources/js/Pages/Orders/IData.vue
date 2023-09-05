@@ -39,6 +39,7 @@ export default {
                 stockFile: "",
                 amountFile: "",
             },
+            hasData: false,
         };
     },
     mounted() {
@@ -56,6 +57,7 @@ export default {
                 this.form.orderId = this.order.id;
                 this.form.name = this.order.name;
                 this.items = this.orderItems;
+                this.hasData = this.order.name !== "";
             }
         },
         clearFileInput() {
@@ -120,8 +122,13 @@ export default {
                 {
                     forceFormData: true,
                     preserveScroll: true,
-                    onSuccess: (e) => {
-                        console.log(e);
+                    onSuccess: () => {
+                        Swal.fire({
+                            title: "¡Actualización del Pedido!",
+                            text: "Se ha actualizado exitosamente.",
+                            icon: "success",
+                            confirmButtonColor: "#FFCC00",
+                        });
                     },
                 }
             );
@@ -175,7 +182,9 @@ export default {
                                                             type="text"
                                                             id="name"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
-                                                            placeholder=""
+                                                            placeholder="Nombre del Pedido"
+                                                            :disabled="hasData"
+                                                            required
                                                         />
                                                         <input
                                                             v-if="is('Seller')"
@@ -183,7 +192,7 @@ export default {
                                                             type="text"
                                                             id="name"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5"
-                                                            placeholder=""
+                                                            placeholder="Nombre del Pedido"
                                                             disabled
                                                         />
                                                     </div>

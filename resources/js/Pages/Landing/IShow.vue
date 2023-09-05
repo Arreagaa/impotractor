@@ -17,7 +17,6 @@ import IContact from "./IContact.vue";
             <IHero />
         </div>
     </section>
-
     <section>
         <div class="relative bg-[url('/images/bg/bg-deco.png')] bg-cover pb-10">
             <br />
@@ -27,13 +26,11 @@ import IContact from "./IContact.vue";
             <br />
         </div>
     </section>
-
     <section>
-        <div class="">
+        <div>
             <ICta />
         </div>
     </section>
-
     <section>
         <div class="bg-[url('/images/bg/bg-values.png')] bg-cover">
             <br />
@@ -42,7 +39,6 @@ import IContact from "./IContact.vue";
             <IValues />
         </div>
     </section>
-
     <section>
         <div class="bg-[url('/images/bg/bg-products.png')] bg-fit bg-no-repeat">
             <br />
@@ -51,7 +47,6 @@ import IContact from "./IContact.vue";
             <hr />
         </div>
     </section>
-
     <section>
         <div class="bg-[#ebedef] relative">
             <br />

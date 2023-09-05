@@ -29,7 +29,7 @@ class UsersSeeder extends Seeder
         ])->assignRole('Seller');
 
         User::create([
-            'name' => 'Nuevo Vendedor',
+            'name' => 'Amilcar González',
             'email' => 'ventas3@impotractor.com',
             'password' => bcrypt('@Impo-23'),
         ])->assignRole('Seller');

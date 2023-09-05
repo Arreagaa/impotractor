@@ -2,6 +2,7 @@
 import ICalculateItem from "./ICalculateItem.vue";
 
 export default {
+    emits: ['delete', 'update-item'],
     props: {
         cotizationItems: Array,
         cotization: Object,

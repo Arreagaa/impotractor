@@ -1,9 +1,9 @@
 <template>
     <div class="max-w-full flex justify-center items-center">
-        <card
+        <div
             class="card grid md:grid-cols-6 w-full p-none bg-zinc-900 before:content-[attr(before)]"
         >
-            <div class="col-span-4 md:px-0 px-4">
+            <div class="col-span-4 md:px-0 px-4 max-[320px]:px-0">
                 <h2 class="font-bold text-3xl text-white ml-10 mt-8">
                     ¿Necesitas Asesoría?
                 </h2>
@@ -25,7 +25,7 @@
                     </button>
                 </a>
             </div>
-        </card>
+        </div>
     </div>
 </template>
 <style>

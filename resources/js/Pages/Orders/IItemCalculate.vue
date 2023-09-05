@@ -16,11 +16,31 @@ export default {
         };
     },
     computed: {
+        monthlyForecast() {
+            return (
+                (this.itemable.ene +
+                    this.itemable.feb +
+                    this.itemable.mar +
+                    this.itemable.abr +
+                    this.itemable.may +
+                    this.itemable.jun +
+                    this.itemable.jul +
+                    this.itemable.ago +
+                    this.itemable.sep +
+                    this.itemable.oct +
+                    this.itemable.nov +
+                    this.itemable.dic) /
+                12
+            );
+        },
+        quarterlyForecast() {
+            return this.monthlyForecast * 3;
+        },
         monthlyMissing() {
-            return this.itemable.stock - this.itemable.monthlyForecast;
+            return this.itemable.stock - this.monthlyForecast;
         },
         shortfallQuarterly() {
-            return this.itemable.stock - this.itemable.quarterlyForecast;
+            return this.itemable.stock - this.quarterlyForecast;
         },
         firstRotation() {
             if (
@@ -329,22 +349,22 @@ export default {
         <td
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
         >
-            {{ Math.round(itemable.monthlyForecast) }}
+            {{ monthlyForecast.toFixed(2) }}
         </td>
         <td
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
         >
-            {{ Math.round(itemable.quarterlyForecast) }}
+            {{ quarterlyForecast.toFixed(2) }}
         </td>
         <td
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
         >
-            {{ Math.round(monthlyMissing) }}
+            {{ monthlyMissing.toFixed(2) }}
         </td>
         <td
             class="text-center text-zinc-900 font-medium text-base py-3 px-2 bg-white border-grey-light border"
         >
-            {{ Math.round(shortfallQuarterly) }}
+            {{ shortfallQuarterly.toFixed(2) }}
         </td>
         <td
             v-if="$page.props.user.id == 2"

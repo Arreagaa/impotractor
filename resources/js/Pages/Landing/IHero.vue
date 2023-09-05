@@ -1,9 +1,9 @@
 <template>
     <section
         id="hero"
-        class="min-h-screen justify-center bg-[url('/images/impotractor/main-bgx2.jpg')] bg-cover bg-center"
+        class="flex min-h-screen justify-center bg-[url('/images/impotractor/main-bgx2.jpg')] bg-cover bg-center"
     >
-        <div class="hero-container">
+        <div class="flex text-center items-center">
             <div class="container">
                 <h2>¡MÁS QUE REPUESTOS, TODO UN SERVICIO!</h2>
                 <p>ENCUENTRA LO QUE BUSCAS CON NOSOTROS</p>
@@ -16,18 +16,6 @@
     </section>
 </template>
 <style>
-#hero .hero-container {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    top: 70px;
-    left: 50px;
-    right: 50px;
-}
-
 #hero h2 {
     color: #fff;
     margin-bottom: 20px;

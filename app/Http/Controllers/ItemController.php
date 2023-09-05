@@ -37,7 +37,9 @@ class ItemController extends Controller
         $year = Carbon::parse($order->created_at)->format('Y');
         $fileName = 'Analisis-' . $order->name . '-' . $year . '.xlsx';
 
-        return Excel::download(new ItemExport($year), $fileName);
+        $settlements = Settlement::all();
+
+        return Excel::download(new ItemExport($year, $settlements), $fileName);
     }
 
     public function onlyOrder()
@@ -70,10 +72,11 @@ class ItemController extends Controller
         $settlements = Settlement::all();
 
         $search = request()->q;
-        $items = Item::query()->where('order_item_id', $order->id)
+        $items = Item::query()
+            ->where('order_item_id', $order->id)
             ->where('partNumber', 'like', '%' . $search . '%')
-            ->orderBy('quarterlyShortfall', 'desc')
-            ->paginate(10)
+            ->orderByRaw('stock - quarterlyForecast DESC')
+            ->paginate(10, ['*'], 'page')
             ->withQueryString();
 
         return Inertia::render(

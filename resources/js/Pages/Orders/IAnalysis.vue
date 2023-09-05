@@ -84,7 +84,7 @@ export default {
                             </div>
                         </div>
                     </div>
-                    <div class="py-4">
+                    <div class="flex py-4">
                         <button
                             v-if="is('Admin')"
                             @click="$emit('update-analysis')"
@@ -92,10 +92,17 @@ export default {
                         >
                             Actualizar Análisis
                         </button>
+                        <button
+                            v-if="is('Seller')"
+                            @click="$emit('update-analysis')"
+                            class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                        >
+                            Actualizar Sugerencias
+                        </button>
                         <a
                             v-if="is('Admin')"
                             :href="route('items.export', { id: order.id })"
-                            class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 lg:ml-2 focus:outline-none font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                            class="text-white bg-zinc-900 hover:bg-yellow-400 focus:ring-4 ml-2 focus:outline-none font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                         >
                             Exportar a Excel
                         </a>

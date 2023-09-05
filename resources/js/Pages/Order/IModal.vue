@@ -1,10 +1,12 @@
 <script>
 export default {
+    emits: ["cotizationOrder"],
     props: {
         cotizationOrder: Object,
         formOrder: Object,
         cotization: Object,
         oldGrandTotal: Number,
+        invalidPhone: Boolean,
     },
 };
 </script>
@@ -102,9 +104,14 @@ export default {
                                     id="phone"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 focus-form"
                                     placeholder="(+502)"
-                                    pattern="\d{4}[- ]?\d{4}$"
                                     required
                                 />
+                                <span
+                                    v-if="invalidPhone"
+                                    class="text-red-500 text-xs"
+                                >
+                                    Ingresa un número de teléfono válido.
+                                </span>
                             </div>
                             <div>
                                 <label

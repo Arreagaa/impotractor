@@ -2,16 +2,6 @@
 import IProductsButton from "./utils/IProductsButton.vue";
 import { ref } from "vue";
 const active = ref("hercorte");
-const props = defineProps({
-    item: {
-        type: Object,
-        required: true,
-    },
-    idItem: {
-        type: Number,
-        default: 0,
-    },
-});
 const Products = {
     hercorte: {
         slug: "hercorte",
@@ -47,7 +37,6 @@ const Products = {
             },
         ],
     },
-
     seyf: {
         slug: "seyf",
         title: "Sellos, empaques y fajas",
@@ -82,7 +71,6 @@ const Products = {
             },
         ],
     },
-
     rodaje: {
         slug: "rodaje",
         title: "Rodaje",
@@ -105,7 +93,6 @@ const Products = {
             },
         ],
     },
-
     electricos: {
         slug: "electricos",
         title: "Eléctricos",
@@ -144,7 +131,6 @@ const Products = {
             },
         ],
     },
-
     hidraulicos: {
         slug: "hidraulicos",
         title: "Hidráulicos",
@@ -171,7 +157,6 @@ const Products = {
             },
         ],
     },
-
     motores: {
         slug: "motores",
         title: "Motores",
@@ -246,7 +231,6 @@ const Products = {
             },
         ],
     },
-
     filters: {
         slug: "filters",
         title: "Filtros",

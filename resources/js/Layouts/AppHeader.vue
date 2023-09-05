@@ -40,28 +40,28 @@ function toggleMenu() {
                         >
                             <li>
                                 <Link
-                                    class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                    class="inline-block py-2 px-2 hover:text-yellow-300"
                                     href="/#About"
                                     >NOSOTROS</Link
                                 >
                             </li>
                             <li>
                                 <Link
-                                    class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                    class="inline-block py-2 px-2 hover:text-yellow-300"
                                     href="/#Values"
                                     >VALORES</Link
                                 >
                             </li>
                             <li>
                                 <Link
-                                    class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                    class="inline-block py-2 px-2 hover:text-yellow-300"
                                     href="/#Products"
                                     >PRODUCTOS</Link
                                 >
                             </li>
                             <li>
                                 <Link
-                                    class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                    class="inline-block py-2 px-2 hover:text-yellow-300"
                                     href="/#Contact"
                                     >CONTACTO</Link
                                 >
@@ -71,12 +71,12 @@ function toggleMenu() {
                                     <Link
                                         v-if="$page.props.user"
                                         :href="route('dashboard')"
-                                        class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                        class="inline-block py-2 px-2 hover:text-yellow-300"
                                         >CUENTA</Link
                                     >
                                     <Link
                                         v-else
-                                        class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                        class="inline-block py-2 px-2 hover:text-yellow-300"
                                         :href="route('login')"
                                         >INICIAR SESIÓN</Link
                                     >
@@ -88,7 +88,7 @@ function toggleMenu() {
 
                 <div>
                     <Link
-                        class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 mr-4"
+                        class="flex items-center tracking-wide hover: font-bold text-gray-800 mr-4 max-[320px]:mr-0"
                         :href="route('landing')"
                     >
                         <img
@@ -103,59 +103,49 @@ function toggleMenu() {
                     class="order-2 md:order-3 flex items-center lg:block hidden"
                     id="nav-content"
                 >
-                    <Link
-                        class="inline-block no-underline hover:text-yellow-300"
-                    >
+                    <Link class="inline-block hover:text-yellow-300">
                         <Link
-                            class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                            class="inline-block py-2 px-4 hover:text-yellow-300"
                             href="/#About"
                             >NOSOTROS</Link
                         >
                     </Link>
 
-                    <Link
-                        class="inline-block no-underline hover:text-yellow-300"
-                    >
+                    <Link class="inline-block hover:text-yellow-300">
                         <Link
-                            class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                            class="inline-block py-2 px-4 hover:text-yellow-300"
                             href="/#Values"
                             >VALORES</Link
                         >
                     </Link>
 
-                    <Link
-                        class="inline-block no-underline hover:text-yellow-300"
-                    >
+                    <Link class="inline-block hover:text-yellow-300">
                         <Link
-                            class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                            class="inline-block py-2 px-4 hover:text-yellow-300"
                             href="/#Products"
                             >PRODUCTOS</Link
                         >
                     </Link>
 
-                    <Link
-                        class="inline-block no-underline hover:text-yellow-300"
-                    >
+                    <Link class="inline-block hover:text-yellow-300">
                         <Link
-                            class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                            class="inline-block py-2 px-4 hover:text-yellow-300"
                             href="/#Contact"
                             >CONTACTO</Link
                         >
                     </Link>
 
-                    <Link
-                        class="inline-block no-underline hover:text-yellow-300"
-                    >
+                    <Link class="inline-block hover:text-yellow-300">
                         <div>
                             <Link
                                 v-if="$page.props.user"
                                 :href="route('dashboard')"
-                                class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                class="inline-block py-2 px-4 hover:text-yellow-300"
                                 >CUENTA</Link
                             >
                             <Link
                                 v-else
-                                class="inline-block no-underline py-2 px-4 hover:text-yellow-300"
+                                class="inline-block py-2 px-4 hover:text-yellow-300"
                                 :href="route('login')"
                                 >INICIAR SESIÓN</Link
                             >
